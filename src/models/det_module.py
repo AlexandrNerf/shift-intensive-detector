@@ -5,7 +5,8 @@ import torchvision
 import torch.nn.functional as F
 from lightning import LightningModule
 from torchmetrics import MaxMetric, MeanMetric
-from doctr.utils.metrics import LocalizationConfusion
+from torchmetrics.detection.mean_ap import MeanAveragePrecision
+from torchmetrics.detection.giou import GeneralizedIntersectionOverUnion
 from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
 
 
@@ -16,42 +17,32 @@ class BaseDetectionModel(LightningModule):
         pretrained: bool,
         optimizer: torch.optim.Optimizer,
         scheduler: torch.optim.lr_scheduler,
-        compile: bool,
-        cuda: bool
+        compile: bool
     ) -> None:
         super().__init__()
 
         self.save_hyperparameters(logger=False)
 
         # Подгружаем предобученную модель Faster R-CNN с Resnet50
-        self.model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=self.hparams.pretrained)
-        
-        if self.hparams.cuda and torch.cuda.is_available():
-            self.model.to('cuda')
+        self.model = torchvision.models.detection.fasterrcnn_mobilenet_v3_large_fpn(pretrained=self.hparams.pretrained)
 
         # Если нужно, можно настроить кастомную модель (например, на основе других слоев)
         # if self.hparams.net == 'your_model':
         #   self.model = Model(*args)    
 
         # Метрики (в классе TorchLocalizationConfussion мы можем настроить порог подсчёта iou)
-        self.val_metric = TorchLocalizationConfusion(iou_thresh=0.5)
-        self.precision = MeanMetric()
-        self.recall = MeanMetric()
-        self.iou = MeanMetric()
-
-        # Метрики для логирования
-        self.train_loss = MeanMetric()
-        self.val_loss = MeanMetric()
-        self.test_loss = MeanMetric()
-
-        self.precision_best = MaxMetric()
-        self.recall_best = MaxMetric()
-        self.iou_best = MaxMetric()
+        #self.val_metric = TorchLocalizationConfusion(iou_thresh=0.5)
+        self.map_metric = MeanAveragePrecision(box_format="xyxy",
+            iou_type="bbox",
+            iou_thresholds=[0.5, 0.75],
+            class_metrics=True
+        )
 
     def forward(self, x):
         """Проход через модель."""
         return self.model(x)
 
+    
     def model_step(self, batch):
         """Шаг для вычисления потерь."""
         images, targets = batch
@@ -64,8 +55,7 @@ class BaseDetectionModel(LightningModule):
         loss = self.model_step(batch)
 
         # Логирование потерь
-        self.train_loss(loss)
-        self.log("train/loss", self.train_loss, on_step=True, on_epoch=False, prog_bar=True)
+        self.log("train/loss", loss, on_step=True, on_epoch=False, prog_bar=True)
 
         return loss
 
@@ -73,77 +63,45 @@ class BaseDetectionModel(LightningModule):
         """Шаг, который выполняется в конце каждой эпохи."""
         pass
 
-    def validation_step(self, batch, batch_idx: int):
-        """Шаг для валидации."""
+    def validation_step(self, batch, batch_idx):
         images, targets = batch
+        preds = self.model(images)
 
-        # Метрики для точности, полноты и IoU
-        with torch.no_grad():
-            preds = self.model(images)
+        # ОБЯЗАТЕЛЬНО: preds / targets — списки dict'ов (torchvision format)
+        self.map_metric.update(preds, targets)
 
-        for p, t in zip(preds, targets):
-            pred_boxes = p["boxes"]
-            gt_boxes = t["boxes"]
+    def on_validation_epoch_end(self):
+        metrics = self.map_metric.compute()
+        self.map_metric.reset()
 
-            # Если нет GT и нет предсказаний, ничего не делаем
-            if pred_boxes.numel() == 0 and gt_boxes.numel() == 0:
-                continue
+        self.log_dict(
+            {
+                "val/mAP": metrics["map"],           # mAP@[.5:.95]
+                "val/mAP50": metrics["map_50"],      # mAP@0.5
+                "val/mAP75": metrics["map_75"],      # mAP@0.75
+                "val/recall": metrics["mar_100"],    # recall
+            },
+            prog_bar=True,
+        )
 
-            # Обновляем метрику
-            self.val_metric.update(pred_boxes, gt_boxes)
-
-        precision, recall, iou = self.val_metric.summary()
-        
-        self.precision(precision)
-        self.recall(recall)
-        self.iou(iou)
-
-        # Логирование метрик
-        self.log("val/precision", self.precision, on_step=True, on_epoch=False, prog_bar=True)
-        self.log("val/recall", self.recall, on_step=True, on_epoch=False, prog_bar=True)
-        self.log("val/iou", self.iou, on_step=True, on_epoch=False, prog_bar=True)
-
-    def on_validation_epoch_end(self) -> None:
-        """Шаг, который выполняется в конце каждой эпохи валидации."""
-        self.iou_best.update(self.iou.compute())
-        self.recall_best.update(self.recall.compute())
-        self.precision_best.update(self.precision.compute())
-        
-        # Логирование лучших метрик
-        self.log("val/best_precision", self.precision_best.compute(), on_step=False, on_epoch=True, prog_bar=True)
-        self.log("val/best_recall", self.recall_best.compute(), on_step=False, on_epoch=True, prog_bar=True)
-        self.log("val/best_iou", self.iou_best.compute(), on_step=False, on_epoch=True, prog_bar=True)
-
-    def test_step(self, batch, batch_idx: int):
-        """Шаг тестирования."""
+    def test_step(self, batch, batch_idx):
         images, targets = batch
+        preds = self.model(images)
+        self.map_metric.update(preds, targets)
 
-        # Метрики для точности, полноты и IoU
-        with torch.no_grad():
-            preds = self.model(images)
+    def on_test_epoch_end(self):
+        metrics = self.map_metric.compute()
+        self.map_metric.reset()
 
-        for p, t in zip(preds, targets):
-            pred_boxes = p["boxes"]
-            gt_boxes = t["boxes"]
-
-            # Если нет GT и нет предсказаний, ничего не делаем
-            if pred_boxes.numel() == 0 and gt_boxes.numel() == 0:
-                continue
-
-            # Обновляем метрику
-            self.val_metric.update(pred_boxes, gt_boxes)
-
-        precision, recall, iou = self.val_metric.summary()
-        
-        self.precision(precision)
-        self.recall(recall)
-        self.iou(iou)
-
-        # Логирование метрик
-        self.log("test/iou", self.iou, on_step=True, on_epoch=False, prog_bar=True)
-        self.log("test/precision", self.precision, on_step=False, on_epoch=True, prog_bar=True)
-        self.log("test/recall", self.recall, on_step=False, on_epoch=True, prog_bar=True)
-
+        self.log_dict(
+            {
+                "test/mAP": metrics["map"],
+                "test/mAP50": metrics["map_50"],
+                "test/mAP75": metrics["map_75"],
+                "test/recall": metrics["mar_100"],
+            }
+        )
+    
     def configure_optimizers(self):
         """Настройка оптимизаторов и планировщиков."""
         optimizer = self.hparams.optimizer(params=[p for p in self.model.parameters() if p.requires_grad])
@@ -153,9 +111,7 @@ class BaseDetectionModel(LightningModule):
                 "optimizer": optimizer,
                 "lr_scheduler": {
                     "scheduler": scheduler,
-                    "monitor": "val/loss",
-                    "interval": "epoch",
-                    "frequency": 1,
+                    "monitor": "val/mAP50", # здесь можно настроить, по какой метрике будет мониторинг
                 },
             }
         return {"optimizer": optimizer}

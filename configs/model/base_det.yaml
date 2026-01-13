@@ -1,8 +1,7 @@
 _target_: src.models.det_module.BaseDetectionModel
 
-net: fast_base
+net: rcnn_mobileone
 pretrained: True
-cuda: True
 
 optimizer:
   _target_: torch.optim.Adam
