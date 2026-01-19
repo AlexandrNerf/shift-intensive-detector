@@ -114,11 +114,11 @@ dependencies = [
     "ultralytics-thop (==2.0.17)",
     "vine (==5.1.0)",
     "virtualenv (==20.34.0)",
-    "torch (==2.6.0)",
-    "torchvision (==0.21.0)",
     "torchmetrics (==1.8.2)",
     "opencv-python (==4.11.0.86)",
-    "python-multipart (>=0.0.20,<0.0.21)"
+    "python-multipart (>=0.0.20,<0.0.21)",
+    "torch (==2.6.0)",
+    "torchvision (==0.21.0)"
 ]
 
 
@@ -127,12 +127,11 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [[tool.poetry.source]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118/"
-priority = "supplemental"
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
 
 [tool.poetry.dependencies]
-torch = {source = "aliyun"}
-torchvision = {source = "aliyun"}
-
+torch = { source = "pytorch-cu118" }
+torchvision = { source = "pytorch-cu118" }
 
