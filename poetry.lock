@@ -12,11 +12,6 @@ files = [
     {file = "absl_py-2.3.1.tar.gz", hash = "sha256:a97820526f7fbfd2ec1bce83f3f25e3a14840dac0d8e02a0b71cd75db3f77fc9"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "aiohappyeyeballs"
 version = "2.6.1"
@@ -28,11 +23,6 @@ files = [
     {file = "aiohappyeyeballs-2.6.1-py3-none-any.whl", hash = "sha256:f349ba8f4b75cb25c99c5c2d84e997e485204d2902a9597802b0371f09331fb8"},
     {file = "aiohappyeyeballs-2.6.1.tar.gz", hash = "sha256:c3f9d0113123803ccadfdf3f0faa505bc78e6a72d1cc4806cbd719826e943558"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "aiohttp"
@@ -143,11 +133,6 @@ yarl = ">=1.17.0,<2.0"
 [package.extras]
 speedups = ["Brotli ; platform_python_implementation == \"CPython\"", "aiodns (>=3.3.0)", "brotlicffi ; platform_python_implementation != \"CPython\""]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "aiohttp-retry"
 version = "2.9.1"
@@ -162,11 +147,6 @@ files = [
 
 [package.dependencies]
 aiohttp = "*"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "aiosignal"
@@ -183,11 +163,6 @@ files = [
 [package.dependencies]
 frozenlist = ">=1.1.0"
 typing-extensions = {version = ">=4.2", markers = "python_version < \"3.13\""}
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "alembic"
@@ -210,11 +185,6 @@ typing-extensions = ">=4.12"
 [package.extras]
 tz = ["tzdata"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "annotated-types"
 version = "0.7.0"
@@ -227,11 +197,6 @@ files = [
     {file = "annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "antlr4-python3-runtime"
 version = "4.9.3"
@@ -242,11 +207,6 @@ groups = ["main"]
 files = [
     {file = "antlr4-python3-runtime-4.9.3.tar.gz", hash = "sha256:f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "anyascii"
@@ -259,11 +219,6 @@ files = [
     {file = "anyascii-0.3.3-py3-none-any.whl", hash = "sha256:f5ab5e53c8781a36b5a40e1296a0eeda2f48c649ef10c3921c1381b1d00dee7a"},
     {file = "anyascii-0.3.3.tar.gz", hash = "sha256:c94e9dd9d47b3d9494eca305fef9447d00b4bf1a32aff85aa746fa3ec7fb95c3"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "anyio"
@@ -286,11 +241,6 @@ typing_extensions = {version = ">=4.5", markers = "python_version < \"3.13\""}
 [package.extras]
 trio = ["trio (>=0.31.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "appnope"
 version = "0.1.4"
@@ -303,11 +253,6 @@ files = [
     {file = "appnope-0.1.4-py2.py3-none-any.whl", hash = "sha256:502575ee11cd7a28c0205f379b525beefebab9d161b7c964670864014ed7213c"},
     {file = "appnope-0.1.4.tar.gz", hash = "sha256:1de3860566df9caf38f01f86f65e0e13e379af54f9e4bee1e66b48f2efffd1ee"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "argon2-cffi"
@@ -323,11 +268,6 @@ files = [
 
 [package.dependencies]
 argon2-cffi-bindings = "*"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "argon2-cffi-bindings"
@@ -368,11 +308,6 @@ files = [
 [package.dependencies]
 cffi = {version = ">=1.0.1", markers = "python_version < \"3.14\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "arrow"
 version = "1.3.0"
@@ -393,11 +328,6 @@ types-python-dateutil = ">=2.8.10"
 doc = ["doc8", "sphinx (>=7.0.0)", "sphinx-autobuild", "sphinx-autodoc-typehints", "sphinx_rtd_theme (>=1.3.0)"]
 test = ["dateparser (==1.*)", "pre-commit", "pytest", "pytest-cov", "pytest-mock", "pytz (==2021.1)", "simplejson (==3.*)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "asttokens"
 version = "3.0.0"
@@ -414,11 +344,6 @@ files = [
 astroid = ["astroid (>=2,<4)"]
 test = ["astroid (>=2,<4)", "pytest", "pytest-cov", "pytest-xdist"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "async-lru"
 version = "2.0.5"
@@ -434,11 +359,6 @@ files = [
 [package.dependencies]
 typing_extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "async-timeout"
 version = "5.0.1"
@@ -451,11 +371,6 @@ files = [
     {file = "async_timeout-5.0.1-py3-none-any.whl", hash = "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c"},
     {file = "async_timeout-5.0.1.tar.gz", hash = "sha256:d9321a7a3d5a6a5e187e824d2fa0793ce379a202935782d555d6e9d2735677d3"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "asyncssh"
@@ -482,11 +397,6 @@ pkcs11 = ["python-pkcs11 (>=0.7.0)"]
 pyopenssl = ["pyOpenSSL (>=23.0.0)"]
 pywin32 = ["pywin32 (>=227)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "attrs"
 version = "25.4.0"
@@ -499,11 +409,6 @@ files = [
     {file = "attrs-25.4.0.tar.gz", hash = "sha256:16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "autopage"
 version = "0.5.2"
@@ -515,11 +420,6 @@ files = [
     {file = "autopage-0.5.2-py3-none-any.whl", hash = "sha256:f5eae54dd20ccc8b1ff611263fc87bc46608a9cde749bbcfc93339713a429c55"},
     {file = "autopage-0.5.2.tar.gz", hash = "sha256:826996d74c5aa9f4b6916195547312ac6384bac3810b8517063f293248257b72"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "babel"
@@ -535,11 +435,6 @@ files = [
 
 [package.extras]
 dev = ["backports.zoneinfo ; python_version < \"3.9\"", "freezegun (>=1.0,<2.0)", "jinja2 (>=3.0)", "pytest (>=6.0)", "pytest-cov", "pytz", "setuptools", "tzdata ; sys_platform == \"win32\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "backports-tarfile"
@@ -557,11 +452,6 @@ files = [
 [package.extras]
 docs = ["furo", "jaraco.packaging (>=9.3)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
 testing = ["jaraco.test", "pytest (!=8.0.*)", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "beautifulsoup4"
@@ -585,11 +475,6 @@ charset-normalizer = ["charset-normalizer"]
 html5lib = ["html5lib"]
 lxml = ["lxml"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "bleach"
 version = "6.2.0"
@@ -609,17 +494,12 @@ webencodings = "*"
 [package.extras]
 css = ["tinycss2 (>=1.1.0,<1.5)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "botocore"
 version = "1.40.44"
 description = "Low-level, data-driven core of boto 3."
 optional = false
-python-versions = ">= 3.9"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
     {file = "botocore-1.40.44-py3-none-any.whl", hash = "sha256:6fa7274cdb69be7c7b3ce6ff46a7c3e35e270f259dd77ee3f8ad8c584352262b"},
@@ -634,17 +514,12 @@ urllib3 = {version = ">=1.25.4,<2.2.0 || >2.2.0,<3", markers = "python_version >
 [package.extras]
 crt = ["awscrt (==0.27.6)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "build"
 version = "1.3.0"
 description = "A simple, correct Python build frontend"
 optional = false
-python-versions = ">= 3.9"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
     {file = "build-1.3.0-py3-none-any.whl", hash = "sha256:7145f0b5061ba90a1500d60bd1b13ca0a8a4cebdd0cc16ed8adf1c0e739f43b4"},
@@ -660,11 +535,6 @@ tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 [package.extras]
 uv = ["uv (>=0.1.18)"]
 virtualenv = ["virtualenv (>=20.11) ; python_version < \"3.10\"", "virtualenv (>=20.17) ; python_version >= \"3.10\" and python_version < \"3.14\"", "virtualenv (>=20.31) ; python_version >= \"3.14\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "cachecontrol"
@@ -688,11 +558,6 @@ dev = ["CacheControl[filecache,redis]", "build", "cherrypy", "codespell[tomli]",
 filecache = ["filelock (>=3.8.0)"]
 redis = ["redis (>=2.10.5)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "certifi"
 version = "2025.8.3"
@@ -704,11 +569,6 @@ files = [
     {file = "certifi-2025.8.3-py3-none-any.whl", hash = "sha256:f6c12493cfb1b06ba2ff328595af9350c65d6644968e5d3a2ffd78699af217a5"},
     {file = "certifi-2025.8.3.tar.gz", hash = "sha256:e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "cffi"
@@ -807,11 +667,6 @@ files = [
 [package.dependencies]
 pycparser = {version = "*", markers = "implementation_name != \"PyPy\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "cfgv"
 version = "3.4.0"
@@ -823,11 +678,6 @@ files = [
     {file = "cfgv-3.4.0-py2.py3-none-any.whl", hash = "sha256:b7265b1f29fd3316bfcd2b330d63d024f2bfd8bcb8b0272f8e19a504856c48f9"},
     {file = "cfgv-3.4.0.tar.gz", hash = "sha256:e52591d4c5f5dead8e0f673fb16db7949d2cfb3f7da4582893288f0ded8fe560"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "charset-normalizer"
@@ -918,11 +768,6 @@ files = [
     {file = "charset_normalizer-3.4.3.tar.gz", hash = "sha256:6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "cleo"
 version = "2.1.0"
@@ -939,11 +784,6 @@ files = [
 crashtest = ">=0.4.1,<0.5.0"
 rapidfuzz = ">=3.0.0,<4.0.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "click"
 version = "8.3.0"
@@ -958,11 +798,6 @@ files = [
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "cliff"
@@ -983,11 +818,6 @@ PrettyTable = ">=0.7.2"
 PyYAML = ">=3.12"
 stevedore = ">=2.0.1"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "cmaes"
 version = "0.12.0"
@@ -1005,11 +835,6 @@ numpy = "*"
 
 [package.extras]
 cmawm = ["scipy"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "cmd2"
@@ -1030,11 +855,6 @@ pyreadline3 = {version = ">=3.4", markers = "platform_system == \"Windows\""}
 rich-argparse = ">=1.7.1"
 wcwidth = ">=0.2.10"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "colorama"
 version = "0.4.6"
@@ -1047,11 +867,6 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "colorlog"
@@ -1071,11 +886,6 @@ colorama = {version = "*", markers = "sys_platform == \"win32\""}
 [package.extras]
 development = ["black", "flake8", "mypy", "pytest", "types-colorama"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "comm"
 version = "0.2.3"
@@ -1090,11 +900,6 @@ files = [
 
 [package.extras]
 test = ["pytest"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "contourpy"
@@ -1173,11 +978,6 @@ mypy = ["bokeh", "contourpy[bokeh,docs]", "docutils-stubs", "mypy (==1.15.0)", "
 test = ["Pillow", "contourpy[test-no-images]", "matplotlib"]
 test-no-images = ["pytest", "pytest-cov", "pytest-rerunfailures", "pytest-xdist", "wurlitzer"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "crashtest"
 version = "0.4.1"
@@ -1190,17 +990,12 @@ files = [
     {file = "crashtest-0.4.1.tar.gz", hash = "sha256:80d7b1f316ebfbd429f648076d6275c877ba30ba48979de4191714a75266f0ce"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "cryptography"
 version = "46.0.2"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 optional = false
-python-versions = ">=3.8, !=3.9.0, !=3.9.1"
+python-versions = "!=3.9.0,!=3.9.1,>=3.8"
 groups = ["main"]
 files = [
     {file = "cryptography-46.0.2-cp311-abi3-macosx_10_9_universal2.whl", hash = "sha256:f3e32ab7dd1b1ef67b9232c4cf5e2ee4cd517d4316ea910acaaa9c5712a1c663"},
@@ -1273,11 +1068,6 @@ ssh = ["bcrypt (>=3.1.5)"]
 test = ["certifi (>=2024)", "cryptography-vectors (==46.0.2)", "pretend (>=0.7)", "pytest (>=7.4.0)", "pytest-benchmark (>=4.0)", "pytest-cov (>=2.10.1)", "pytest-xdist (>=3.5.0)"]
 test-randomorder = ["pytest-randomly"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "cycler"
 version = "0.12.1"
@@ -1293,11 +1083,6 @@ files = [
 [package.extras]
 docs = ["ipython", "matplotlib", "numpydoc", "sphinx"]
 tests = ["pytest", "pytest-cov", "pytest-xdist"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "debugpy"
@@ -1339,11 +1124,6 @@ files = [
     {file = "debugpy-1.8.17.tar.gz", hash = "sha256:fd723b47a8c08892b1a16b2c6239a8b96637c62a59b94bb5dab4bac592a58a8e"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "decorator"
 version = "5.2.1"
@@ -1355,11 +1135,6 @@ files = [
     {file = "decorator-5.2.1-py3-none-any.whl", hash = "sha256:d316bb415a2d9e2d2b3abcc4084c6502fc09240e292cd76a76afc106a1c8e04a"},
     {file = "decorator-5.2.1.tar.gz", hash = "sha256:65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "defusedxml"
@@ -1373,11 +1148,6 @@ files = [
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "distlib"
 version = "0.4.0"
@@ -1389,11 +1159,6 @@ files = [
     {file = "distlib-0.4.0-py2.py3-none-any.whl", hash = "sha256:9659f7d87e46584a30b5780e43ac7a2143098441670ff0a49d5f9034c54a6c16"},
     {file = "distlib-0.4.0.tar.gz", hash = "sha256:feec40075be03a04501a973d81f633735b4b69f98b05450592310c0f401a4e0d"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "dulwich"
@@ -1449,11 +1214,6 @@ paramiko = ["paramiko"]
 patiencediff = ["patiencediff"]
 pgp = ["gpg"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "exceptiongroup"
 version = "1.3.0"
@@ -1473,11 +1233,6 @@ typing-extensions = {version = ">=4.6.0", markers = "python_version < \"3.13\""}
 [package.extras]
 test = ["pytest (>=6)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "executing"
 version = "2.2.1"
@@ -1492,11 +1247,6 @@ files = [
 
 [package.extras]
 tests = ["asttokens (>=2.1.0)", "coverage", "coverage-enable-subprocess", "ipython", "littleutils", "pytest", "rich ; python_version >= \"3.11\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "fastjsonschema"
@@ -1513,11 +1263,6 @@ files = [
 [package.extras]
 devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benchmark", "pytest-cache", "validictory"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "filelock"
 version = "3.19.1"
@@ -1529,11 +1274,6 @@ files = [
     {file = "filelock-3.19.1-py3-none-any.whl", hash = "sha256:d38e30481def20772f5baf097c122c3babc4fcdb7e14e57049eb9d88c6dc017d"},
     {file = "filelock-3.19.1.tar.gz", hash = "sha256:66eda1888b0171c998b35be2bcc0f6d75c388a7ce20c3f3f37aa8e96c2dddf58"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "findpython"
@@ -1550,11 +1290,6 @@ files = [
 [package.dependencies]
 packaging = ">=20"
 platformdirs = ">=4.3.6"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "fonttools"
@@ -1637,11 +1372,6 @@ type1 = ["xattr ; sys_platform == \"darwin\""]
 unicode = ["unicodedata2 (>=15.1.0) ; python_version <= \"3.12\""]
 woff = ["brotli (>=1.0.1) ; platform_python_implementation == \"CPython\"", "brotlicffi (>=0.8.0) ; platform_python_implementation != \"CPython\"", "zopfli (>=0.1.4)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "fqdn"
 version = "1.5.1"
@@ -1653,11 +1383,6 @@ files = [
     {file = "fqdn-1.5.1-py3-none-any.whl", hash = "sha256:3a179af3761e4df6eb2e026ff9e1a3033d3587bf980a0b1b2e1e5d08d7358014"},
     {file = "fqdn-1.5.1.tar.gz", hash = "sha256:105ed3677e767fb5ca086a0c1f4bb66ebc3c100be518f0e0d755d9eae164d89f"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "frozenlist"
@@ -1799,11 +1524,6 @@ files = [
     {file = "frozenlist-1.8.0.tar.gz", hash = "sha256:3ede829ed8d842f6cd48fc7081d7a41001a56f1f38603f9d49bf3020d59a31ad"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "fsspec"
 version = "2025.9.0"
@@ -1848,11 +1568,6 @@ test-downstream = ["aiobotocore (>=2.5.4,<3.0.0)", "dask[dataframe,test]", "moto
 test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "cloudpickle", "dask", "distributed", "dropbox", "dropboxdrivefs", "fastparquet", "fusepy", "gcsfs", "jinja2", "kerchunk", "libarchive-c", "lz4", "notebook", "numpy", "ocifs", "pandas", "panel", "paramiko", "pyarrow", "pyarrow (>=1)", "pyftpdlib", "pygit2", "pytest", "pytest-asyncio (!=0.22.0)", "pytest-benchmark", "pytest-cov", "pytest-mock", "pytest-recording", "pytest-rerunfailures", "python-snappy", "requests", "smbprotocol", "tqdm", "urllib3", "zarr", "zstandard ; python_version < \"3.14\""]
 tqdm = ["tqdm"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "funcy"
 version = "2.0"
@@ -1864,11 +1579,6 @@ files = [
     {file = "funcy-2.0-py2.py3-none-any.whl", hash = "sha256:53df23c8bb1651b12f095df764bfb057935d49537a56de211b098f4c79614bb0"},
     {file = "funcy-2.0.tar.gz", hash = "sha256:3963315d59d41c6f30c04bc910e10ab50a3ac4a225868bfa96feed133df075cb"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "gitdb"
@@ -1884,11 +1594,6 @@ files = [
 
 [package.dependencies]
 smmap = ">=3.0.1,<6"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "gitpython"
@@ -1908,11 +1613,6 @@ gitdb = ">=4.0.1,<5"
 [package.extras]
 doc = ["sphinx (>=7.1.2,<7.2)", "sphinx-autodoc-typehints", "sphinx_rtd_theme"]
 test = ["coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock ; python_version < \"3.8\"", "mypy", "pre-commit", "pytest (>=7.3.1)", "pytest-cov", "pytest-instafail", "pytest-mock", "pytest-sugar", "typing-extensions ; python_version < \"3.11\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "gnureadline"
@@ -1954,11 +1654,6 @@ files = [
     {file = "gnureadline-8.2.13-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4f57a3aa97c3379b2513c8bfbac0de2dfb41f695623c0b2ad337babb646b51a7"},
     {file = "gnureadline-8.2.13.tar.gz", hash = "sha256:c9b9e1e7ba99a80bb50c12027d6ce692574f77a65bf57bc97041cf81c0f49bd1"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "greenlet"
@@ -2041,11 +1736,6 @@ files = [
 docs = ["Sphinx", "furo"]
 test = ["objgraph", "psutil", "setuptools"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "grpcio"
 version = "1.75.1"
@@ -2123,11 +1813,6 @@ typing-extensions = ">=4.12,<5.0"
 [package.extras]
 protobuf = ["grpcio-tools (>=1.75.1)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "h11"
 version = "0.16.0"
@@ -2139,11 +1824,6 @@ files = [
     {file = "h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"},
     {file = "h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "h5py"
@@ -2184,11 +1864,6 @@ files = [
 [package.dependencies]
 numpy = ">=1.19.3"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "hf-xet"
 version = "1.1.10"
@@ -2211,11 +1886,6 @@ files = [
 [package.extras]
 tests = ["pytest"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "httpcore"
 version = "1.0.9"
@@ -2237,11 +1907,6 @@ asyncio = ["anyio (>=4.0,<5.0)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (==1.*)"]
 trio = ["trio (>=0.22.0,<1.0)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "httpx"
@@ -2267,11 +1932,6 @@ cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (==1.*)"]
 zstd = ["zstandard (>=0.18.0)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "huggingface-hub"
@@ -2312,11 +1972,6 @@ testing = ["InquirerPy (==0.3.4)", "Jinja2", "Pillow", "aiohttp", "authlib (>=1.
 torch = ["safetensors[torch]", "torch"]
 typing = ["types-PyYAML", "types-requests", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "hydra-colorlog"
 version = "1.2.0"
@@ -2332,11 +1987,6 @@ files = [
 [package.dependencies]
 colorlog = "*"
 hydra-core = ">=1.0.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "hydra-core"
@@ -2355,11 +2005,6 @@ antlr4-python3-runtime = "==4.9.*"
 omegaconf = ">=2.2,<2.4"
 packaging = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "hydra-optuna-sweeper"
 version = "1.2.0"
@@ -2376,11 +2021,6 @@ files = [
 hydra-core = ">=1.1.0.dev7"
 optuna = ">=2.10.0,<3.0.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "identify"
 version = "2.6.15"
@@ -2396,11 +2036,6 @@ files = [
 [package.extras]
 license = ["ukkonen"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "idna"
 version = "3.10"
@@ -2415,11 +2050,6 @@ files = [
 
 [package.extras]
 all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "imageio"
@@ -2455,11 +2085,6 @@ rawpy = ["numpy (>2)", "rawpy"]
 test = ["fsspec[github]", "pytest", "pytest-cov"]
 tifffile = ["tifffile"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "importlib-metadata"
 version = "8.7.0"
@@ -2485,11 +2110,6 @@ perf = ["ipython"]
 test = ["flufl.flake8", "importlib_resources (>=1.3) ; python_version < \"3.9\"", "jaraco.test (>=5.4)", "packaging", "pyfakefs", "pytest (>=6,!=8.1.*)", "pytest-perf (>=0.9.2)"]
 type = ["pytest-mypy"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "iniconfig"
 version = "2.1.0"
@@ -2502,11 +2122,6 @@ files = [
     {file = "iniconfig-2.1.0.tar.gz", hash = "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "installer"
 version = "0.7.0"
@@ -2518,11 +2133,6 @@ files = [
     {file = "installer-0.7.0-py3-none-any.whl", hash = "sha256:05d1933f0a5ba7d8d6296bb6d5018e7c94fa473ceb10cf198a92ccea19c27b53"},
     {file = "installer-0.7.0.tar.gz", hash = "sha256:a26d3e3116289bb08216e0d0f7d925fcef0b0194eedfa0c944bcaaa106c4b631"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "ipykernel"
@@ -2557,11 +2167,6 @@ docs = ["intersphinx-registry", "myst-parser", "pydata-sphinx-theme", "sphinx", 
 pyqt5 = ["pyqt5"]
 pyside6 = ["pyside6"]
 test = ["flaky", "ipyparallel", "pre-commit", "pytest (>=7.0,<9)", "pytest-asyncio (>=0.23.5)", "pytest-cov", "pytest-timeout"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "ipython"
@@ -2602,11 +2207,6 @@ qtconsole = ["qtconsole"]
 test = ["packaging", "pickleshare", "pytest", "pytest-asyncio (<0.22)", "testpath"]
 test-extra = ["curio", "ipython[test]", "jupyter_ai", "matplotlib (!=3.2.0)", "nbformat", "numpy (>=1.23)", "pandas", "trio"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "ipywidgets"
 version = "8.1.7"
@@ -2629,11 +2229,6 @@ widgetsnbextension = ">=4.0.14,<4.1.0"
 [package.extras]
 test = ["ipykernel", "jsonschema", "pytest (>=3.6.0)", "pytest-cov", "pytz"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "isoduration"
 version = "20.11.0"
@@ -2648,11 +2243,6 @@ files = [
 
 [package.dependencies]
 arrow = ">=0.15.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "isort"
@@ -2669,11 +2259,6 @@ files = [
 [package.extras]
 colors = ["colorama"]
 plugins = ["setuptools"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jaraco-classes"
@@ -2694,11 +2279,6 @@ more-itertools = "*"
 docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jaraco-context"
 version = "6.0.1"
@@ -2717,11 +2297,6 @@ files = [
 [package.extras]
 doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
 test = ["portend", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jaraco-functools"
@@ -2746,11 +2321,6 @@ enabler = ["pytest-enabler (>=2.2)"]
 test = ["jaraco.classes", "pytest (>=6,!=8.1.*)"]
 type = ["pytest-mypy"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jedi"
 version = "0.19.2"
@@ -2771,11 +2341,6 @@ docs = ["Jinja2 (==2.11.3)", "MarkupSafe (==1.1.1)", "Pygments (==2.8.1)", "alab
 qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["Django", "attrs", "colorama", "docopt", "pytest (<9.0.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jeepney"
 version = "0.9.0"
@@ -2792,11 +2357,6 @@ files = [
 [package.extras]
 test = ["async-timeout ; python_version < \"3.11\"", "pytest", "pytest-asyncio (>=0.17)", "pytest-trio", "testpath", "trio"]
 trio = ["trio"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jinja2"
@@ -2816,11 +2376,6 @@ MarkupSafe = ">=2.0"
 [package.extras]
 i18n = ["Babel (>=2.7)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jmespath"
 version = "1.0.1"
@@ -2832,11 +2387,6 @@ files = [
     {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
     {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "json5"
@@ -2853,15 +2403,10 @@ files = [
 [package.extras]
 dev = ["build (==1.2.2.post1)", "coverage (==7.5.4) ; python_version < \"3.9\"", "coverage (==7.8.0) ; python_version >= \"3.9\"", "mypy (==1.14.1) ; python_version < \"3.9\"", "mypy (==1.15.0) ; python_version >= \"3.9\"", "pip (==25.0.1)", "pylint (==3.2.7) ; python_version < \"3.9\"", "pylint (==3.3.6) ; python_version >= \"3.9\"", "ruff (==0.11.2)", "twine (==6.1.0)", "uv (==0.6.11)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jsonpointer"
 version = "3.0.0"
-description = "Identify specific nodes in a JSON document (RFC 6901) "
+description = "Identify specific nodes in a JSON document (RFC 6901)"
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
@@ -2869,11 +2414,6 @@ files = [
     {file = "jsonpointer-3.0.0-py2.py3-none-any.whl", hash = "sha256:13e088adc14fca8b6aa8177c044e12701e6ad4b28ff10e65f2267a90109c9942"},
     {file = "jsonpointer-3.0.0.tar.gz", hash = "sha256:2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jsonschema"
@@ -2906,11 +2446,6 @@ webcolors = {version = ">=24.6.0", optional = true, markers = "extra == \"format
 format = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3987", "uri-template", "webcolors (>=1.11)"]
 format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "rfc3987-syntax (>=1.1.0)", "uri-template", "webcolors (>=24.6.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jsonschema-specifications"
 version = "2025.9.1"
@@ -2925,11 +2460,6 @@ files = [
 
 [package.dependencies]
 referencing = ">=0.31.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jupyter-client"
@@ -2954,11 +2484,6 @@ traitlets = ">=5.3"
 docs = ["ipykernel", "myst-parser", "pydata-sphinx-theme", "sphinx (>=4)", "sphinx-autodoc-typehints", "sphinxcontrib-github-alt", "sphinxcontrib-spelling"]
 test = ["coverage", "ipykernel (>=6.14)", "mypy", "paramiko ; sys_platform == \"win32\"", "pre-commit", "pytest (<8.2.0)", "pytest-cov", "pytest-jupyter[client] (>=0.4.1)", "pytest-timeout"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jupyter-core"
 version = "5.8.1"
@@ -2979,11 +2504,6 @@ traitlets = ">=5.3"
 [package.extras]
 docs = ["intersphinx-registry", "myst-parser", "pydata-sphinx-theme", "sphinx-autodoc-typehints", "sphinxcontrib-spelling", "traitlets"]
 test = ["ipykernel", "pre-commit", "pytest (<9)", "pytest-cov", "pytest-timeout"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jupyter-events"
@@ -3012,11 +2532,6 @@ cli = ["click", "rich"]
 docs = ["jupyterlite-sphinx", "myst-parser", "pydata-sphinx-theme (>=0.16)", "sphinx (>=8)", "sphinxcontrib-spelling"]
 test = ["click", "pre-commit", "pytest (>=7.0)", "pytest-asyncio (>=0.19.0)", "pytest-console-scripts", "rich"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jupyter-lsp"
 version = "2.3.0"
@@ -3031,11 +2546,6 @@ files = [
 
 [package.dependencies]
 jupyter_server = ">=1.1.2"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jupyter-server"
@@ -3074,11 +2584,6 @@ websocket-client = ">=1.7"
 docs = ["ipykernel", "jinja2", "jupyter-client", "myst-parser", "nbformat", "prometheus-client", "pydata-sphinx-theme", "send2trash", "sphinx-autodoc-typehints", "sphinxcontrib-github-alt", "sphinxcontrib-openapi (>=0.8.0)", "sphinxcontrib-spelling", "sphinxemoji", "tornado", "typing-extensions"]
 test = ["flaky", "ipykernel", "pre-commit", "pytest (>=7.0,<9)", "pytest-console-scripts", "pytest-jupyter[server] (>=0.7)", "pytest-timeout", "requests"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jupyter-server-terminals"
 version = "0.5.3"
@@ -3098,11 +2603,6 @@ terminado = ">=0.8.3"
 [package.extras]
 docs = ["jinja2", "jupyter-server", "mistune (<4.0)", "myst-parser", "nbformat", "packaging", "pydata-sphinx-theme", "sphinxcontrib-github-alt", "sphinxcontrib-openapi", "sphinxcontrib-spelling", "sphinxemoji", "tornado"]
 test = ["jupyter-server (>=2.0.0)", "pytest (>=7.0)", "pytest-jupyter[server] (>=0.5.3)", "pytest-timeout"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jupyterlab"
@@ -3139,11 +2639,6 @@ docs-screenshots = ["altair (==5.5.0)", "ipython (==8.16.1)", "ipywidgets (==8.1
 test = ["coverage", "pytest (>=7.0)", "pytest-check-links (>=0.7)", "pytest-console-scripts", "pytest-cov", "pytest-jupyter (>=0.5.3)", "pytest-timeout", "pytest-tornasync", "requests", "requests-cache", "virtualenv"]
 upgrade-extension = ["copier (>=9,<10)", "jinja2-time (<0.3)", "pydantic (<3.0)", "pyyaml-include (<3.0)", "tomli-w (<2.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jupyterlab-pygments"
 version = "0.3.0"
@@ -3155,11 +2650,6 @@ files = [
     {file = "jupyterlab_pygments-0.3.0-py3-none-any.whl", hash = "sha256:841a89020971da1d8693f1a99997aefc5dc424bb1b251fd6322462a1b8842780"},
     {file = "jupyterlab_pygments-0.3.0.tar.gz", hash = "sha256:721aca4d9029252b11cfa9d185e5b5af4d54772bb8072f9b7036f4170054d35d"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "jupyterlab-server"
@@ -3187,11 +2677,6 @@ docs = ["autodoc-traits", "jinja2 (<3.2.0)", "mistune (<4)", "myst-parser", "pyd
 openapi = ["openapi-core (>=0.18.0,<0.19.0)", "ruamel-yaml"]
 test = ["hatch", "ipykernel", "openapi-core (>=0.18.0,<0.19.0)", "openapi-spec-validator (>=0.6.0,<0.8.0)", "pytest (>=7.0,<8)", "pytest-console-scripts", "pytest-cov", "pytest-jupyter[server] (>=0.6.2)", "pytest-timeout", "requests-mock", "ruamel-yaml", "sphinxcontrib-spelling", "strict-rfc3339", "werkzeug"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "jupyterlab-widgets"
 version = "3.0.15"
@@ -3203,11 +2688,6 @@ files = [
     {file = "jupyterlab_widgets-3.0.15-py3-none-any.whl", hash = "sha256:d59023d7d7ef71400d51e6fee9a88867f6e65e10a4201605d2d7f3e8f012a31c"},
     {file = "jupyterlab_widgets-3.0.15.tar.gz", hash = "sha256:2920888a0c2922351a9202817957a68c07d99673504d6cd37345299e971bb08b"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "keyring"
@@ -3238,11 +2718,6 @@ doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linke
 enabler = ["pytest-enabler (>=2.2)"]
 test = ["pyfakefs", "pytest (>=6,!=8.1.*)"]
 type = ["pygobject-stubs", "pytest-mypy", "shtab", "types-pywin32"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "kiwisolver"
@@ -3355,11 +2830,6 @@ files = [
     {file = "kiwisolver-1.4.9.tar.gz", hash = "sha256:c3b22c26c6fd6811b0ae8363b95ca8ce4ea3c202d3d0975b2914310ceb1bcc4d"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "langdetect"
 version = "1.0.9"
@@ -3374,11 +2844,6 @@ files = [
 
 [package.dependencies]
 six = "*"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "lark"
@@ -3397,11 +2862,6 @@ atomic-cache = ["atomicwrites"]
 interegular = ["interegular (>=0.3.1,<0.4.0)"]
 nearley = ["js2py"]
 regex = ["regex"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "lazy-loader"
@@ -3422,11 +2882,6 @@ packaging = "*"
 dev = ["changelist (==0.5)"]
 lint = ["pre-commit (==3.7.0)"]
 test = ["pytest (>=7.4)", "pytest-cov (>=4.1)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "levenshtein"
@@ -3535,11 +2990,6 @@ files = [
 [package.dependencies]
 rapidfuzz = ">=3.9.0,<4.0.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "lightning"
 version = "2.5.5"
@@ -3583,11 +3033,6 @@ pytorch-test = ["cloudpickle (>=1.3,<4.0)", "coverage (==7.10.6)", "fastapi", "n
 strategies = ["bitsandbytes (>=0.45.2,<1.0) ; platform_system != \"Darwin\"", "deepspeed (>=0.14.1,<=0.15.0) ; platform_system != \"Windows\" and platform_system != \"Darwin\""]
 test = ["click (==8.1.8) ; python_version < \"3.11\"", "click (==8.2.1) ; python_version > \"3.10\"", "cloudpickle (>=1.3,<4.0)", "coverage (==7.10.6)", "fastapi", "numpy (>1.20.0,<2.0)", "numpy (>=1.21.0,<2.0)", "onnx (>1.12.0,<2.0)", "onnxruntime (>=1.12.0,<2.0)", "onnxscript (>=0.1.0,<1.0)", "pandas (>2.0,<3.0)", "psutil (<8.0)", "pytest (==8.4.1)", "pytest-cov (==6.2.1)", "pytest-random-order (==1.2.0)", "pytest-rerunfailures (==16.0)", "pytest-timeout (==2.4.0)", "scikit-learn (>0.22.1,<2.0)", "tensorboard (>=2.11,<3.0)", "tensorboardX (>=2.6,<3.0)", "uvicorn"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "lightning-utilities"
 version = "0.15.2"
@@ -3610,11 +3055,6 @@ cli = ["jsonargparse[signatures] (>=4.38.0)", "tomlkit"]
 docs = ["requests (>=2.0.0)"]
 typing = ["mypy (>=1.0.0)", "types-setuptools"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "mako"
 version = "1.3.10"
@@ -3635,11 +3075,6 @@ babel = ["Babel"]
 lingua = ["lingua"]
 testing = ["pytest"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "markdown"
 version = "3.9"
@@ -3655,11 +3090,6 @@ files = [
 [package.extras]
 docs = ["mdx_gh_links (>=0.2)", "mkdocs (>=1.6)", "mkdocs-gen-files", "mkdocs-literate-nav", "mkdocs-nature (>=0.6)", "mkdocs-section-index", "mkdocstrings[python]"]
 testing = ["coverage", "pyyaml"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "markdown-it-py"
@@ -3684,11 +3114,6 @@ plugins = ["mdit-py-plugins (>=0.5.0)"]
 profiling = ["gprof2dot"]
 rtd = ["ipykernel", "jupyter_sphinx", "mdit-py-plugins (>=0.5.0)", "myst-parser", "pyyaml", "sphinx", "sphinx-book-theme (>=1.0,<2.0)", "sphinx-copybutton", "sphinx-design"]
 testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions", "requests"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "markupsafe"
@@ -3789,11 +3214,6 @@ files = [
     {file = "markupsafe-3.0.3.tar.gz", hash = "sha256:722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "matplotlib"
 version = "3.10.6"
@@ -3873,11 +3293,6 @@ python-dateutil = ">=2.7"
 [package.extras]
 dev = ["meson-python (>=0.13.1,<0.17.0)", "pybind11 (>=2.13.2,!=2.13.3)", "setuptools (>=64)", "setuptools_scm (>=7)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "matplotlib-inline"
 version = "0.1.7"
@@ -3893,11 +3308,6 @@ files = [
 [package.dependencies]
 traitlets = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "mdurl"
 version = "0.1.2"
@@ -3909,11 +3319,6 @@ files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "mistune"
@@ -3930,11 +3335,6 @@ files = [
 [package.dependencies]
 typing-extensions = {version = "*", markers = "python_version < \"3.11\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "more-itertools"
 version = "10.8.0"
@@ -3946,11 +3346,6 @@ files = [
     {file = "more_itertools-10.8.0-py3-none-any.whl", hash = "sha256:52d4362373dcf7c52546bc4af9a86ee7c4579df9a8dc268be0a2f949d376cc9b"},
     {file = "more_itertools-10.8.0.tar.gz", hash = "sha256:f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "mpmath"
@@ -3969,11 +3364,6 @@ develop = ["codecov", "pycodestyle", "pytest (>=4.6)", "pytest-cov", "wheel"]
 docs = ["sphinx"]
 gmpy = ["gmpy2 (>=2.1.0a4) ; platform_python_implementation != \"PyPy\""]
 tests = ["pytest (>=4.6)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "msgpack"
@@ -4043,11 +3433,6 @@ files = [
     {file = "msgpack-1.1.1-cp39-cp39-win_amd64.whl", hash = "sha256:40eae974c873b2992fd36424a5d9407f93e97656d999f43fca9d29f820899084"},
     {file = "msgpack-1.1.1.tar.gz", hash = "sha256:77b79ce34a2bdab2594f490c8e80dd62a02d650b91a75159a63ec413b8d104cd"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "multidict"
@@ -4208,11 +3593,6 @@ files = [
 [package.dependencies]
 typing-extensions = {version = ">=4.1.0", markers = "python_version < \"3.11\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "mypy-extensions"
 version = "1.1.0"
@@ -4224,11 +3604,6 @@ files = [
     {file = "mypy_extensions-1.1.0-py3-none-any.whl", hash = "sha256:1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"},
     {file = "mypy_extensions-1.1.0.tar.gz", hash = "sha256:52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "narwhals"
@@ -4255,11 +3630,6 @@ pyspark = ["pyspark (>=3.5.0)"]
 pyspark-connect = ["pyspark[connect] (>=3.5.0)"]
 sqlframe = ["sqlframe (>=3.22.0,!=3.39.3)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nbclient"
 version = "0.10.2"
@@ -4282,11 +3652,6 @@ traitlets = ">=5.4"
 dev = ["pre-commit"]
 docs = ["autodoc-traits", "flaky", "ipykernel (>=6.19.3)", "ipython", "ipywidgets", "mock", "moto", "myst-parser", "nbconvert (>=7.1.0)", "pytest (>=7.0,<8)", "pytest-asyncio", "pytest-cov (>=4.0)", "sphinx (>=1.7)", "sphinx-book-theme", "sphinxcontrib-spelling", "testpath", "xmltodict"]
 test = ["flaky", "ipykernel (>=6.19.3)", "ipython", "ipywidgets", "nbconvert (>=7.1.0)", "pytest (>=7.0,<8)", "pytest-asyncio", "pytest-cov (>=4.0)", "testpath", "xmltodict"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nbconvert"
@@ -4325,11 +3690,6 @@ serve = ["tornado (>=6.1)"]
 test = ["flaky", "ipykernel", "ipywidgets (>=7.5)", "pytest (>=7)"]
 webpdf = ["playwright"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nbformat"
 version = "5.10.4"
@@ -4352,11 +3712,6 @@ traitlets = ">=5.1"
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx", "sphinxcontrib-github-alt", "sphinxcontrib-spelling"]
 test = ["pep440", "pre-commit", "pytest", "testpath"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nest-asyncio"
 version = "1.6.0"
@@ -4368,11 +3723,6 @@ files = [
     {file = "nest_asyncio-1.6.0-py3-none-any.whl", hash = "sha256:87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c"},
     {file = "nest_asyncio-1.6.0.tar.gz", hash = "sha256:6f172d5449aca15afd6c646851f4e31e02c598d553a667e38cafa997cfec55fe"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "networkx"
@@ -4394,27 +3744,17 @@ example = ["cairocffi (>=1.7)", "contextily (>=1.6)", "igraph (>=0.11)", "momepy
 extra = ["lxml (>=4.6)", "pydot (>=3.0.1)", "pygraphviz (>=1.14)", "sympy (>=1.10)"]
 test = ["pytest (>=7.2)", "pytest-cov (>=4.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nodeenv"
 version = "1.9.1"
 description = "Node.js virtual environment builder"
 optional = false
-python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 groups = ["main"]
 files = [
     {file = "nodeenv-1.9.1-py2.py3-none-any.whl", hash = "sha256:ba11c9782d29c27c70ffbdda2d7415098754709be8a7056d79a737cd901155c9"},
     {file = "nodeenv-1.9.1.tar.gz", hash = "sha256:6ec12890a2dab7946721edbfbcd91f3319c6ccc9aec47be7c7e6b7011ee6645f"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "notebook"
@@ -4440,11 +3780,6 @@ dev = ["hatch", "pre-commit"]
 docs = ["myst-parser", "nbsphinx", "pydata-sphinx-theme", "sphinx (>=1.3.6)", "sphinxcontrib-github-alt", "sphinxcontrib-spelling"]
 test = ["importlib-resources (>=5.0) ; python_version < \"3.10\"", "ipykernel", "jupyter-server[test] (>=2.4.0,<3)", "jupyterlab-server[test] (>=2.27.1,<3)", "nbval", "pytest (>=7.0)", "pytest-console-scripts", "pytest-timeout", "pytest-tornasync", "requests"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "notebook-shim"
 version = "0.2.4"
@@ -4462,11 +3797,6 @@ jupyter-server = ">=1.8,<3"
 
 [package.extras]
 test = ["pytest", "pytest-console-scripts", "pytest-jupyter", "pytest-tornasync"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nptyping"
@@ -4489,11 +3819,6 @@ complete = ["pandas", "pandas-stubs-fork ; python_version >= \"3.8\""]
 dev = ["autoflake", "beartype (<0.10.0) ; python_version < \"3.10\"", "beartype (>=0.10.0) ; python_version >= \"3.10\"", "black", "codecov (>=2.1.0)", "coverage", "feedparser", "invoke (>=1.6.0)", "isort", "mypy", "pandas", "pandas-stubs-fork ; python_version >= \"3.8\"", "pip-tools (>=6.5.0)", "pylint", "pyright", "setuptools", "typeguard", "wheel"]
 pandas = ["pandas", "pandas-stubs-fork ; python_version >= \"3.8\""]
 qa = ["autoflake", "beartype (<0.10.0) ; python_version < \"3.10\"", "beartype (>=0.10.0) ; python_version >= \"3.10\"", "black", "codecov (>=2.1.0)", "coverage", "feedparser", "isort", "mypy", "pylint", "pyright", "setuptools", "typeguard", "wheel"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "numpy"
@@ -4541,11 +3866,6 @@ files = [
     {file = "numpy-1.26.4.tar.gz", hash = "sha256:2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-cublas-cu12"
 version = "12.4.5.8"
@@ -4559,11 +3879,6 @@ files = [
     {file = "nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl", hash = "sha256:2fc8da60df463fdefa81e323eef2e36489e1c94335b5358bcb38360adf75ac9b"},
     {file = "nvidia_cublas_cu12-12.4.5.8-py3-none-win_amd64.whl", hash = "sha256:5a796786da89203a0657eda402bcdcec6180254a8ac22d72213abc42069522dc"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nvidia-cuda-cupti-cu12"
@@ -4579,11 +3894,6 @@ files = [
     {file = "nvidia_cuda_cupti_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:5688d203301ab051449a2b1cb6690fbe90d2b372f411521c86018b950f3d7922"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-cuda-nvrtc-cu12"
 version = "12.4.127"
@@ -4598,11 +3908,6 @@ files = [
     {file = "nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:a961b2f1d5f17b14867c619ceb99ef6fcec12e46612711bcec78eb05068a60ec"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-cuda-runtime-cu12"
 version = "12.4.127"
@@ -4616,11 +3921,6 @@ files = [
     {file = "nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:64403288fa2136ee8e467cdc9c9427e0434110899d07c779f25b5c068934faa5"},
     {file = "nvidia_cuda_runtime_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:09c2e35f48359752dfa822c09918211844a3d93c100a715d79b59591130c5e1e"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nvidia-cudnn-cu12"
@@ -4637,11 +3937,6 @@ files = [
 
 [package.dependencies]
 nvidia-cublas-cu12 = "*"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nvidia-cufft-cu12"
@@ -4660,11 +3955,6 @@ files = [
 [package.dependencies]
 nvidia-nvjitlink-cu12 = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-curand-cu12"
 version = "10.3.5.147"
@@ -4678,11 +3968,6 @@ files = [
     {file = "nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl", hash = "sha256:a88f583d4e0bb643c49743469964103aa59f7f708d862c3ddb0fc07f851e3b8b"},
     {file = "nvidia_curand_cu12-10.3.5.147-py3-none-win_amd64.whl", hash = "sha256:f307cc191f96efe9e8f05a87096abc20d08845a841889ef78cb06924437f6771"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nvidia-cusolver-cu12"
@@ -4703,11 +3988,6 @@ nvidia-cublas-cu12 = "*"
 nvidia-cusparse-cu12 = "*"
 nvidia-nvjitlink-cu12 = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-cusparse-cu12"
 version = "12.3.1.170"
@@ -4725,11 +4005,6 @@ files = [
 [package.dependencies]
 nvidia-nvjitlink-cu12 = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-cusparselt-cu12"
 version = "0.6.2"
@@ -4744,11 +4019,6 @@ files = [
     {file = "nvidia_cusparselt_cu12-0.6.2-py3-none-win_amd64.whl", hash = "sha256:0057c91d230703924c0422feabe4ce768841f9b4b44d28586b6f6d2eb86fbe70"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-nccl-cu12"
 version = "2.21.5"
@@ -4760,11 +4030,6 @@ markers = "platform_system == \"Linux\" and platform_machine == \"x86_64\""
 files = [
     {file = "nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl", hash = "sha256:8579076d30a8c24988834445f8d633c697d42397e92ffc3f63fa26766d25e0a0"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "nvidia-nvjitlink-cu12"
@@ -4780,11 +4045,6 @@ files = [
     {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:fd9020c501d27d135f983c6d3e244b197a7ccad769e34df53a42e276b0e25fa1"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "nvidia-nvtx-cu12"
 version = "12.4.127"
@@ -4798,11 +4058,6 @@ files = [
     {file = "nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:781e950d9b9f60d8241ccea575b32f5105a5baf4c2351cab5256a24869f12a1a"},
     {file = "nvidia_nvtx_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:641dccaaa1139f3ffb0d3164b4b84f9d253397e38246a4f2f36728b48566d485"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "omegaconf"
@@ -4819,11 +4074,6 @@ files = [
 [package.dependencies]
 antlr4-python3-runtime = "==4.9.*"
 PyYAML = ">=5.1.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "opencv-python"
@@ -4849,11 +4099,6 @@ numpy = [
     {version = ">=1.21.4", markers = "python_version == \"3.10\" and platform_system == \"Darwin\""},
     {version = ">=1.21.2", markers = "platform_system != \"Darwin\" and python_version == \"3.10\""},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "optuna"
@@ -4890,11 +4135,6 @@ integration = ["allennlp (>=2.2.0,<2.7.0)", "botorch (>=0.4.0) ; python_version 
 optional = ["bokeh (<2.0.0)", "matplotlib (>=3.0.0)", "pandas", "plotly (>=4.0.0)", "redis", "scikit-learn (>=0.24.2,<1.0.0)"]
 testing = ["allennlp (>=2.2.0,<2.7.0)", "bokeh (<2.0.0)", "botorch (>=0.4.0) ; python_version > \"3.6\"", "catalyst (>=21.3)", "chainer (>=5.0.0)", "cma", "fakeredis", "fastai", "lightgbm", "matplotlib (>=3.0.0)", "mlflow", "mpi4py", "mxnet", "pandas", "plotly (>=4.0.0)", "pytest", "pytorch-ignite", "pytorch-lightning (>=1.0.2)", "scikit-learn (>=0.24.2,<1.0.0)", "scikit-optimize", "skorch", "tensorflow", "tensorflow-datasets", "torch (==1.8.0) ; sys_platform == \"darwin\"", "torch (==1.8.0+cpu) ; sys_platform != \"darwin\"", "torchaudio (==0.8.0)", "torchvision (==0.9.0) ; sys_platform == \"darwin\"", "torchvision (==0.9.0+cpu) ; sys_platform != \"darwin\"", "xgboost"]
 tests = ["fakeredis", "pytest"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "orjson"
@@ -4989,11 +4229,6 @@ files = [
     {file = "orjson-3.11.3.tar.gz", hash = "sha256:1c0603b1d2ffcd43a411d64797a19556ef76958aef1c182f22dc30860152a98a"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "outcome"
 version = "1.3.0.post0"
@@ -5009,11 +4244,6 @@ files = [
 [package.dependencies]
 attrs = ">=19.2.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "overrides"
 version = "7.7.0"
@@ -5026,11 +4256,6 @@ files = [
     {file = "overrides-7.7.0.tar.gz", hash = "sha256:55158fa3d93b98cc75299b1e67078ad9003ca27945c76162c1c0766d6f91820a"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "packaging"
 version = "25.0"
@@ -5042,11 +4267,6 @@ files = [
     {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
     {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pandas"
@@ -5148,11 +4368,6 @@ sql-other = ["SQLAlchemy (>=2.0.0)", "adbc-driver-postgresql (>=0.8.0)", "adbc-d
 test = ["hypothesis (>=6.46.1)", "pytest (>=7.3.2)", "pytest-xdist (>=2.2.0)"]
 xml = ["lxml (>=4.9.2)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pandocfilters"
 version = "1.5.1"
@@ -5164,11 +4379,6 @@ files = [
     {file = "pandocfilters-1.5.1-py2.py3-none-any.whl", hash = "sha256:93be382804a9cdb0a7267585f157e5d1731bbe5545a85b268d6f5fe6232de2bc"},
     {file = "pandocfilters-1.5.1.tar.gz", hash = "sha256:002b4a555ee4ebc03f8b66307e287fa492e4a77b4ea14d3f934328297bb4939e"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "param"
@@ -5190,11 +4400,6 @@ tests-deser = ["odfpy", "openpyxl", "pyarrow", "tables", "xlrd"]
 tests-examples = ["aiohttp", "nbval", "pandas", "panel", "pytest", "pytest-asyncio", "pytest-xdist"]
 tests-full = ["aiohttp", "cloudpickle", "gmpy", "ipython", "jsonschema", "nbval", "nest-asyncio", "numpy", "odfpy", "openpyxl", "pandas", "panel", "pyarrow", "pytest", "pytest-asyncio", "pytest-xdist", "tables", "xlrd"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "parso"
 version = "0.8.5"
@@ -5211,11 +4416,6 @@ files = [
 qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["docopt", "pytest"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pathlib"
 version = "1.0.1"
@@ -5228,11 +4428,6 @@ files = [
     {file = "pathlib-1.0.1.tar.gz", hash = "sha256:6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pathspec"
 version = "0.12.1"
@@ -5244,11 +4439,6 @@ files = [
     {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
     {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pbs-installer"
@@ -5271,11 +4461,6 @@ all = ["pbs-installer[download,install]"]
 download = ["httpx (>=0.27.0,<1)"]
 install = ["zstandard (>=0.21.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pexpect"
 version = "4.9.0"
@@ -5291,11 +4476,6 @@ files = [
 
 [package.dependencies]
 ptyprocess = ">=0.5"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pillow"
@@ -5384,11 +4564,6 @@ tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "pa
 typing = ["typing-extensions ; python_version < \"3.10\""]
 xmp = ["defusedxml"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pkginfo"
 version = "1.12.1.2"
@@ -5403,11 +4578,6 @@ files = [
 
 [package.extras]
 testing = ["pytest", "pytest-cov", "wheel"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "platformdirs"
@@ -5425,11 +4595,6 @@ files = [
 docs = ["furo (>=2024.8.6)", "proselint (>=0.14)", "sphinx (>=8.1.3)", "sphinx-autodoc-typehints (>=3)"]
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=8.3.4)", "pytest-cov (>=6)", "pytest-mock (>=3.14)"]
 type = ["mypy (>=1.14.1)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "plotly"
@@ -5450,11 +4615,6 @@ packaging = "*"
 [package.extras]
 express = ["numpy"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pluggy"
 version = "1.6.0"
@@ -5471,17 +4631,12 @@ files = [
 dev = ["pre-commit", "tox"]
 testing = ["coverage", "pytest", "pytest-benchmark"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "poetry"
 version = "2.2.1"
 description = "Python dependency management and packaging made easy."
 optional = false
-python-versions = ">=3.9,<4.0"
+python-versions = "<4.0,>=3.9"
 groups = ["main"]
 files = [
     {file = "poetry-2.2.1-py3-none-any.whl", hash = "sha256:f5958b908b96c5824e2acbb8b19cdef8a3351c62142d7ecff2d705396c8ca34c"},
@@ -5512,27 +4667,17 @@ trove-classifiers = ">=2022.5.19"
 virtualenv = ">=20.26.6"
 xattr = {version = ">=1.0.0,<2.0.0", markers = "sys_platform == \"darwin\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "poetry-core"
 version = "2.2.1"
 description = "Poetry PEP 517 Build Backend"
 optional = false
-python-versions = ">=3.9, <4.0"
+python-versions = "<4.0,>=3.9"
 groups = ["main"]
 files = [
     {file = "poetry_core-2.2.1-py3-none-any.whl", hash = "sha256:bdfce710edc10bfcf9ab35041605c480829be4ab23f5bc01202cfe5db8f125ab"},
     {file = "poetry_core-2.2.1.tar.gz", hash = "sha256:97e50d8593c8729d3f49364b428583e044087ee3def1e010c6496db76bd65ac5"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pre-commit"
@@ -5553,11 +4698,6 @@ nodeenv = ">=0.11.1"
 pyyaml = ">=5.1"
 virtualenv = ">=20.10.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "prettytable"
 version = "3.16.0"
@@ -5576,11 +4716,6 @@ wcwidth = "*"
 [package.extras]
 tests = ["pytest", "pytest-cov", "pytest-lazy-fixtures"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "prometheus-client"
 version = "0.23.1"
@@ -5596,11 +4731,6 @@ files = [
 [package.extras]
 twisted = ["twisted"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "prompt-toolkit"
 version = "3.0.52"
@@ -5615,11 +4745,6 @@ files = [
 
 [package.dependencies]
 wcwidth = "*"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "propcache"
@@ -5753,11 +4878,6 @@ files = [
     {file = "propcache-0.4.1.tar.gz", hash = "sha256:f48107a8c637e80362555f37ecf49abe20370e557cc4ab374f04ec4423c97c3d"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "protobuf"
 version = "6.32.1"
@@ -5776,11 +4896,6 @@ files = [
     {file = "protobuf-6.32.1-py3-none-any.whl", hash = "sha256:2601b779fc7d32a866c6b4404f9d42a3f67c5b9f3f15b4db3cccabe06b95c346"},
     {file = "protobuf-6.32.1.tar.gz", hash = "sha256:ee2469e4a021474ab9baafea6cd070e5bf27c7d29433504ddea1a4ee5850f68d"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "psutil"
@@ -5802,13 +4917,8 @@ files = [
 ]
 
 [package.extras]
-dev = ["abi3audit", "black", "check-manifest", "coverage", "packaging", "pylint", "pyperf", "pypinfo", "pyreadline ; os_name == \"nt\"", "pytest", "pytest-cov", "pytest-instafail", "pytest-subtests", "pytest-xdist", "pywin32 ; os_name == \"nt\" and platform_python_implementation != \"PyPy\"", "requests", "rstcheck", "ruff", "setuptools", "sphinx", "sphinx-rtd-theme", "toml-sort", "twine", "virtualenv", "vulture", "wheel", "wheel ; os_name == \"nt\" and platform_python_implementation != \"PyPy\"", "wmi ; os_name == \"nt\" and platform_python_implementation != \"PyPy\""]
+dev = ["abi3audit", "black", "check-manifest", "coverage", "packaging", "pylint", "pyperf", "pypinfo", "pyreadline ; os_name == \"nt\"", "pytest", "pytest-cov", "pytest-instafail", "pytest-subtests", "pytest-xdist", "pywin32 ; os_name == \"nt\" and platform_python_implementation != \"PyPy\"", "requests", "rstcheck", "ruff", "setuptools", "sphinx", "sphinx_rtd_theme", "toml-sort", "twine", "virtualenv", "vulture", "wheel", "wheel ; os_name == \"nt\" and platform_python_implementation != \"PyPy\"", "wmi ; os_name == \"nt\" and platform_python_implementation != \"PyPy\""]
 test = ["pytest", "pytest-instafail", "pytest-subtests", "pytest-xdist", "pywin32 ; os_name == \"nt\" and platform_python_implementation != \"PyPy\"", "setuptools", "wheel ; os_name == \"nt\" and platform_python_implementation != \"PyPy\"", "wmi ; os_name == \"nt\" and platform_python_implementation != \"PyPy\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "ptyprocess"
@@ -5822,11 +4932,6 @@ files = [
     {file = "ptyprocess-0.7.0-py2.py3-none-any.whl", hash = "sha256:4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35"},
     {file = "ptyprocess-0.7.0.tar.gz", hash = "sha256:5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pure-eval"
@@ -5843,11 +4948,6 @@ files = [
 [package.extras]
 tests = ["pytest"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "py-cpuinfo"
 version = "9.0.0"
@@ -5859,11 +4959,6 @@ files = [
     {file = "py-cpuinfo-9.0.0.tar.gz", hash = "sha256:3cdbbf3fac90dc6f118bfd64384f309edeadd902d7c8fb17f02ffa1fc3f49690"},
     {file = "py_cpuinfo-9.0.0-py3-none-any.whl", hash = "sha256:859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyclipper"
@@ -5925,10 +5020,64 @@ files = [
     {file = "pyclipper-1.3.0.post6.tar.gz", hash = "sha256:42bff0102fa7a7f2abdd795a2594654d62b786d0c6cd67b72d469114fdeb608c"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
+[[package]]
+name = "pycocotools"
+version = "2.0.11"
+description = "Official APIs for the MS-COCO dataset"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pycocotools-2.0.11-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:484d33515353186aadba9e2a290d81b107275cdb9565084e31a5568a52a0b120"},
+    {file = "pycocotools-2.0.11-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ca9f120f719ec405ad0c74ccfdb8402b0c37bd5f88ab5b6482a0de2efd5a36f4"},
+    {file = "pycocotools-2.0.11-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:e40a3a898c6e5340b8d70cf7984868b9bff8c3d80187de9a3b661d504d665978"},
+    {file = "pycocotools-2.0.11-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:7cd4cdfd2c676f30838aa0b1047441892fb4f97d70bf3df480bcc7a18a64d7d4"},
+    {file = "pycocotools-2.0.11-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:08c79789fd79e801ae4ecfcfeec32b31e36254e7a2b4019af28c104975d5e730"},
+    {file = "pycocotools-2.0.11-cp310-cp310-win_amd64.whl", hash = "sha256:f78cbb1a32d061fcad4bdba083de70a39a21c1c3d9235a3f77d8f007541ec5ef"},
+    {file = "pycocotools-2.0.11-cp310-cp310-win_arm64.whl", hash = "sha256:e21311ea71f85591680d8992858e2d44a2a156dc3b2bf1c5c901c4a19348177b"},
+    {file = "pycocotools-2.0.11-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:81bdceebb4c64e9265213e2d733808a12f9c18dfb14457323cc6b9af07fa0e61"},
+    {file = "pycocotools-2.0.11-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a1c05f91ccc658dfe01325267209c4b435da1722c93eeb5749fabc1d087b6882"},
+    {file = "pycocotools-2.0.11-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:18ba75ff58cedb33a85ce2c18f1452f1fe20c9dd59925eec5300b2bf6205dbe1"},
+    {file = "pycocotools-2.0.11-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:693417797f0377fd094eb815c0a1e7d1c3c0251b71e3b3779fce3b3cf24793c5"},
+    {file = "pycocotools-2.0.11-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:b6a07071c441d0f5e480a8f287106191582e40289d4e242dfe684e0c8a751088"},
+    {file = "pycocotools-2.0.11-cp311-cp311-win_amd64.whl", hash = "sha256:8e159232adae3aef6b4e2d37b008bff107b26e9ed3b48e70ea6482302834bd34"},
+    {file = "pycocotools-2.0.11-cp311-cp311-win_arm64.whl", hash = "sha256:4fc9889e819452b9c142036e1eabac8a13a8bd552d8beba299a57e0da6bfa1ec"},
+    {file = "pycocotools-2.0.11-cp312-abi3-macosx_10_13_universal2.whl", hash = "sha256:a2e9634bc7cadfb01c88e0b98589aaf0bd12983c7927bde93f19c0103e5441f4"},
+    {file = "pycocotools-2.0.11-cp312-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:7fd4121766cc057133534679c0ec3f9023dbd96e9b31cf95c86a069ebdac2b65"},
+    {file = "pycocotools-2.0.11-cp312-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a82d1c9ed83f75da0b3f244f2a3cf559351a283307bd9b79a4ee2b93ab3231dd"},
+    {file = "pycocotools-2.0.11-cp312-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:89e853425018e2c2920ee0f2112cf7c140a1dcf5f4f49abd9c2da112c3e0f4b3"},
+    {file = "pycocotools-2.0.11-cp312-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:87af87b8d06d5b852a885a319d9362dca3bed9f8bbcc3feb6513acb1f88ea242"},
+    {file = "pycocotools-2.0.11-cp312-abi3-win_amd64.whl", hash = "sha256:ffe806ce535f5996445188f9a35643791dc54beabc61bd81e2b03367356d604f"},
+    {file = "pycocotools-2.0.11-cp312-abi3-win_arm64.whl", hash = "sha256:c230f5e7b14bd19085217b4f40bba81bf14a182b150b8e9fab1c15d504ade343"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-macosx_10_13_universal2.whl", hash = "sha256:fd72b9734e6084b217c1fc3945bfd4ec05bdc75a44e4f0c461a91442bb804973"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f7eb43b79448476b094240450420b7425d06e297880144b8ea6f01e9b4340e43"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:c3546b93b39943347c4f5b0694b5824105cbe2174098a416bcad4acd9c21e957"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:efd1694b2075f2f10c5828f10f6e6c4e44368841fd07dae385c3aa015c8e25f9"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:368244f30eb8d6cae7003aa2c0831fbdf0153664a32859ec7fbceea52bfb6878"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-win_amd64.whl", hash = "sha256:ac8aa17263e6489aa521f9fa91e959dfe0ea3a5519fde2cbf547312cdce7559e"},
+    {file = "pycocotools-2.0.11-cp313-cp313t-win_arm64.whl", hash = "sha256:04480330df5013f6edd94891a0ee8294274185f1b5093d1b0f23d51778f0c0e9"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-macosx_10_13_universal2.whl", hash = "sha256:a6b13baf6bfcf881b6d6ac6e23c776f87a68304cd86e53d1d6b9afa31e363c4e"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:78bae4a9de9d34c4759754a848dfb3306f9ef1c2fcb12164ffbd3d013d008321"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:83d896f4310379849dfcfa7893afb0ff21f4f3cdb04ab3f61b05dd98953dd0ad"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:eebd723503a2eb2c8b285f56ea3be1d9f3875cd7c40d945358a428db94f14015"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:bd7a1e19ef56a828a94bace673372071d334a9232cd32ae3cd48845a04d45c4f"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-win_amd64.whl", hash = "sha256:63026e11a56211058d0e84e8263f74cbccd5e786fac18d83fd221ecb9819fcc7"},
+    {file = "pycocotools-2.0.11-cp314-cp314t-win_arm64.whl", hash = "sha256:8cedb8ccb97ffe9ed2c8c259234fa69f4f1e8665afe3a02caf93f6ef2952c07f"},
+    {file = "pycocotools-2.0.11-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:9dc8b388984c72aa84b1a68933f196ce71ab114c59232d0eab20c97cc1300875"},
+    {file = "pycocotools-2.0.11-cp39-cp39-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a2b018497ec198ffc737dd7e6306a2e69999779ca619a9e12950e4506e410c3e"},
+    {file = "pycocotools-2.0.11-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:e72527fdc00985d29dbe31d17b19cd2d16fbad7b01e974c567b593d5844de710"},
+    {file = "pycocotools-2.0.11-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:d6b88557166794a24acd03f50296f2b95adf3e4206b4b8995e6bdca925c9cb72"},
+    {file = "pycocotools-2.0.11-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:6a2f4f036f5bfdaf8c9625279051e921721fc9d27f92c97a3f3355a07ba38513"},
+    {file = "pycocotools-2.0.11-cp39-cp39-win_amd64.whl", hash = "sha256:eba35d6e06caaea28ce65a4b92e4343ecbb9abf4915f7ef7fca989b80839111c"},
+    {file = "pycocotools-2.0.11-cp39-cp39-win_arm64.whl", hash = "sha256:1192de413a23b4b94199197e8f8dbe1277cc24e6e9847bee6a71be3d8e543963"},
+    {file = "pycocotools-2.0.11.tar.gz", hash = "sha256:34254d76da85576fcaf5c1f3aa9aae16b8cb15418334ba4283b800796bd1993d"},
+]
+
+[package.dependencies]
+numpy = "*"
+
+[package.extras]
+all = ["matplotlib (>=2.1.0)"]
 
 [[package]]
 name = "pycparser"
@@ -5942,11 +5091,6 @@ files = [
     {file = "pycparser-2.23-py3-none-any.whl", hash = "sha256:e5c6e8d3fbad53479cab09ac03729e0a9faf2bee3db8208a550daf5af81a5934"},
     {file = "pycparser-2.23.tar.gz", hash = "sha256:78816d4f24add8f10a06d6f05b4d424ad9e96cfebf68a4ddc99c65c0720d00c2"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pydantic"
@@ -5969,11 +5113,6 @@ typing-inspection = ">=0.4.2"
 [package.extras]
 email = ["email-validator (>=2.0.0)"]
 timezone = ["tzdata ; python_version >= \"3.9\" and platform_system == \"Windows\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pydantic-core"
@@ -6101,11 +5240,6 @@ files = [
 [package.dependencies]
 typing-extensions = ">=4.14.1"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pydantic-settings"
 version = "2.11.0"
@@ -6129,11 +5263,6 @@ azure-key-vault = ["azure-identity (>=1.16.0)", "azure-keyvault-secrets (>=4.8.0
 gcp-secret-manager = ["google-cloud-secret-manager (>=2.23.1)"]
 toml = ["tomli (>=2.0.1)"]
 yaml = ["pyyaml (>=6.0.1)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pygit2"
@@ -6185,11 +5314,6 @@ files = [
 [package.dependencies]
 cffi = ">=1.17.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pygments"
 version = "2.19.2"
@@ -6205,11 +5329,6 @@ files = [
 [package.extras]
 windows-terminal = ["colorama (>=0.4.6)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pygtrie"
 version = "2.5.0"
@@ -6221,11 +5340,6 @@ files = [
     {file = "pygtrie-2.5.0-py3-none-any.whl", hash = "sha256:8795cda8105493d5ae159a5bef313ff13156c5d4d72feddefacaad59f8c8ce16"},
     {file = "pygtrie-2.5.0.tar.gz", hash = "sha256:203514ad826eb403dab1d2e2ddd034e0d1534bbe4dbe0213bb0593f66beba4e2"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyparsing"
@@ -6242,17 +5356,12 @@ files = [
 [package.extras]
 diagrams = ["jinja2", "railroad-diagrams"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pypdfium2"
 version = "4.30.0"
 description = "Python bindings to PDFium"
 optional = false
-python-versions = ">= 3.6"
+python-versions = ">=3.6"
 groups = ["main"]
 files = [
     {file = "pypdfium2-4.30.0-py3-none-macosx_10_13_x86_64.whl", hash = "sha256:b33ceded0b6ff5b2b93bc1fe0ad4b71aa6b7e7bd5875f1ca0cdfb6ba6ac01aab"},
@@ -6270,11 +5379,6 @@ files = [
     {file = "pypdfium2-4.30.0.tar.gz", hash = "sha256:48b5b7e5566665bc1015b9d69c1ebabe21f6aee468b509531c3c8318eeee2e16"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pyperclip"
 version = "1.11.0"
@@ -6287,11 +5391,6 @@ files = [
     {file = "pyperclip-1.11.0.tar.gz", hash = "sha256:244035963e4428530d9e3a6101a1ef97209c6825edab1567beac148ccc1db1b6"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pyproject-hooks"
 version = "1.2.0"
@@ -6303,11 +5402,6 @@ files = [
     {file = "pyproject_hooks-1.2.0-py3-none-any.whl", hash = "sha256:9e5c6bfa8dcc30091c74b0cf803c81fdd29d94f01992a7707bc97babb1141913"},
     {file = "pyproject_hooks-1.2.0.tar.gz", hash = "sha256:1e859bd5c40fae9448642dd871adf459e5e2084186e8d2c2a79a824c970da1f8"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyreadline3"
@@ -6325,11 +5419,6 @@ files = [
 [package.extras]
 dev = ["build", "flake8", "mypy", "pytest", "twine"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pysocks"
 version = "1.7.1"
@@ -6342,11 +5431,6 @@ files = [
     {file = "PySocks-1.7.1-py3-none-any.whl", hash = "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5"},
     {file = "PySocks-1.7.1.tar.gz", hash = "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pytest"
@@ -6371,11 +5455,6 @@ tomli = {version = ">=1", markers = "python_version < \"3.11\""}
 [package.extras]
 dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
@@ -6390,11 +5469,6 @@ files = [
 
 [package.dependencies]
 six = ">=1.5"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "python-doctr"
@@ -6435,11 +5509,6 @@ tf = ["tensorflow (>=2.15.0,<3.0.0)", "tf-keras (>=2.15.0,<3.0.0)", "tf2onnx (>=
 torch = ["onnx (>=1.12.0,<3.0.0)", "torch (>=2.0.0,<3.0.0)", "torchvision (>=0.15.0)"]
 viz = ["matplotlib (>=3.1.0)", "mplcursors (>=0.3)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "python-dotenv"
 version = "1.1.1"
@@ -6454,11 +5523,6 @@ files = [
 
 [package.extras]
 cli = ["click (>=5.0)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "python-json-logger"
@@ -6475,11 +5539,6 @@ files = [
 [package.extras]
 dev = ["backports.zoneinfo ; python_version < \"3.9\"", "black", "build", "freezegun", "mdx_truly_sane_lists", "mike", "mkdocs", "mkdocs-awesome-pages-plugin", "mkdocs-gen-files", "mkdocs-literate-nav", "mkdocs-material (>=8.5)", "mkdocstrings[python]", "msgspec ; implementation_name != \"pypy\"", "mypy", "orjson ; implementation_name != \"pypy\"", "pylint", "pytest", "tzdata", "validate-pyproject[all]"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "python-levenshtein"
 version = "0.27.1"
@@ -6495,11 +5554,6 @@ files = [
 [package.dependencies]
 Levenshtein = "0.27.1"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "python-multipart"
 version = "0.0.20"
@@ -6511,11 +5565,6 @@ files = [
     {file = "python_multipart-0.0.20-py3-none-any.whl", hash = "sha256:8a62d3a8335e06589fe01f2a3e178cdcc632f3fbe0d492ad9ee0ec35aab1f104"},
     {file = "python_multipart-0.0.20.tar.gz", hash = "sha256:8dd0cab45b8e23064ae09147625994d090fa46f5b0d1e13af944c331a7fa9d13"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pytorch-lightning"
@@ -6548,11 +5597,6 @@ extra = ["bitsandbytes (>=0.45.2) ; platform_system != \"Darwin\"", "hydra-core 
 strategies = ["deepspeed (>=0.14.1,<=0.15.0) ; platform_system != \"Windows\" and platform_system != \"Darwin\""]
 test = ["cloudpickle (>=1.3)", "coverage (==7.10.6)", "fastapi", "numpy (>1.20.0)", "onnx (>1.12.0)", "onnxruntime (>=1.12.0)", "onnxscript (>=0.1.0)", "pandas (>2.0)", "psutil (<7.0.1)", "pytest (==8.4.1)", "pytest-cov (==6.2.1)", "pytest-random-order (==1.2.0)", "pytest-rerunfailures (==16.0)", "pytest-timeout (==2.4.0)", "scikit-learn (>0.22.1)", "tensorboard (>=2.11)", "uvicorn"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pytz"
 version = "2025.2"
@@ -6564,11 +5608,6 @@ files = [
     {file = "pytz-2025.2-py2.py3-none-any.whl", hash = "sha256:5ddf76296dd8c44c26eb8f4b6f35488f3ccbf6fbbd7adee0b7262d43f0ec2f00"},
     {file = "pytz-2025.2.tar.gz", hash = "sha256:360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyviz-comms"
@@ -6589,11 +5628,6 @@ param = "*"
 all = ["flake8", "jupyterlab (>=4.0,<5.0)", "keyring", "pytest", "rfc3986", "setuptools (>=40.8.0)", "twine"]
 build = ["jupyterlab (>=4.0,<5.0)", "keyring", "rfc3986", "setuptools (>=40.8.0)", "twine"]
 tests = ["flake8", "pytest"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pywin32"
@@ -6626,11 +5660,6 @@ files = [
     {file = "pywin32-311-cp39-cp39-win_arm64.whl", hash = "sha256:62ea666235135fee79bb154e695f3ff67370afefd71bd7fea7512fc70ef31e3d"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "pywin32-ctypes"
 version = "0.2.3"
@@ -6643,11 +5672,6 @@ files = [
     {file = "pywin32-ctypes-0.2.3.tar.gz", hash = "sha256:d162dc04946d704503b2edc4d55f3dba5c1d539ead017afa00142c38b9885755"},
     {file = "pywin32_ctypes-0.2.3-py3-none-any.whl", hash = "sha256:8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pywinpty"
@@ -6666,11 +5690,6 @@ files = [
     {file = "pywinpty-3.0.0-cp39-cp39-win_amd64.whl", hash = "sha256:007735316170ec1b6e773deadab5fe9ec4074dfdc06f27513fe87b8cfe45237d"},
     {file = "pywinpty-3.0.0.tar.gz", hash = "sha256:68f70e68a9f0766ffdea3fc500351cb7b9b012bcb8239a411f7ff0fc8f86dcb1"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyyaml"
@@ -6754,11 +5773,6 @@ files = [
     {file = "pyyaml-6.0.3-cp39-cp39-win_amd64.whl", hash = "sha256:2e71d11abed7344e42a8849600193d15b6def118602c4c176f748e4583246007"},
     {file = "pyyaml-6.0.3.tar.gz", hash = "sha256:d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyzmq"
@@ -6864,11 +5878,6 @@ files = [
 
 [package.dependencies]
 cffi = {version = "*", markers = "implementation_name == \"pypy\""}
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "pyzstd"
@@ -6977,11 +5986,6 @@ files = [
 [package.dependencies]
 typing-extensions = {version = ">=4.13.2", markers = "python_version < \"3.13\""}
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "rapidfuzz"
 version = "3.14.1"
@@ -7087,11 +6091,6 @@ files = [
 [package.extras]
 all = ["numpy"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "referencing"
 version = "0.36.2"
@@ -7108,11 +6107,6 @@ files = [
 attrs = ">=22.2.0"
 rpds-py = ">=0.7.0"
 typing-extensions = {version = ">=4.4.0", markers = "python_version < \"3.13\""}
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "requests"
@@ -7136,11 +6130,6 @@ urllib3 = ">=1.21.1,<3"
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "requests-toolbelt"
 version = "1.0.0"
@@ -7155,11 +6144,6 @@ files = [
 
 [package.dependencies]
 requests = ">=2.0.1,<3.0.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "rfc3339-validator"
@@ -7176,11 +6160,6 @@ files = [
 [package.dependencies]
 six = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "rfc3986-validator"
 version = "0.1.1"
@@ -7192,11 +6171,6 @@ files = [
     {file = "rfc3986_validator-0.1.1-py2.py3-none-any.whl", hash = "sha256:2f235c432ef459970b4306369336b9d5dbdda31b510ca1e327636e01f528bfa9"},
     {file = "rfc3986_validator-0.1.1.tar.gz", hash = "sha256:3d44bde7921b3b9ec3ae4e3adca370438eccebc676456449b145d533b240d055"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "rfc3987-syntax"
@@ -7215,11 +6189,6 @@ lark = ">=1.2.2"
 
 [package.extras]
 testing = ["pytest (>=8.3.5)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "rich"
@@ -7241,11 +6210,6 @@ typing-extensions = {version = ">=4.0.0,<5.0", markers = "python_version < \"3.1
 [package.extras]
 jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "rich-argparse"
 version = "1.7.1"
@@ -7261,11 +6225,6 @@ files = [
 [package.dependencies]
 rich = ">=11.0.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "rootutils"
 version = "1.0.7"
@@ -7280,11 +6239,6 @@ files = [
 
 [package.dependencies]
 python-dotenv = ">=0.20.0"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "rpds-py"
@@ -7451,11 +6405,6 @@ files = [
     {file = "rpds_py-0.27.1.tar.gz", hash = "sha256:26a1c73171d10b7acccbded82bf6a586ab8203601e565badc74bbbf8bc5a10f8"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "ruamel-yaml"
 version = "0.18.15"
@@ -7474,11 +6423,6 @@ files = [
 [package.extras]
 docs = ["mercurial (>5.7)", "ryd"]
 jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "ruamel-yaml-clib"
@@ -7547,17 +6491,12 @@ files = [
     {file = "ruamel_yaml_clib-0.2.14-cp314-cp314-win_amd64.whl", hash = "sha256:13997d7d354a9890ea1ec5937a219817464e5cc344805b37671562a401ca3008"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "s3transfer"
 version = "0.14.0"
 description = "An Amazon S3 Transfer Manager"
 optional = false
-python-versions = ">= 3.9"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
     {file = "s3transfer-0.14.0-py3-none-any.whl", hash = "sha256:ea3b790c7077558ed1f02a3072fb3cb992bbbd253392f4b6e9e8976941c7d456"},
@@ -7569,11 +6508,6 @@ botocore = ">=1.37.4,<2.0a.0"
 
 [package.extras]
 crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "safetensors"
@@ -7613,11 +6547,6 @@ tensorflow = ["safetensors[numpy]", "tensorflow (>=2.11.0)"]
 testing = ["h5py (>=3.7.0)", "huggingface-hub (>=0.12.1)", "hypothesis (>=6.70.2)", "pytest (>=7.2.0)", "pytest-benchmark (>=4.0.0)", "safetensors[numpy]", "setuptools-rust (>=1.5.2)"]
 testingfree = ["huggingface-hub (>=0.12.1)", "hypothesis (>=6.70.2)", "pytest (>=7.2.0)", "pytest-benchmark (>=4.0.0)", "safetensors[numpy]", "setuptools-rust (>=1.5.2)"]
 torch = ["safetensors[numpy]", "torch (>=1.10)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "scikit-image"
@@ -7662,11 +6591,6 @@ developer = ["ipython", "pre-commit", "tomli ; python_version < \"3.11\""]
 docs = ["PyWavelets (>=1.1.1)", "dask[array] (>=2022.9.2)", "ipykernel", "ipywidgets", "kaleido", "matplotlib (>=3.6)", "myst-parser", "numpydoc (>=1.7)", "pandas (>=1.5)", "plotly (>=5.10)", "pooch (>=1.6)", "pydata-sphinx-theme (>=0.15.2)", "pytest-doctestplus", "pytest-runner", "scikit-learn (>=1.1)", "seaborn (>=0.11)", "sphinx (>=7.3)", "sphinx-copybutton", "sphinx-gallery (>=0.14)", "sphinx_design (>=0.5)", "tifffile (>=2022.8.12)"]
 optional = ["PyWavelets (>=1.1.1)", "SimpleITK", "astropy (>=5.0)", "cloudpickle (>=0.2.1)", "dask[array] (>=2021.1.0)", "matplotlib (>=3.6)", "pooch (>=1.6.0)", "pyamg", "scikit-learn (>=1.1)"]
 test = ["asv", "numpydoc (>=1.7)", "pooch (>=1.6.0)", "pytest (>=7.0)", "pytest-cov (>=2.11.0)", "pytest-doctestplus", "pytest-faulthandler", "pytest-localserver"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "scipy"
@@ -7732,11 +6656,6 @@ dev = ["cython-lint (>=0.12.2)", "doit (>=0.36.0)", "mypy (==1.10.0)", "pycodest
 doc = ["intersphinx_registry", "jupyterlite-pyodide-kernel", "jupyterlite-sphinx (>=0.19.1)", "jupytext", "matplotlib (>=3.5)", "myst-nb", "numpydoc", "pooch", "pydata-sphinx-theme (>=0.15.2)", "sphinx (>=5.0.0,<8.0.0)", "sphinx-copybutton", "sphinx-design (>=0.4.0)"]
 test = ["Cython", "array-api-strict (>=2.0,<2.1.1)", "asv", "gmpy2", "hypothesis (>=6.30)", "meson", "mpmath", "ninja ; sys_platform != \"emscripten\"", "pooch", "pytest", "pytest-cov", "pytest-timeout", "pytest-xdist", "scikit-umfpack", "threadpoolctl"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "scmrepo"
 version = "3.5.2"
@@ -7765,11 +6684,6 @@ tqdm = "*"
 dev = ["mypy (==1.17.1)", "scmrepo[tests]", "types-certifi", "types-mock", "types-paramiko", "types-tqdm"]
 tests = ["aioresponses (>=0.7,<0.8)", "paramiko (>=3.4.0,<5)", "proxy.py", "pytest (>=7,<9)", "pytest-asyncio (>=0.23.2,<2)", "pytest-cov (>=4.1.0)", "pytest-docker (>=1,<4)", "pytest-mock", "pytest-sugar", "pytest-test-utils (>=0.1.0,<0.2)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "secretstorage"
 version = "3.4.0"
@@ -7786,11 +6700,6 @@ files = [
 [package.dependencies]
 cryptography = ">=2.0"
 jeepney = ">=0.6"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "selenium"
@@ -7812,11 +6721,6 @@ typing_extensions = ">=4.9,<5.0"
 urllib3 = {version = ">=1.26,<3", extras = ["socks"]}
 websocket-client = ">=1.8,<2.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "semver"
 version = "3.0.4"
@@ -7828,11 +6732,6 @@ files = [
     {file = "semver-3.0.4-py3-none-any.whl", hash = "sha256:9c824d87ba7f7ab4a1890799cec8596f15c1241cb473404ea1cb0c55e4b04746"},
     {file = "semver-3.0.4.tar.gz", hash = "sha256:afc7d8c584a5ed0a11033af086e8af226a9c0b206f313e0301f8dd7b6b589602"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "send2trash"
@@ -7850,11 +6749,6 @@ files = [
 nativelib = ["pyobjc-framework-Cocoa ; sys_platform == \"darwin\"", "pywin32 ; sys_platform == \"win32\""]
 objc = ["pyobjc-framework-Cocoa ; sys_platform == \"darwin\""]
 win32 = ["pywin32 ; sys_platform == \"win32\""]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "setuptools"
@@ -7876,11 +6770,6 @@ doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-
 enabler = ["pytest-enabler (>=2.2)"]
 test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21) ; python_version >= \"3.9\" and sys_platform != \"cygwin\"", "jaraco.envs (>=2.2)", "jaraco.path (>=3.7.2)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf ; sys_platform != \"cygwin\"", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
 type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.develop (>=7.21) ; sys_platform != \"cygwin\"", "mypy (==1.14.*)", "pytest-mypy"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "shapely"
@@ -7956,11 +6845,6 @@ numpy = ">=1.21"
 docs = ["matplotlib", "numpydoc (==1.1.*)", "sphinx", "sphinx-book-theme", "sphinx-remove-toctrees"]
 test = ["pytest", "pytest-cov", "scipy-doctest"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "shellingham"
 version = "1.5.4"
@@ -7973,11 +6857,6 @@ files = [
     {file = "shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "shortuuid"
 version = "1.0.13"
@@ -7989,11 +6868,6 @@ files = [
     {file = "shortuuid-1.0.13-py3-none-any.whl", hash = "sha256:a482a497300b49b4953e15108a7913244e1bb0d41f9d332f5e9925dba33a3c5a"},
     {file = "shortuuid-1.0.13.tar.gz", hash = "sha256:3bb9cf07f606260584b1df46399c0b87dd84773e7b25912b7e391e30797c5e72"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "shtab"
@@ -8009,11 +6883,6 @@ files = [
 
 [package.extras]
 dev = ["pytest (>=6)", "pytest-cov", "pytest-timeout"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "simsimd"
@@ -8123,27 +6992,17 @@ files = [
     {file = "simsimd-6.5.3.tar.gz", hash = "sha256:5ff341e84fe1c46e7268ee9e31f885936b29c38ce59f423433aef5f4bb5bfd18"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 groups = ["main"]
 files = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
     {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "smmap"
@@ -8157,11 +7016,6 @@ files = [
     {file = "smmap-5.0.2.tar.gz", hash = "sha256:26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "sniffio"
 version = "1.3.1"
@@ -8173,11 +7027,6 @@ files = [
     {file = "sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"},
     {file = "sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "sortedcontainers"
@@ -8191,11 +7040,6 @@ files = [
     {file = "sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "soupsieve"
 version = "2.8"
@@ -8207,11 +7051,6 @@ files = [
     {file = "soupsieve-2.8-py3-none-any.whl", hash = "sha256:0cc76456a30e20f5d7f2e14a98a4ae2ee4e5abdc7c5ea0aafe795f344bc7984c"},
     {file = "soupsieve-2.8.tar.gz", hash = "sha256:e2dd4a40a628cb5f28f6d4b0db8800b8f581b65bb380b97de22ba5ca8d72572f"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "sqlalchemy"
@@ -8309,11 +7148,6 @@ postgresql-psycopgbinary = ["psycopg[binary] (>=3.0.7)"]
 pymysql = ["pymysql"]
 sqlcipher = ["sqlcipher3_binary"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "sqltrie"
 version = "0.11.2"
@@ -8335,11 +7169,6 @@ pygtrie = "*"
 dev = ["sqltrie[tests]"]
 tests = ["mypy (==0.971)", "pyinstaller", "pytest (==7.2.0)", "pytest-benchmark", "pytest-cov (==3.0.0)", "pytest-mock (==3.8.2)", "pytest-sugar (==0.9.5)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "stack-data"
 version = "0.6.3"
@@ -8360,11 +7189,6 @@ pure-eval = "*"
 [package.extras]
 tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "starlette"
 version = "0.46.2"
@@ -8383,11 +7207,6 @@ anyio = ">=3.6.2,<5"
 [package.extras]
 full = ["httpx (>=0.27.0,<0.29.0)", "itsdangerous", "jinja2", "python-multipart (>=0.0.18)", "pyyaml"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "stevedore"
 version = "5.5.0"
@@ -8399,11 +7218,6 @@ files = [
     {file = "stevedore-5.5.0-py3-none-any.whl", hash = "sha256:18363d4d268181e8e8452e71a38cd77630f345b2ef6b4a8d5614dac5ee0d18cf"},
     {file = "stevedore-5.5.0.tar.gz", hash = "sha256:d31496a4f4df9825e1a1e4f1f74d19abb0154aff311c3b376fcc89dae8fccd73"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "stringzilla"
@@ -8511,11 +7325,6 @@ files = [
     {file = "stringzilla-4.2.0.tar.gz", hash = "sha256:09c256e005f2a784ee3a1557aea72a74582c266a81dc01b47259225e1349b32b"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "sympy"
 version = "1.13.1"
@@ -8534,11 +7343,6 @@ mpmath = ">=1.1.0,<1.4"
 [package.extras]
 dev = ["hypothesis (>=6.70.0)", "pytest (>=7.1.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "tabulate"
 version = "0.9.0"
@@ -8553,11 +7357,6 @@ files = [
 
 [package.extras]
 widechars = ["wcwidth"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "tensorboard"
@@ -8582,11 +7381,6 @@ setuptools = ">=41.0.0"
 tensorboard-data-server = ">=0.7.0,<0.8.0"
 werkzeug = ">=1.0.1"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "tensorboard-data-server"
 version = "0.7.2"
@@ -8599,11 +7393,6 @@ files = [
     {file = "tensorboard_data_server-0.7.2-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:9fe5d24221b29625dbc7328b0436ca7fc1c23de4acf4d272f1180856e32f9f60"},
     {file = "tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl", hash = "sha256:ef687163c24185ae9754ed5650eb5bc4d84ff257aabdc33f0cc6f74d8ba54530"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "terminado"
@@ -8626,11 +7415,6 @@ tornado = ">=6.1.0"
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["pre-commit", "pytest (>=7.0)", "pytest-timeout"]
 typing = ["mypy (>=1.6,<2.0)", "traitlets (>=5.11.1)"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "tifffile"
@@ -8655,11 +7439,6 @@ test = ["cmapfile", "czifile", "dask", "defusedxml", "fsspec", "imagecodecs", "l
 xml = ["defusedxml", "lxml"]
 zarr = ["fsspec", "zarr (<3)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "timm"
 version = "1.0.20"
@@ -8679,11 +7458,6 @@ safetensors = "*"
 torch = "*"
 torchvision = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "tinycss2"
 version = "1.4.0"
@@ -8702,11 +7476,6 @@ webencodings = ">=0.4"
 [package.extras]
 doc = ["sphinx", "sphinx_rtd_theme"]
 test = ["pytest", "ruff"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "tomli"
@@ -8750,11 +7519,6 @@ files = [
     {file = "tomli-2.2.1.tar.gz", hash = "sha256:cd45e1dc79c835ce60f7404ec8119f2eb06d38b1deba146f07ced3bbc44505ff"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "tomlkit"
 version = "0.13.3"
@@ -8766,11 +7530,6 @@ files = [
     {file = "tomlkit-0.13.3-py3-none-any.whl", hash = "sha256:c89c649d79ee40629a9fda55f8ace8c6a1b42deb912b2a8fd8d942ddadb606b0"},
     {file = "tomlkit-0.13.3.tar.gz", hash = "sha256:430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "torch"
@@ -8865,11 +7624,6 @@ typing = ["mypy (==1.17.1)", "torch (==2.8.0)", "types-PyYAML", "types-emoji", "
 video = ["einops (>=0.7.0)", "vmaf-torch (>=1.1.0)"]
 visual = ["SciencePlots (>=2.0.0)", "matplotlib (>=3.6.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "torchvision"
 version = "0.21.0"
@@ -8924,7 +7678,7 @@ name = "tornado"
 version = "6.5.2"
 description = "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed."
 optional = false
-python-versions = ">= 3.9"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
     {file = "tornado-6.5.2-cp39-abi3-macosx_10_9_universal2.whl", hash = "sha256:2436822940d37cde62771cff8774f4f00b3c8024fe482e16ca8387b8a2724db6"},
@@ -8940,11 +7694,6 @@ files = [
     {file = "tornado-6.5.2-cp39-abi3-win_arm64.whl", hash = "sha256:d6c33dc3672e3a1f3618eb63b7ef4683a7688e7b9e6e8f0d9aa5726360a004af"},
     {file = "tornado-6.5.2.tar.gz", hash = "sha256:ab53c8f9a0fa351e2c0741284e06c7a45da86afb544133201c5cc8578eb076a0"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "tqdm"
@@ -8968,11 +7717,6 @@ notebook = ["ipywidgets (>=6)"]
 slack = ["slack-sdk"]
 telegram = ["requests"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "traitlets"
 version = "5.14.3"
@@ -8988,11 +7732,6 @@ files = [
 [package.extras]
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["argcomplete (>=3.0.3)", "mypy (>=1.7.0)", "pre-commit", "pytest (>=7.0,<8.2)", "pytest-mock", "pytest-mypy-testing"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "trio"
@@ -9015,11 +7754,6 @@ outcome = "*"
 sniffio = ">=1.3.0"
 sortedcontainers = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "trio-websocket"
 version = "0.12.2"
@@ -9037,11 +7771,6 @@ exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
 outcome = ">=1.2.0"
 trio = ">=0.11"
 wsproto = ">=0.14"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "triton"
@@ -9064,11 +7793,6 @@ build = ["cmake (>=3.20)", "lit"]
 tests = ["autopep8", "flake8", "isort", "llnl-hatchet", "numpy", "pytest", "scipy (>=1.7.1)"]
 tutorials = ["matplotlib", "pandas", "tabulate"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "trove-classifiers"
 version = "2025.9.11.17"
@@ -9080,11 +7804,6 @@ files = [
     {file = "trove_classifiers-2025.9.11.17-py3-none-any.whl", hash = "sha256:5d392f2d244deb1866556457d6f3516792124a23d1c3a463a2e8668a5d1c15dd"},
     {file = "trove_classifiers-2025.9.11.17.tar.gz", hash = "sha256:931ca9841a5e9c9408bc2ae67b50d28acf85bef56219b56860876dd1f2d024dd"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "typer"
@@ -9104,11 +7823,6 @@ rich = ">=10.11.0"
 shellingham = ">=1.3.0"
 typing-extensions = ">=3.7.4.3"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "types-python-dateutil"
 version = "2.9.0.20250822"
@@ -9121,11 +7835,6 @@ files = [
     {file = "types_python_dateutil-2.9.0.20250822.tar.gz", hash = "sha256:84c92c34bd8e68b117bff742bc00b692a1e8531262d4507b33afcc9f7716cd53"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "typing-extensions"
 version = "4.15.0"
@@ -9137,11 +7846,6 @@ files = [
     {file = "typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"},
     {file = "typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "typing-inspection"
@@ -9158,11 +7862,6 @@ files = [
 [package.dependencies]
 typing-extensions = ">=4.12.0"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "tzdata"
 version = "2025.2"
@@ -9174,11 +7873,6 @@ files = [
     {file = "tzdata-2025.2-py2.py3-none-any.whl", hash = "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8"},
     {file = "tzdata-2025.2.tar.gz", hash = "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "ultralytics"
@@ -9218,11 +7912,6 @@ extra = ["albumentations (>=1.4.6)", "hub-sdk (>=0.0.12)", "ipython", "pycocotoo
 logging = ["mlflow", "tensorboard", "wandb"]
 solutions = ["flask", "shapely (>=2.0.0)", "streamlit (>=1.29.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "ultralytics-thop"
 version = "2.0.17"
@@ -9239,11 +7928,6 @@ files = [
 numpy = "*"
 torch = "*"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "uri-template"
 version = "1.3.0"
@@ -9258,11 +7942,6 @@ files = [
 
 [package.extras]
 dev = ["flake8", "flake8-annotations", "flake8-bandit", "flake8-bugbear", "flake8-commas", "flake8-comprehensions", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-modern-annotations", "flake8-noqa", "flake8-pyproject", "flake8-requirements", "flake8-typechecking-import", "flake8-use-fstring", "mypy", "pep8-naming", "types-PyYAML"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "urllib3"
@@ -9285,11 +7964,6 @@ h2 = ["h2 (>=4,<5)"]
 socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "vine"
 version = "5.1.0"
@@ -9301,11 +7975,6 @@ files = [
     {file = "vine-5.1.0-py3-none-any.whl", hash = "sha256:40fdf3c48b2cfe1c38a49e9ae2da6fda88e4794c810050a728bd7413811fb1dc"},
     {file = "vine-5.1.0.tar.gz", hash = "sha256:8b62e981d35c41049211cf62a0a1242d8c1ee9bd15bb196ce38aefd6799e61e0"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "virtualenv"
@@ -9329,11 +7998,6 @@ typing-extensions = {version = ">=4.13.2", markers = "python_version < \"3.11\""
 docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.2,!=7.3)", "sphinx-argparse (>=0.4)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=23.6)"]
 test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest (>=7.4)", "pytest-env (>=0.8.2)", "pytest-freezer (>=0.4.8) ; platform_python_implementation == \"PyPy\" or platform_python_implementation == \"GraalVM\" or platform_python_implementation == \"CPython\" and sys_platform == \"win32\" and python_version >= \"3.13\"", "pytest-mock (>=3.11.1)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)", "setuptools (>=68)", "time-machine (>=2.10) ; platform_python_implementation == \"CPython\""]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "wcwidth"
 version = "0.2.14"
@@ -9345,11 +8009,6 @@ files = [
     {file = "wcwidth-0.2.14-py2.py3-none-any.whl", hash = "sha256:a7bb560c8aee30f9957e5f9895805edd20602f2d7f720186dfd906e82b4982e1"},
     {file = "wcwidth-0.2.14.tar.gz", hash = "sha256:4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "webcolors"
@@ -9363,11 +8022,6 @@ files = [
     {file = "webcolors-24.11.1.tar.gz", hash = "sha256:ecb3d768f32202af770477b8b65f318fa4f566c22948673a977b00d589dd80f6"},
 ]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "webencodings"
 version = "0.5.1"
@@ -9379,11 +8033,6 @@ files = [
     {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
     {file = "webencodings-0.5.1.tar.gz", hash = "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "websocket-client"
@@ -9401,11 +8050,6 @@ files = [
 docs = ["Sphinx (>=6.0)", "myst-parser (>=2.0.0)", "sphinx-rtd-theme (>=1.1.0)"]
 optional = ["python-socks", "wsaccel"]
 test = ["websockets"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "werkzeug"
@@ -9425,11 +8069,6 @@ MarkupSafe = ">=2.1.1"
 [package.extras]
 watchdog = ["watchdog (>=2.3)"]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "widgetsnbextension"
 version = "4.0.14"
@@ -9441,11 +8080,6 @@ files = [
     {file = "widgetsnbextension-4.0.14-py3-none-any.whl", hash = "sha256:4875a9eaf72fbf5079dc372a51a9f268fc38d46f767cbf85c43a36da5cb9b575"},
     {file = "widgetsnbextension-4.0.14.tar.gz", hash = "sha256:a3629b04e3edb893212df862038c7232f62973373869db5084aed739b437b5af"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "wsproto"
@@ -9461,11 +8095,6 @@ files = [
 
 [package.dependencies]
 h11 = ">=0.9.0,<1"
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "xattr"
@@ -9553,11 +8182,6 @@ cffi = ">=1.16.0"
 
 [package.extras]
 test = ["pytest"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "yarl"
@@ -9704,11 +8328,6 @@ idna = ">=2.0"
 multidict = ">=4.0"
 propcache = ">=0.2.1"
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [[package]]
 name = "zipp"
 version = "3.23.0"
@@ -9729,11 +8348,6 @@ doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linke
 enabler = ["pytest-enabler (>=2.2)"]
 test = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more_itertools", "pytest (>=6,!=8.1.*)", "pytest-ignore-flaky"]
 type = ["pytest-mypy"]
-
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
 
 [[package]]
 name = "zstandard"
@@ -9847,12 +8461,7 @@ files = [
 [package.extras]
 cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and python_version < \"3.14\"", "cffi (>=2.0.0b) ; platform_python_implementation != \"PyPy\" and python_version >= \"3.14\""]
 
-[package.source]
-type = "legacy"
-url = "https://mirrors.aliyun.com/pytorch-wheels/cu118"
-reference = "aliyun"
-
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10.16,<3.14.0"
-content-hash = "07bd8ad7ba666c4d9072335a276e580ad23af327d52d8ca6aeff59558e8bd05f"
+content-hash = "37b7166e7eb208bbbfa9361a818bc63d8bfce1224f8e0671ef7309916326f4a7"

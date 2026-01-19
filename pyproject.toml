@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10.16,<3.14.0"
 dependencies = [
     "numpy (>=1.26)",
-    "pycocotools (==2.0.11)",
+    "pycocotools (>=2.0.0,<2.1.0)",
     "hydra-colorlog (==1.2.0)",
     "hydra-core (==1.3.2)",
     "hydra-optuna-sweeper (==1.2.0)",
@@ -129,7 +129,7 @@ build-backend = "poetry.core.masonry.api"
 [[tool.poetry.source]]
 name = "aliyun"
 url = "https://mirrors.aliyun.com/pytorch-wheels/cu118/"
-priority = "primary"
+priority = "supplemental"
 
 [tool.poetry.dependencies]
 torch = {source = "aliyun"}
