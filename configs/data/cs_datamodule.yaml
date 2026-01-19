@@ -1,0 +1,9 @@
+_target_: src.data.cs_datamodule.CSDataModule
+
+batch_size: 16
+num_workers: 4
+pin_memory: false
+persistent_workers: true
+input_shape: 512
+
+augmentations: default

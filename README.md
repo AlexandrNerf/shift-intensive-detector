@@ -56,6 +56,7 @@
 conda create -n det-env python=3.10.16
 conda activate det-env
 
+pip install 
 pip install poetry==2.2.1
 poetry install
 ```
