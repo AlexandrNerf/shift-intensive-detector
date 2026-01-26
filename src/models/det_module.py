@@ -23,8 +23,11 @@ class BaseDetectionModel(LightningModule):
 
         self.save_hyperparameters(logger=False)
 
-        # Подгружаем предобученную модель Faster R-CNN с Resnet50
-        self.model = torchvision.models.detection.fasterrcnn_mobilenet_v3_large_fpn(pretrained=self.hparams.pretrained)
+        # Подгружаем предобученную модель Faster R-CNN с MobileNetV3
+        self.model = torchvision.models.detection.fasterrcnn_mobilenet_v3_large_fpn(
+            num_classes=2,
+            pretrained=self.hparams.pretrained
+        )
 
         # Если нужно, можно настроить кастомную модель (например, на основе других слоев)
         # if self.hparams.net == 'your_model':
@@ -42,7 +45,6 @@ class BaseDetectionModel(LightningModule):
         """Проход через модель."""
         return self.model(x)
 
-    
     def model_step(self, batch):
         """Шаг для вычисления потерь."""
         images, targets = batch
