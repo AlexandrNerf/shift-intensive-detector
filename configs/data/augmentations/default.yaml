@@ -1,0 +1,7 @@
+- _target_: torchvision.transforms.v2.RandomGrayscale
+  p: 0.5
+- _target_: torchvision.transforms.v2.RandomPhotometricDistort
+  p: 0.1
+- _target_: torchvision.transforms.v2.RandomPerspective
+  distortion_scale: 0.2
+  p: 0.3
