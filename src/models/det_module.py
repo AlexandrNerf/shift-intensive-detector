@@ -8,6 +8,7 @@ from torchmetrics import MaxMetric, MeanMetric
 from torchmetrics.detection.mean_ap import MeanAveragePrecision
 from torchmetrics.detection.giou import GeneralizedIntersectionOverUnion
 from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
+import torchvision.utils as vutils
 
 
 class BaseDetectionModel(LightningModule):
@@ -25,8 +26,16 @@ class BaseDetectionModel(LightningModule):
 
         # Подгружаем предобученную модель Faster R-CNN с MobileNetV3
         self.model = torchvision.models.detection.fasterrcnn_mobilenet_v3_large_fpn(
-            num_classes=2,
             pretrained=self.hparams.pretrained
+        )
+
+        # количество входных фич у классификатора
+        in_features = self.model.roi_heads.box_predictor.cls_score.in_features
+
+        # заменяем head под свои классы
+        self.model.roi_heads.box_predictor = torchvision.models.detection.faster_rcnn.FastRCNNPredictor(
+            in_features,
+            num_classes=3 # Модели torchvision учитывают фон как класс!
         )
 
         # Если нужно, можно настроить кастомную модель (например, на основе других слоев)
@@ -34,7 +43,6 @@ class BaseDetectionModel(LightningModule):
         #   self.model = Model(*args)    
 
         # Метрики (в классе TorchLocalizationConfussion мы можем настроить порог подсчёта iou)
-        #self.val_metric = TorchLocalizationConfusion(iou_thresh=0.5)
         self.map_metric = MeanAveragePrecision(box_format="xyxy",
             iou_type="bbox",
             iou_thresholds=[0.5, 0.75],
@@ -49,28 +57,59 @@ class BaseDetectionModel(LightningModule):
         """Шаг для вычисления потерь."""
         images, targets = batch
         loss_dict = self.model(images, targets)
-        losses = sum(loss for loss in loss_dict.values())
-        return losses
+        total_loss = sum(loss_dict.values())
+        return total_loss, loss_dict
 
     def training_step(self, batch, batch_idx: int):
         """Один шаг обучения."""
-        loss = self.model_step(batch)
+        total_loss, loss_dict = self.model_step(batch)
 
-        # Логирование потерь
-        self.log("train/loss", loss, on_step=True, on_epoch=False, prog_bar=True)
+        # общий лосс
+        self.log(
+            "train/loss",
+            total_loss,
+            on_step=True,
+            on_epoch=True,
+            prog_bar=True,
+            sync_dist=True,
+        )
 
-        return loss
+        # отдельные лоссы (опционально)
+        for k, v in loss_dict.items():
+            self.log(
+                f"train/{k}",
+                v,
+                on_step=True,
+                on_epoch=True,
+                sync_dist=True,
+            )
+
+        return total_loss
 
     def on_train_epoch_end(self) -> None:
         """Шаг, который выполняется в конце каждой эпохи."""
-        pass
+        opt = self.optimizers()
+        lr = opt.param_groups[0]["lr"]
+        
+        # логируем learning_rate
+        self.log(
+            "lr",
+            lr,
+            on_epoch=True,
+            prog_bar=False,
+            sync_dist=True,
+        )
 
     def validation_step(self, batch, batch_idx):
         images, targets = batch
         preds = self.model(images)
 
-        # ОБЯЗАТЕЛЬНО: preds / targets — списки dict'ов (torchvision format)
+        # preds / targets — списки dict'ов (torchvision format!)
         self.map_metric.update(preds, targets)
+
+        if batch_idx == 0:
+            self.log_images(images, targets, preds, "val")
+
 
     def on_validation_epoch_end(self):
         metrics = self.map_metric.compute()
@@ -83,6 +122,8 @@ class BaseDetectionModel(LightningModule):
                 "val/mAP75": metrics["map_75"],      # mAP@0.75
                 "val/recall": metrics["mar_100"],    # recall
             },
+            on_epoch=True,
+            sync_dist=True,
             prog_bar=True,
         )
 
@@ -127,3 +168,34 @@ class BaseDetectionModel(LightningModule):
         # if stage == "fit":
         #     self.model = torch.compile(self.model)
         pass
+
+
+    def log_images(self, images, targets, preds, tag):
+        img = images[0].detach().cpu()
+        boxes_gt = targets[0]["boxes"].cpu()
+        boxes_pred = preds[0]["boxes"].detach().cpu()
+
+        img_gt = vutils.draw_bounding_boxes(
+            (img * 255).byte(),
+            boxes_gt,
+            colors="green",
+            width=2,
+        )
+
+        img_pred = vutils.draw_bounding_boxes(
+            (img * 255).byte(),
+            boxes_pred,
+            colors="red",
+            width=2,
+        )
+
+        self.logger.experiment.add_image(
+            f"{tag}/gt",
+            img_gt,
+            self.current_epoch,
+        )
+        self.logger.experiment.add_image(
+            f"{tag}/pred",
+            img_pred,
+            self.current_epoch,
+        )

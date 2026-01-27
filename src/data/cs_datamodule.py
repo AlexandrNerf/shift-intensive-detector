@@ -1,23 +1,13 @@
 import multiprocessing as mp
-import os
-import pandas as pd
-import numpy as np
+import torch
 from typing import Any, Dict, Optional
 
 from lightning import LightningDataModule
-from torch.utils.data import DataLoader, Dataset, RandomSampler, SequentialSampler
-from torchvision.transforms.v2 import (
-    Compose,
-    ToTensor,
-    Normalize,
-    RandomGrayscale,
-    RandomPerspective,
-    RandomPhotometricDistort,
-    Resize
-)
+from torch.utils.data import DataLoader, Dataset
+from torchvision.transforms import v2 as T
 from hydra.utils import instantiate
 
-from omegaconf import DictConfig, OmegaConf
+from omegaconf import OmegaConf
 from src.data.components.cs_dataset import CSDataset
 
 
@@ -44,12 +34,16 @@ class CSDataModule(LightningDataModule):
 
         augs_path = f'configs/data/augmentations/{self.hparams.augmentations}.yaml'
         self.augmentations = instantiate(OmegaConf.load(augs_path))
-        self.train_transform = Compose([
-            ToTensor(),
-            *self.augmentations
+        self.train_transform = T.Compose([
+            *self.augmentations,
+            T.Resize((self.input_shape, self.input_shape)),
+            T.ToImage(),
+            T.ToDtype(torch.float32, scale=True),
         ])
-        self.val_transform = Compose([
-            ToTensor(),
+        self.val_transform = T.Compose([
+            T.Resize((self.input_shape, self.input_shape)),
+            T.ToImage(),
+            T.ToDtype(torch.float32, scale=True),
         ])
 
         self.train_dataset: Optional[Dataset] = None
@@ -59,7 +53,6 @@ class CSDataModule(LightningDataModule):
     def prepare_data(self) -> None:
         """Опционально: проверка наличия данных"""
         pass
-        #self.dataset_frame = pd.read_parquet(self.hparams.dataset)
 
 
     def setup(self, stage: Optional[str] = None) -> None:
@@ -78,15 +71,14 @@ class CSDataModule(LightningDataModule):
 
             self.train_dataset = CSDataset(
                 task='train',
-                batch_size=self.hparams.batch_size,
                 transform=self.train_transform
             )
 
             self.val_dataset = CSDataset(
                 task='val',
-                batch_size=self.hparams.batch_size,
                 transform=self.val_transform
             )
+            # не используем тестовый датасет
             self.test_dataset = self.val_dataset
 
     def train_dataloader(self) -> DataLoader:

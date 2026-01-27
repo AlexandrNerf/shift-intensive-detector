@@ -46,13 +46,11 @@
 └── README.md
 ```
 
-
-
-## Подготовка окружения
-
+## Установка окружения
+ 
 Для установки окружения потребуется conda и установка poetry
 
-```
+```bash
 conda create -n det-env python=3.10.16
 conda activate det-env
 
@@ -64,6 +62,7 @@ poetry install
 
 Ожидаемая структура данных:
 
+```bash
 └─── data            <- Папка с датасетами в родительской директории
      ├── train       <- Обучающие данные
      │   ├── images   <- Папка с изображениями в формате .jpg
@@ -71,6 +70,7 @@ poetry install
      └── val         <- Валидация 
          ├── images
          └── labels
+```
 
 В разметке `YOLO` формат - это значит, что он содержит метку класса `C` и  координаты центра с высотой и шириной бокса (в каждой строке прописаны `class x_center y_center width height`)
 
@@ -78,12 +78,23 @@ poetry install
 
 ## Запуск скриптов
 
-Теперь для запуска из главной директории:
+Теперь для запуска обучения из главной директории:
 
 ```bash
 python src/train.py
 ```
 
+Для запуска конкретного эксперимента:
+
+```bash
+python src/train.py experiment=baseline.yaml
+```
+
+Для логирования в tensorboard:
+
+```bash
+tensorboard --logdir logs # Откроется логгер по порту 
+```
 Для валидации:
 
 ```bash
@@ -91,7 +102,6 @@ python src/eval.py --logs/train/<your_time_train>/checkpoints/epoch_XXX.ckpt
 ```
 
 <br>
-
 
 
 ## ⚡ Возможности
