@@ -35,12 +35,14 @@ class JITModelCheckpoint(ModelCheckpoint):
             log.info(f"Ошибка при компиляции модели в JIT: {e}")
             return result
 
-        # Сохраняем JIT модель
+        # Сохраняем JIT и PTH модель
         model_path = os.path.join(self.dirpath, f"{self.filename.format(epoch=trainer.current_epoch)}_jit.pt")
+        model_path_pth = os.path.join(self.dirpath, f"{self.filename.format(epoch=trainer.current_epoch)}.pth")
 
-        # Сохраняем JIT модель
+        # Сохраняем JIT и PTH модель
         torch.jit.save(jit_model, model_path)
-        
+        torch.save(model.state_dict(), model_path_pth)
+
         return result
 
 
