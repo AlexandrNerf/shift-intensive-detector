@@ -3,14 +3,10 @@ import csv
 import torch
 import logging
 from lightning.pytorch import LightningModule, Trainer
-from lightning.pytorch.callbacks import Callback
+from lightning.pytorch.callbacks import Callback, ModelCheckpoint
 from hydra.utils import get_original_cwd
 
 log = logging.getLogger(__name__)
-
-import torch
-from pytorch_lightning.callbacks import Callback, ModelCheckpoint
-import os
 
 class JITModelCheckpoint(ModelCheckpoint):
     def __init__(self, *args, **kwargs):
