@@ -9,7 +9,7 @@ from torchmetrics.detection.mean_ap import MeanAveragePrecision
 from torchmetrics.detection.giou import GeneralizedIntersectionOverUnion
 from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
 import torchvision.utils as vutils
-
+from collections import defaultdict
 
 class BaseDetectionModel(LightningModule):
     def __init__(
@@ -18,6 +18,8 @@ class BaseDetectionModel(LightningModule):
         pretrained: bool,
         optimizer: torch.optim.Optimizer,
         scheduler: torch.optim.lr_scheduler,
+        nms_thresh: float,
+        score_thresh: float,
         compile: bool
     ) -> None:
         super().__init__()
@@ -37,6 +39,9 @@ class BaseDetectionModel(LightningModule):
             in_features,
             num_classes=3 # Модели torchvision учитывают фон как класс!
         )
+        # вы также можете настроить пороги для nms и score
+        # self.model.roi_heads.score_thresh = self.hparams.score_thresh
+        # self.model.roi_heads.nms_thresh = self.hparams.nms_thresh
 
         # Если нужно, можно настроить кастомную модель (например, на основе других слоев)
         # if self.hparams.net == 'your_model':
@@ -48,6 +53,11 @@ class BaseDetectionModel(LightningModule):
             iou_thresholds=[0.5, 0.75],
             class_metrics=True
         )
+        self.class_names = {
+            1: "c-ter",
+            2: "ter",
+        }
+
 
     def forward(self, x):
         """Проход через модель."""
@@ -108,7 +118,7 @@ class BaseDetectionModel(LightningModule):
         # preds / targets — списки dict'ов (torchvision format!)
         self.map_metric.update(preds, targets)
 
-        if batch_idx == 0:
+        if batch_idx == 5:
             self.log_images(images, targets, preds, "val")
 
 
@@ -172,32 +182,87 @@ class BaseDetectionModel(LightningModule):
         pass
 
 
-    def log_images(self, images, targets, preds, tag):
-        img = images[0].detach().cpu()
-        boxes_gt = targets[0]["boxes"].cpu()
-        boxes_pred = preds[0]["boxes"].detach().cpu()
+    def log_images(
+        self,
+        images,
+        targets,
+        preds,
+        tag: str,
+        max_classes: int = 2,
+        samples_per_class: int = 2,
+    ):
+        """
+        Логирует изображения:
+        - до max_classes разных классов
+        - по samples_per_class примеров на класс
+        """
 
-        img_gt = vutils.draw_bounding_boxes(
-            (img * 255).byte(),
-            boxes_gt,
-            colors="green",
-            width=2,
-        )
+        # --------- собираем class_id -> indices ----------
+        class_to_indices = defaultdict(list)
 
-        img_pred = vutils.draw_bounding_boxes(
-            (img * 255).byte(),
-            boxes_pred,
-            colors="red",
-            width=2,
-        )
+        for i, tgt in enumerate(targets):
+            labels = tgt["labels"].tolist()
+            for cls in set(labels):
+                if cls != 0:  # background игнорим
+                    class_to_indices[cls].append(i)
 
-        self.logger.experiment.add_image(
-            f"{tag}/gt",
-            img_gt,
-            self.current_epoch,
-        )
-        self.logger.experiment.add_image(
-            f"{tag}/pred",
-            img_pred,
-            self.current_epoch,
-        )
+        # --------- выбираем классы ----------
+        selected_classes = list(class_to_indices.keys())[:max_classes]
+
+        global_step = self.global_step
+
+        for cls_id in selected_classes:
+            class_name = self.class_names.get(cls_id, f"class_{cls_id}")
+
+            indices = class_to_indices[cls_id][:samples_per_class]
+
+            for j, idx in enumerate(indices):
+                img = images[idx].detach().cpu()
+
+                # ---------- GT ----------
+                gt_boxes = targets[idx]["boxes"].cpu()
+                gt_labels = targets[idx]["labels"].cpu()
+
+                gt_mask = gt_labels == cls_id
+                gt_boxes = gt_boxes[gt_mask]
+
+                gt_text = [class_name] * len(gt_boxes)
+
+                img_gt = vutils.draw_bounding_boxes(
+                    (img * 255).byte(),
+                    gt_boxes,
+                    labels=gt_text,
+                    colors="green",
+                    width=2,
+                    font_size=14,
+                )
+
+                # ---------- PRED ----------
+                pred_boxes = preds[idx]["boxes"].detach().cpu()
+                pred_labels = preds[idx]["labels"].detach().cpu()
+
+                pred_mask = pred_labels == cls_id
+                pred_boxes = pred_boxes[pred_mask]
+
+                pred_text = [class_name] * len(pred_boxes)
+
+                img_pred = vutils.draw_bounding_boxes(
+                    (img * 255).byte(),
+                    pred_boxes,
+                    labels=pred_text,
+                    colors="red",
+                    width=2,
+                    font_size=14,
+                )
+
+                # ---------- TB ----------
+                self.logger.experiment.add_image(
+                    f"{tag}/{class_name}/{j}/gt",
+                    img_gt,
+                    global_step,
+                )
+                self.logger.experiment.add_image(
+                    f"{tag}/{class_name}/{j}/pred",
+                    img_pred,
+                    global_step,
+                )
