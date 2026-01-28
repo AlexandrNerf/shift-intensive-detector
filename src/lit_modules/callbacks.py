@@ -25,11 +25,15 @@ class JITModelCheckpoint(ModelCheckpoint):
         # Получаем модель из LightningModule
         model = pl_module.model
 
+        if not os.path.exists(self.dirpath):
+            os.makedirs(self.dirpath)
+            log.info(f"Директория создана: {self.dirpath}")
+
         # Скомпилировать модель с помощью torch.jit.script
         try:
             jit_model = torch.jit.script(model)  # Используем `script` для модели
         except Exception as e:
-            print(f"Ошибка при компиляции модели в JIT: {e}")
+            log.info(f"Ошибка при компиляции модели в JIT: {e}")
             return result
 
         # Сохраняем JIT модель
@@ -37,7 +41,7 @@ class JITModelCheckpoint(ModelCheckpoint):
 
         # Сохраняем JIT модель
         torch.jit.save(jit_model, model_path)
-        print(f"JIT модель сохранена: {model_path}")
+        log.info(f"JIT модель сохранена: {model_path}")
         
         return result
 
