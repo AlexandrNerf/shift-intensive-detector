@@ -8,6 +8,44 @@ from hydra.utils import get_original_cwd
 
 log = logging.getLogger(__name__)
 
+import torch
+from pytorch_lightning.callbacks import Callback, ModelCheckpoint
+import os
+
+class JITModelCheckpoint(ModelCheckpoint):
+    def __init__(self, *args, **kwargs):
+        """
+        Коллбек для сохранения модели как в стандартном формате, так и в JIT формате.
+        """
+        super().__init__(*args, **kwargs)  # Инициализация стандартного ModelCheckpoint
+
+    def on_save_checkpoint(self, trainer, pl_module, checkpoint):
+        """
+        Этот метод вызывается сразу после того, как checkpoint сохраняется.
+        """
+        # Сначала выполняем стандартное сохранение через ModelCheckpoint
+        result = super().on_save_checkpoint(trainer, pl_module, checkpoint)
+
+        # Получаем модель из LightningModule
+        model = pl_module.model
+
+        # Скомпилировать модель с помощью torch.jit.script
+        try:
+            jit_model = torch.jit.script(model)  # Используем `script` для модели
+        except Exception as e:
+            print(f"Ошибка при компиляции модели в JIT: {e}")
+            return result
+
+        # Сохраняем JIT модель
+        model_path = os.path.join(self.dirpath, f"{self.filename.format(epoch=trainer.current_epoch)}_jit.pt")
+
+        # Сохраняем JIT модель
+        torch.jit.save(jit_model, model_path)
+        print(f"JIT модель сохранена: {model_path}")
+        
+        return result
+
+
 class HardNegativeLogger(Callback):
     def __init__(self, output_dir, csv_name="hnm.csv"):
         super().__init__()
