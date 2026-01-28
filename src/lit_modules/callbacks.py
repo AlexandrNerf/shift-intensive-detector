@@ -27,7 +27,6 @@ class JITModelCheckpoint(ModelCheckpoint):
 
         if not os.path.exists(self.dirpath):
             os.makedirs(self.dirpath)
-            log.info(f"Директория создана: {self.dirpath}")
 
         # Скомпилировать модель с помощью torch.jit.script
         try:
@@ -41,7 +40,6 @@ class JITModelCheckpoint(ModelCheckpoint):
 
         # Сохраняем JIT модель
         torch.jit.save(jit_model, model_path)
-        log.info(f"JIT модель сохранена: {model_path}")
         
         return result
 
