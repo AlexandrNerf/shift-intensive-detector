@@ -83,14 +83,8 @@ class BaseDetectionModel(LightningModule):
                 on_epoch=True,
                 sync_dist=True,
             )
-
-        return total_loss
-
-    def on_train_epoch_end(self) -> None:
-        """Шаг, который выполняется в конце каждой эпохи."""
         opt = self.optimizers()
         lr = opt.param_groups[0]["lr"]
-        
         # логируем learning_rate
         self.log(
             "lr",
@@ -99,6 +93,13 @@ class BaseDetectionModel(LightningModule):
             prog_bar=False,
             sync_dist=True,
         )
+
+        return total_loss
+
+    def on_train_epoch_end(self) -> None:
+        """Шаг, который выполняется в конце каждой эпохи."""
+        
+    
 
     def validation_step(self, batch, batch_idx):
         images, targets = batch
@@ -154,6 +155,7 @@ class BaseDetectionModel(LightningModule):
                 "optimizer": optimizer,
                 "lr_scheduler": {
                     "scheduler": scheduler,
+                    "interval": "step",
                     "monitor": "val/mAP50", # здесь можно настроить, по какой метрике будет мониторинг
                 },
             }

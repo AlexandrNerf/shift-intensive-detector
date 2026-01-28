@@ -15,7 +15,7 @@ seed: 12345
 
 trainer:
   min_epochs: 10
-  max_epochs: 100
+  max_epochs: 10
   gradient_clip_val: 0.5
 
 model:
@@ -27,9 +27,9 @@ model:
     _partial_: true
     lr_min: 5e-5
     lr_max: 1e-3
-    T0: 50
-    warmup_steps: 10
+    T0: 300
+    warmup_steps: 100
     scale_factor: 0.7
   
 data:
-  batch_size: 1
+  batch_size: 16
