@@ -25,22 +25,21 @@ class JITModelCheckpoint(ModelCheckpoint):
         # Получаем модель из LightningModule
         model = pl_module.model
 
-        if not os.path.exists(self.dirpath):
-            os.makedirs(self.dirpath)
+        os.makedirs(self.dirpath, exist_ok=True)
 
         # Скомпилировать модель с помощью torch.jit.script
-        try:
-            jit_model = torch.jit.script(model)  # Используем `script` для модели
-        except Exception as e:
-            log.info(f"Ошибка при компиляции модели в JIT: {e}")
-            return result
+        # try:
+        #     jit_model = torch.jit.script(model)  # Используем `script` для модели
+        # except Exception as e:
+        #     log.info(f"Ошибка при компиляции модели в JIT: {e}")
+        #     return result
 
         # Сохраняем JIT и PTH модель
-        model_path = os.path.join(self.dirpath, f"{self.filename.format(epoch=trainer.current_epoch)}_jit.pt")
+        # model_path = os.path.join(self.dirpath, f"{self.filename.format(epoch=trainer.current_epoch)}_jit.pt")
         model_path_pth = os.path.join(self.dirpath, f"{self.filename.format(epoch=trainer.current_epoch)}.pth")
 
         # Сохраняем JIT и PTH модель
-        torch.jit.save(jit_model, model_path)
+        # torch.jit.save(jit_model, model_path)
         torch.save(model.state_dict(), model_path_pth)
 
         return result
