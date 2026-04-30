@@ -33,6 +33,6 @@ class ChainCyclicLR(_LRScheduler):
         # корректируем для новых волн
         # каждая новая волна увеличивает lr_max на scale_factor^(номер цикла)
         cycle_number = self.last_epoch // self.T0
-        lr = min(lr * (self.scale_factor ** cycle_number), self.lr_max * (self.scale_factor ** cycle_number))
+        self.lr_max += self.lr_max * (self.scale_factor ** cycle_number)
         
         return [lr for _ in self.optimizer.param_groups]
