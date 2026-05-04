@@ -39,19 +39,10 @@ class BaseDetectionModel(LightningModule):
             in_features,
             num_classes=3 # Модели torchvision учитывают фон как класс!
         )
-        # вы также можете настроить пороги для nms и score
-        # self.model.roi_heads.score_thresh = self.hparams.score_thresh
-        # self.model.roi_heads.nms_thresh = self.hparams.nms_thresh
-
-        # Если нужно, можно настроить кастомную модель (например, на основе других слоев)
-        # if self.hparams.net == 'your_model':
-        #   self.model = Model(*args)    
 
         # Метрики (в классе TorchLocalizationConfussion мы можем настроить порог подсчёта iou)
-        self.map_metric = MeanAveragePrecision(box_format="xyxy",
-            iou_type="bbox",
-            iou_thresholds=[0.5, 0.75],
-            class_metrics=True
+        self.map_metric = TorchLocalizationConfusion(
+            iou_thresh=0.5
         )
         self.class_names = {
             1: "c-ter",
@@ -95,6 +86,7 @@ class BaseDetectionModel(LightningModule):
             )
         opt = self.optimizers()
         lr = opt.param_groups[0]["lr"]
+
         # логируем learning_rate
         self.log(
             "lr",
@@ -109,7 +101,6 @@ class BaseDetectionModel(LightningModule):
     def on_train_epoch_end(self) -> None:
         """Шаг, который выполняется в конце каждой эпохи."""
         
-    
 
     def validation_step(self, batch, batch_idx):
         images, targets = batch
@@ -123,15 +114,16 @@ class BaseDetectionModel(LightningModule):
 
 
     def on_validation_epoch_end(self):
-        metrics = self.map_metric.compute()
+        metrics = self.map_metric.summary()
         self.map_metric.reset()
 
         self.log_dict(
             {
-                "val/mAP": metrics["map"],           # mAP@[.5:.95]
-                "val/mAP50": metrics["map_50"],      # mAP@0.5
-                "val/mAP75": metrics["map_75"],      # mAP@0.75
-                "val/recall": metrics["mar_100"],    # recall
+                "val/mAP": metrics["precision"],           # mAP@[.5:.95]
+                "val/mAP50": metrics["precision"],      # mAP@0.5
+                #"val/mAP75": metrics["map_75"],      # mAP@0.75
+                "val/recall": metrics["recall"],    # recall
+                "val/mean_iou": metrics["mean_iou"],      # mean IoU    
             },
             on_epoch=True,
             sync_dist=True,
@@ -170,17 +162,6 @@ class BaseDetectionModel(LightningModule):
                 },
             }
         return {"optimizer": optimizer}
-    
-    def on_after_backward(self):
-        """Шаг после обратного распространения, для обрезки градиентов."""
-        torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=5)
-
-    def setup(self, stage: str):
-        """Хук для подготовки модели к тренировке или валидации."""
-        # if stage == "fit":
-        #     self.model = torch.compile(self.model)
-        pass
-
 
     def log_images(
         self,

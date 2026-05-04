@@ -1,9 +1,6 @@
-from typing import Any, Dict, Tuple, Optional, List
-
 import torch
-from torch import nn
 from lightning import LightningModule
-from torchmetrics import MaxMetric, MeanMetrics
+from torchmetrics import MaxMetric, MeanMetric
 import timm
 
 from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
@@ -146,6 +143,3 @@ class BaseDetectionModel(LightningModule):
                 "monitor": "val/iou",
             },
         }
-
-    def on_after_backward(self):
-        torch.nn.utils.clip_grad_norm_(self.model.parameters(), 5.0)
