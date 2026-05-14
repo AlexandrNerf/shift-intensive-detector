@@ -6,7 +6,6 @@ defaults:
   - backbone: mobilenet_v3_large
   - detector: rcnn
 
-#FPN: true
 num_classes: 3
 #nms_thresh: 0.5
 #score_thresh: 0.5

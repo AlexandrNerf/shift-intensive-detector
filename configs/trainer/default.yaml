@@ -13,9 +13,11 @@ devices: 1
 
 gradient_clip_val: 5.0
 gradient_clip_algorithm: "norm"  
-
 # perform a validation loop every N training epochs
+
 check_val_every_n_epoch: 1
+
+log_every_n_steps: 10
 
 # set True to to ensure deterministic results
 # makes training slower but gives more reproducibility than just setting seeds

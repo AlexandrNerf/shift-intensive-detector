@@ -11,3 +11,11 @@ defaults:
 compile: false
 
 iou_thresh: 0.5
+
+loss_weights:
+  _target_: src.models.components.losses.DetectionLoss
+  loss_weights:
+    loss_classifier: 1.0
+    loss_box_reg: 1.0
+    loss_objectness: 1.0
+    loss_rpn_box_reg: 1.0

@@ -17,6 +17,7 @@ class DetectionLitModel(LightningModule):
         components: DictConfig,
         optimizer: DictConfig,
         scheduler: DictConfig,
+        loss_weights: DictConfig,
         iou_thresh: float = 0.5,
         compile: bool = False,
     ) -> None:
@@ -28,6 +29,7 @@ class DetectionLitModel(LightningModule):
 
         self.optimizer_partial = hydra.utils.instantiate(optimizer)
         self.scheduler_partial = hydra.utils.instantiate(scheduler)
+        self.loss_weights = hydra.utils.instantiate(loss_weights)
 
         self.val_metric = TorchLocalizationConfusion(iou_thresh=iou_thresh)
 
@@ -43,10 +45,9 @@ class DetectionLitModel(LightningModule):
     def model_step(self, batch):
         """Шаг для вычисления потерь."""
 
-        ## Что с лоссами?
         images, targets = batch
         loss_dict = self.model(images, targets)
-        total_loss = sum(loss_dict.values())
+        total_loss = self.loss_weights(loss_dict)
         return total_loss, loss_dict
 
     def training_step(self, batch, batch_idx: int):

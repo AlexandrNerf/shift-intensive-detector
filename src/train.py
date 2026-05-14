@@ -55,7 +55,6 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         cfg.trainer, 
         callbacks=callbacks, 
         logger=logger,
-        log_every_n_steps=10,
     )
 
     object_dict = {
