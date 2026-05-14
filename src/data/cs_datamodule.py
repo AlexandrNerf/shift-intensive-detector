@@ -103,7 +103,7 @@ class CSDataModule(LightningDataModule):
             shuffle=True,
             collate_fn=self.train_dataset.collate_fn,
             drop_last=True,
-            persistent_workers=self.persistent_workers
+            persistent_workers=self.persistent_workers and self.num_workers > 0,
         )
 
     def val_dataloader(self) -> DataLoader:
@@ -114,8 +114,8 @@ class CSDataModule(LightningDataModule):
             pin_memory=self.pin_memory,
             shuffle=False,
             collate_fn=self.val_dataset.collate_fn,
-            drop_last=True,
-            persistent_workers=self.persistent_workers
+            drop_last=False,
+            persistent_workers=self.persistent_workers and self.num_workers > 0,
         )
 
     def test_dataloader(self) -> DataLoader:
@@ -126,8 +126,8 @@ class CSDataModule(LightningDataModule):
             pin_memory=self.pin_memory,
             shuffle=False,
             collate_fn=self.test_dataset.collate_fn,
-            drop_last=True,
-            persistent_workers=self.persistent_workers
+            drop_last=False,
+            persistent_workers=self.persistent_workers and self.num_workers > 0,
         )
 
     def teardown(self, stage: Optional[str] = None) -> None:

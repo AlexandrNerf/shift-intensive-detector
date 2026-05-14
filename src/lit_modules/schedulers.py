@@ -1,7 +1,8 @@
 import math
-from torch.optim.lr_scheduler import _LRScheduler
+from torch.optim.lr_scheduler import LRScheduler
 
-class ChainCyclicLR(_LRScheduler):
+
+class ChainCyclicLR(LRScheduler):
     def __init__(self, optimizer, lr_min, lr_max, warmup_steps, T0, scale_factor=1.0, last_epoch=-1):
         """
         optimizer: torch.optim.Optimizer

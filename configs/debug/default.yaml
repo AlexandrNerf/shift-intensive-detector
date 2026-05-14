@@ -35,8 +35,3 @@ data:
   num_workers: 0 # debuggers don't like multiprocessing
   pin_memory: False # disable gpu memory pin
   persistent_workers: False # debuggers don't like multiprocessing
-
-model:
-  components:
-    backbone:
-      pretrained: false # keep debug runs offline/reproducible

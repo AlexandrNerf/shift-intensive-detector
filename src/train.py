@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import hydra
 import lightning as L
 import rootutils
+import torch
 from lightning import Callback, LightningDataModule, LightningModule, Trainer
 from lightning.pytorch.loggers import Logger
 from omegaconf import DictConfig
@@ -36,6 +37,9 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     # set seed for random number generators in pytorch, numpy and python.random
     if cfg.get("seed"):
         L.seed_everything(cfg.seed, workers=True)
+
+    if cfg.get("matmul_precision"):
+        torch.set_float32_matmul_precision(cfg.matmul_precision)
 
     log.info(f"Instantiating datamodule <{cfg.data._target_}>")
     datamodule: LightningDataModule = hydra.utils.instantiate(cfg.data)
@@ -80,9 +84,18 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         checkpoint_callback = getattr(trainer, "checkpoint_callback", None)
         ckpt_path = checkpoint_callback.best_model_path if checkpoint_callback else ""
         if ckpt_path == "":
-            log.warning("Best ckpt not found! Using current weights for testing...")
+            message = "Best ckpt not found! Using current weights for testing..."
+            if checkpoint_callback:
+                log.warning(message)
+            else:
+                log.info(message)
             ckpt_path = None
-        trainer.test(model=model, datamodule=datamodule, ckpt_path=ckpt_path)
+        trainer.test(
+            model=model,
+            datamodule=datamodule,
+            ckpt_path=ckpt_path,
+            weights_only=False,
+        )
         log.info(f"Best ckpt path: {ckpt_path}")
 
     test_metrics = trainer.callback_metrics
