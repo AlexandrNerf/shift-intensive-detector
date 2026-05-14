@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Optional
 
 import torch
 from torch.utils.data import Dataset
@@ -10,9 +11,9 @@ from torchvision import tv_tensors
 
 
 class CSDataset(Dataset):
-    def __init__(self, task, transform):
-        self.images_path = Path(f"data/{task}/images")
-        self.labels_path = Path(f"data/{task}/labels")
+    def __init__(self, images_path: str, labels_path: str, transform: Optional[T.Compose] = None):
+        self.images_path = Path(images_path)
+        self.labels_path = Path(labels_path)
 
         self.file_list = sorted(
             [p.stem for p in self.labels_path.glob("*.txt")]

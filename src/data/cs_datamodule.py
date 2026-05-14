@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision.transforms import v2 as T
 from hydra.utils import instantiate
 
-from omegaconf import OmegaConf
+from omegaconf import DictConfig
 from src.data.components.cs_dataset import CSDataset
 
 
@@ -15,27 +15,36 @@ class CSDataModule(LightningDataModule):
     """`LightningDataModule` для датасета."""
     def __init__(
         self,
+        train_images_path: str,
+        train_labels_path: str,
+        val_images_path: str,
+        val_labels_path: str,
         batch_size: int = 64,
         num_workers: int = 4,
         pin_memory: bool = False,
         persistent_workers: bool = True,
         input_shape: int = 512,
-        augmentations: str = 'default',
+        augmentations: Optional[DictConfig] = None,
     ):
         super().__init__()
-        self.save_hyperparameters(logger=False)
+        self.train_images_path = train_images_path
+        self.train_labels_path = train_labels_path
+        self.val_images_path = val_images_path
+        self.val_labels_path = val_labels_path
+        self.batch_size_per_device = batch_size
         self.pin_memory = pin_memory
         self.persistent_workers = persistent_workers
         self.input_shape = input_shape
-        self.batch_size_per_device = batch_size
 
         if not isinstance(num_workers, int):
             self.num_workers = min(8, mp.cpu_count())
         else:
             self.num_workers = num_workers
 
-        augs_path = f'configs/data/augmentations/{augmentations}.yaml'
-        self.augmentations = instantiate(OmegaConf.load(augs_path))
+        self.augmentations = []
+        if augmentations is not None:
+            self.augmentations = instantiate(augmentations)
+
         self.train_transform = T.Compose([
             *self.augmentations,
             T.Resize((self.input_shape, self.input_shape)),
@@ -72,12 +81,14 @@ class CSDataModule(LightningDataModule):
         if not self.train_dataset and not self.val_dataset:
 
             self.train_dataset = CSDataset(
-                task='train',
+                images_path=self.train_images_path,
+                labels_path=self.train_labels_path,
                 transform=self.train_transform
             )
 
             self.val_dataset = CSDataset(
-                task='val',
+                images_path=self.val_images_path,
+                labels_path=self.val_labels_path,
                 transform=self.val_transform
             )
             # не используем тестовый датасет
