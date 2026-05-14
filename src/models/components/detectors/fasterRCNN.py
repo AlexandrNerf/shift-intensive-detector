@@ -7,7 +7,14 @@ import hydra
 from omegaconf import DictConfig
 
 class FasterRCNNDecoder(nn.Module):
-    def __init__(self, backbone: nn.Module, num_classes: int = 2) -> None:
+    def __init__(
+        self,
+        backbone: nn.Module,
+        num_classes: int = 2,
+        box_score_thresh: float = 0.05,
+        box_nms_thresh: float = 0.5,
+        box_detections_per_img: int = 100,
+    ) -> None:
         super().__init__()
 
         self.num_classes = num_classes
@@ -35,6 +42,9 @@ class FasterRCNNDecoder(nn.Module):
             num_classes=num_classes,
             rpn_anchor_generator=anchor_generator,
             box_roi_pool=roi_pooler,
+            box_score_thresh=box_score_thresh,
+            box_nms_thresh=box_nms_thresh,
+            box_detections_per_img=box_detections_per_img,
         )
 
     def forward(self, images, targets=None):

@@ -7,5 +7,3 @@ defaults:
   - detector: rcnn
 
 num_classes: 3
-#nms_thresh: 0.5
-#score_thresh: 0.5
