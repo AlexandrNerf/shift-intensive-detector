@@ -38,7 +38,7 @@ class TorchLocalizationConfusion:
         self.reset()
 
     def update(self, gts: torch.Tensor, preds: torch.Tensor) -> None:
-        if preds.shape[0] > 0:
+        if preds.shape[0] > 0 and gts.shape[0] > 0:
             iou_tensor = box_iou(gts, preds)
             self.tot_iou += float(iou_tensor.max(axis=0).values.sum())
 
@@ -58,13 +58,13 @@ class TorchLocalizationConfusion:
             a dictionary with the recall, precision and meanIoU scores
         """
         # Recall
-        recall = self.matches / self.num_gts if self.num_gts > 0 else None
+        recall = self.matches / self.num_gts if self.num_gts > 0 else 0.0
 
         # Precision
-        precision = self.matches / self.num_preds if self.num_preds > 0 else None
+        precision = self.matches / self.num_preds if self.num_preds > 0 else 0.0
 
         # mean IoU
-        mean_iou = round(self.tot_iou / self.num_preds, 2) if self.num_preds > 0 else None
+        mean_iou = round(self.tot_iou / self.num_preds, 2) if self.num_preds > 0 else 0.0
 
         results = {
             "recall": recall,

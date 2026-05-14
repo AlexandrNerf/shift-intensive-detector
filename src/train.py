@@ -79,7 +79,8 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
 
     if cfg.get("test"):
         log.info("Starting testing!")
-        ckpt_path = trainer.checkpoint_callback.best_model_path
+        checkpoint_callback = getattr(trainer, "checkpoint_callback", None)
+        ckpt_path = checkpoint_callback.best_model_path if checkpoint_callback else ""
         if ckpt_path == "":
             log.warning("Best ckpt not found! Using current weights for testing...")
             ckpt_path = None

@@ -24,15 +24,17 @@ class CSDataModule(LightningDataModule):
     ):
         super().__init__()
         self.save_hyperparameters(logger=False)
-        self.input_shape = self.hparams.input_shape
-        self.batch_size_per_device = self.hparams.batch_size
+        self.pin_memory = pin_memory
+        self.persistent_workers = persistent_workers
+        self.input_shape = input_shape
+        self.batch_size_per_device = batch_size
 
-        if not isinstance(self.hparams.num_workers, int):
+        if not isinstance(num_workers, int):
             self.num_workers = min(8, mp.cpu_count())
         else:
-            self.num_workers = self.hparams.num_workers
+            self.num_workers = num_workers
 
-        augs_path = f'configs/data/augmentations/{self.hparams.augmentations}.yaml'
+        augs_path = f'configs/data/augmentations/{augmentations}.yaml'
         self.augmentations = instantiate(OmegaConf.load(augs_path))
         self.train_transform = T.Compose([
             *self.augmentations,
@@ -59,12 +61,12 @@ class CSDataModule(LightningDataModule):
         """Загрузка данных и создание датасетов"""
         # Адаптация batch size для multi-GPU
         if self.trainer is not None:
-            if self.hparams.batch_size % self.trainer.world_size != 0:
+            if self.batch_size_per_device % self.trainer.world_size != 0:
                 raise RuntimeError(
-                    f"Batch size ({self.hparams.batch_size}) не делится на число устройств ({self.trainer.world_size})"
+                    f"Batch size ({self.batch_size_per_device}) не делится на число устройств ({self.trainer.world_size})"
                 )
             self.batch_size_per_device = (
-                self.hparams.batch_size // self.trainer.world_size
+                self.batch_size_per_device // self.trainer.world_size
             )
 
         if not self.train_dataset and not self.val_dataset:
@@ -85,36 +87,36 @@ class CSDataModule(LightningDataModule):
         return DataLoader(
             dataset=self.train_dataset,
             batch_size=self.batch_size_per_device,
-            num_workers=self.hparams.num_workers,
-            pin_memory=self.hparams.pin_memory,
+            num_workers=self.num_workers,
+            pin_memory=self.pin_memory,
             shuffle=True,
             collate_fn=self.train_dataset.collate_fn,
             drop_last=True,
-            persistent_workers=self.hparams.persistent_workers
+            persistent_workers=self.persistent_workers
         )
 
     def val_dataloader(self) -> DataLoader:
         return DataLoader(
             dataset=self.val_dataset,
             batch_size=self.batch_size_per_device,
-            num_workers=self.hparams.num_workers,
-            pin_memory=self.hparams.pin_memory,
+            num_workers=self.num_workers,
+            pin_memory=self.pin_memory,
             shuffle=False,
             collate_fn=self.val_dataset.collate_fn,
             drop_last=True,
-            persistent_workers=self.hparams.persistent_workers
+            persistent_workers=self.persistent_workers
         )
 
     def test_dataloader(self) -> DataLoader:
         return DataLoader(
             dataset=self.test_dataset,
             batch_size=self.batch_size_per_device,
-            num_workers=self.hparams.num_workers,
-            pin_memory=self.hparams.pin_memory,
+            num_workers=self.num_workers,
+            pin_memory=self.pin_memory,
             shuffle=False,
             collate_fn=self.test_dataset.collate_fn,
             drop_last=True,
-            persistent_workers=self.hparams.persistent_workers
+            persistent_workers=self.persistent_workers
         )
 
     def teardown(self, stage: Optional[str] = None) -> None:

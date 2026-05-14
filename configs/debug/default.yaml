@@ -28,8 +28,15 @@ trainer:
   max_epochs: 1
   accelerator: cpu # debuggers don't like gpus
   devices: 1 # debuggers don't like multiprocessing
+  enable_checkpointing: false # avoid reloading debug checkpoints in PyTorch 2.6+
   detect_anomaly: true # raise exception if NaN or +/-inf is detected in any tensor
 
 data:
   num_workers: 0 # debuggers don't like multiprocessing
   pin_memory: False # disable gpu memory pin
+  persistent_workers: False # debuggers don't like multiprocessing
+
+model:
+  components:
+    backbone:
+      pretrained: false # keep debug runs offline/reproducible

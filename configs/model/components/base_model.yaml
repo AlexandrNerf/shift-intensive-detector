@@ -1,0 +1,12 @@
+_target_: src.models.components.base_model.DetectionModel
+
+_recursive_: false
+
+defaults:
+  - backbone: mobilenet_v3_large
+  - detector: rcnn
+
+#FPN: true
+num_classes: 3
+#nms_thresh: 0.5
+#score_thresh: 0.5

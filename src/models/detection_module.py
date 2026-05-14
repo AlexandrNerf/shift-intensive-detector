@@ -1,54 +1,40 @@
-from typing import Any, Dict, Tuple, Optional, List
-import torch
-from torch import nn
-import torchvision
-import torch.nn.functional as F
-from lightning import LightningModule
-from torchmetrics import MaxMetric, MeanMetric
-from torchmetrics.detection.mean_ap import MeanAveragePrecision
-from torchmetrics.detection.giou import GeneralizedIntersectionOverUnion
-from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
-import torchvision.utils as vutils
 from collections import defaultdict
 
-class BaseDetectionModel(LightningModule):
+import torch
+from lightning import LightningModule
+from torchmetrics import MaxMetric, MeanMetric
+from omegaconf import DictConfig
+import timm
+import hydra
+from torchvision import utils as vutils
+
+from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
+
+
+class DetectionLitModel(LightningModule):
     def __init__(
         self,
-        net: str,
-        pretrained: bool,
-        optimizer: torch.optim.Optimizer,
-        scheduler: torch.optim.lr_scheduler,
-        nms_thresh: float,
-        score_thresh: float,
-        compile: bool
+        components: DictConfig,
+        optimizer: DictConfig,
+        scheduler: DictConfig,
+        iou_thresh: float = 0.5,
+        compile: bool = False,
     ) -> None:
         super().__init__()
 
         self.save_hyperparameters(logger=False)
 
-        # Подгружаем предобученную модель Faster R-CNN с MobileNetV3
-        self.model = torchvision.models.detection.fasterrcnn_mobilenet_v3_large_fpn(
-            pretrained=self.hparams.pretrained
-        )
+        self.model = hydra.utils.instantiate(components)
 
-        # количество входных фич у классификатора
-        in_features = self.model.roi_heads.box_predictor.cls_score.in_features
+        self.optimizer_partial = hydra.utils.instantiate(optimizer)
+        self.scheduler_partial = hydra.utils.instantiate(scheduler)
 
-        # заменяем head под свои классы
-        self.model.roi_heads.box_predictor = torchvision.models.detection.faster_rcnn.FastRCNNPredictor(
-            in_features,
-            num_classes=3 # Модели torchvision учитывают фон как класс!
-        )
+        self.val_metric = TorchLocalizationConfusion(iou_thresh=iou_thresh)
 
-        # Метрики (в классе TorchLocalizationConfussion мы можем настроить порог подсчёта iou)
-        self.map_metric = TorchLocalizationConfusion(
-            iou_thresh=0.5
-        )
         self.class_names = {
             1: "c-ter",
             2: "ter",
         }
-
 
     def forward(self, x):
         """Проход через модель."""
@@ -56,6 +42,8 @@ class BaseDetectionModel(LightningModule):
 
     def model_step(self, batch):
         """Шаг для вычисления потерь."""
+
+        ## Что с лоссами?
         images, targets = batch
         loss_dict = self.model(images, targets)
         total_loss = sum(loss_dict.values())
@@ -107,15 +95,15 @@ class BaseDetectionModel(LightningModule):
         preds = self.model(images)
 
         # preds / targets — списки dict'ов (torchvision format!)
-        self.map_metric.update(preds, targets)
+        self._update_metric(preds, targets)
 
         if batch_idx == 5:
             self.log_images(images, targets, preds, "val")
 
 
     def on_validation_epoch_end(self):
-        metrics = self.map_metric.summary()
-        self.map_metric.reset()
+        metrics = self.val_metric.summary()
+        self.val_metric.reset()
 
         self.log_dict(
             {
@@ -133,26 +121,31 @@ class BaseDetectionModel(LightningModule):
     def test_step(self, batch, batch_idx):
         images, targets = batch
         preds = self.model(images)
-        self.map_metric.update(preds, targets)
+        self._update_metric(preds, targets)
+
+    def _update_metric(self, preds, targets):
+        for pred, target in zip(preds, targets):
+            self.val_metric.update(target["boxes"], pred["boxes"])
 
     def on_test_epoch_end(self):
-        metrics = self.map_metric.compute()
-        self.map_metric.reset()
+        metrics = self.val_metric.summary()
+        self.val_metric.reset()
 
         self.log_dict(
             {
-                "test/mAP": metrics["map"],
-                "test/mAP50": metrics["map_50"],
-                "test/mAP75": metrics["map_75"],
-                "test/recall": metrics["mar_100"],
+                "val/mAP": metrics["precision"],           # mAP@[.5:.95]
+                "val/mAP50": metrics["precision"],      # mAP@0.5
+                #"val/mAP75": metrics["map_75"],      # mAP@0.75
+                "val/recall": metrics["recall"],    # recall
+                "val/mean_iou": metrics["mean_iou"],      # mean IoU    
             }
         )
     
     def configure_optimizers(self):
         """Настройка оптимизаторов и планировщиков."""
-        optimizer = self.hparams.optimizer(params=[p for p in self.model.parameters() if p.requires_grad])
-        if self.hparams.scheduler is not None:
-            scheduler = self.hparams.scheduler(optimizer=optimizer)
+        optimizer = self.optimizer_partial(params=[p for p in self.model.parameters() if p.requires_grad])
+        if self.scheduler_partial is not None:
+            scheduler = self.scheduler_partial(optimizer=optimizer)
             return {
                 "optimizer": optimizer,
                 "lr_scheduler": {
@@ -177,6 +170,9 @@ class BaseDetectionModel(LightningModule):
         - до max_classes разных классов
         - по samples_per_class примеров на класс
         """
+        experiment = getattr(self.logger, "experiment", None)
+        if experiment is None or not hasattr(experiment, "add_image"):
+            return
 
         # --------- собираем class_id -> indices ----------
         class_to_indices = defaultdict(list)
@@ -237,12 +233,12 @@ class BaseDetectionModel(LightningModule):
                 )
 
                 # ---------- TB ----------
-                self.logger.experiment.add_image(
+                experiment.add_image(
                     f"{tag}/{class_name}/{j}/gt",
                     img_gt,
                     global_step,
                 )
-                self.logger.experiment.add_image(
+                experiment.add_image(
                     f"{tag}/{class_name}/{j}/pred",
                     img_pred,
                     global_step,
