@@ -42,7 +42,7 @@ class CSDataModule(LightningDataModule):
             self.num_workers = num_workers
 
         self.augmentations = []
-        if augmentations is not None:
+        if augmentations is not None and not isinstance(augmentations, str):
             self.augmentations = instantiate(augmentations)
 
         self.train_transform = T.Compose([

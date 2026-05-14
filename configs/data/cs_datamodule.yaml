@@ -1,5 +1,7 @@
 _target_: src.data.cs_datamodule.CSDataModule
 
+_recursive_: false
+
 batch_size: 2
 num_workers: 4
 pin_memory: false
