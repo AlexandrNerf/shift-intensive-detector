@@ -1,4 +1,4 @@
-_target_: src.models.components.backbones.timm_backbone.TimmBackbone
+_target_: src.models.components.backbones.timm_backbone.TimmFPNBackbone
 
 model: mobilenetv3_large_100
 pretrained: true

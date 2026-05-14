@@ -3,7 +3,7 @@ from torch import nn
 from collections import OrderedDict
 from torchvision.ops import FeaturePyramidNetwork
 
-class TimmBackbone(nn.Module):
+class TimmFPNBackbone(nn.Module):
     def __init__(self,
                  model: str = 'mobilenetv3_large_100',
                  pretrained: bool = True,
