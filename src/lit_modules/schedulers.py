@@ -21,18 +21,15 @@ class ChainCyclicLR(_LRScheduler):
     def get_lr(self):
         # какой шаг в текущем цикле
         step_in_cycle = self.last_epoch % self.T0
+        cycle_number = self.last_epoch // self.T0
+        lr_max = self.lr_max * (self.scale_factor ** cycle_number)
 
         if step_in_cycle < self.warmup_steps:
             # линейный рост
-            lr = self.lr_min + (self.lr_max - self.lr_min) * step_in_cycle / self.warmup_steps
+            lr = self.lr_min + (lr_max - self.lr_min) * step_in_cycle / self.warmup_steps
         else:
             # спад: используем косинус для плавности
             progress = (step_in_cycle - self.warmup_steps) / (self.T0 - self.warmup_steps)
-            lr = self.lr_min + 0.5 * (self.lr_max - self.lr_min) * (1 + math.cos(math.pi * progress))
-        
-        # корректируем для новых волн
-        # каждая новая волна увеличивает lr_max на scale_factor^(номер цикла)
-        cycle_number = self.last_epoch // self.T0
-        self.lr_max += self.lr_max * (self.scale_factor ** cycle_number)
-        
+            lr = self.lr_min + 0.5 * (lr_max - self.lr_min) * (1 + math.cos(math.pi * progress))
+
         return [lr for _ in self.optimizer.param_groups]
