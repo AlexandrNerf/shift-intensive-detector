@@ -3,7 +3,7 @@
 # This program is licensed under the Apache License 2.0.
 # See LICENSE or go to <https://opensource.org/licenses/Apache-2.0> for full license details.
 
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional
 import torch
 from torchvision.ops import box_iou as torch_box_iou
 from scipy.optimize import linear_sum_assignment

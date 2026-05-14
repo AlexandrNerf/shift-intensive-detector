@@ -3,8 +3,6 @@ from torchvision.models.detection.rpn import AnchorGenerator
 
 from torch import nn
 from torchvision.ops import MultiScaleRoIAlign
-import hydra
-from omegaconf import DictConfig
 
 class FasterRCNNDecoder(nn.Module):
     def __init__(

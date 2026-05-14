@@ -2,9 +2,7 @@ from collections import defaultdict
 
 import torch
 from lightning import LightningModule
-from torchmetrics import MaxMetric, MeanMetric
 from omegaconf import DictConfig
-import timm
 import hydra
 from torchvision import utils as vutils
 
