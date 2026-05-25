@@ -80,7 +80,7 @@ class_id x_center y_center width height
 Чтобы скачать данные google диска можно использовать команду:
 
 ```
-gdown 'https://drive.google.com/file/d/1BVGnAGsvmTzE3VXwjRB4lAYveR_ZVz9C/view?usp=sharing' -O /data/
+gdown 'https://drive.google.com/file/d/1BVGnAGsvmTzE3VXwjRB4lAYveR_ZVz9C/view?usp=sharing' -O ./data/
 ```
 
 
