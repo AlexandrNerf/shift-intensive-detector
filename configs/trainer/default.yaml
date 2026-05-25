@@ -2,24 +2,24 @@ _target_: lightning.pytorch.trainer.Trainer
 
 default_root_dir: ${paths.output_dir}
 
-min_epochs: 1 # prevents early stopping
+min_epochs: 1 # предотвращает раннюю остановку
 max_epochs: 10
 
 accelerator: gpu
 devices: 1
 
-# mixed precision for extra speed-up
+# смешанная точность для дополнительного ускорения
 # precision: 16
 
 gradient_clip_val: 5.0
 gradient_clip_algorithm: "norm"  
-# perform a validation loop every N training epochs
+# выполнить цикл валидации каждые N эпох обучения
 
 check_val_every_n_epoch: 1
 
 log_every_n_steps: 5
 enable_model_summary: false
 
-# set True to to ensure deterministic results
-# makes training slower but gives more reproducibility than just setting seeds
+# установите True, чтобы обеспечить детерминированные результаты
+# замедляет обучение, но дает больше воспроизводимости, чем просто установка seeds
 deterministic: False

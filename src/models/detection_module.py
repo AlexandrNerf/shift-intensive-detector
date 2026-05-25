@@ -50,6 +50,8 @@ class DetectionLitModel(LightningModule):
 
     def training_step(self, batch, batch_idx: int):
         """Один шаг обучения."""
+        images, _ = batch
+        batch_size = len(images)
         total_loss, loss_dict = self.model_step(batch)
 
         # общий лосс
@@ -60,6 +62,7 @@ class DetectionLitModel(LightningModule):
             on_epoch=True,
             prog_bar=True,
             sync_dist=True,
+            batch_size=batch_size,
         )
 
         # отдельные лоссы (опционально)
@@ -70,6 +73,7 @@ class DetectionLitModel(LightningModule):
                 on_step=True,
                 on_epoch=True,
                 sync_dist=True,
+                batch_size=batch_size,
             )
         opt = self.optimizers()
         lr = opt.param_groups[0]["lr"]
@@ -81,6 +85,7 @@ class DetectionLitModel(LightningModule):
             on_epoch=True,
             prog_bar=False,
             sync_dist=True,
+            batch_size=batch_size,
         )
 
         return total_loss
@@ -103,6 +108,7 @@ class DetectionLitModel(LightningModule):
     def on_validation_epoch_end(self):
         metrics = self.val_metric.summary()
         self.val_metric.reset()
+        batch_size = self.trainer.datamodule.batch_size_per_device
 
         self.log_dict(
             {
@@ -115,6 +121,7 @@ class DetectionLitModel(LightningModule):
             on_epoch=True,
             sync_dist=True,
             prog_bar=True,
+            batch_size=batch_size,
         )
 
     def test_step(self, batch, batch_idx):
@@ -129,6 +136,7 @@ class DetectionLitModel(LightningModule):
     def on_test_epoch_end(self):
         metrics = self.val_metric.summary()
         self.val_metric.reset()
+        batch_size = self.trainer.datamodule.batch_size_per_device
 
         self.log_dict(
             {
@@ -137,7 +145,8 @@ class DetectionLitModel(LightningModule):
                 #"val/mAP75": metrics["map_75"],      # mAP@0.75
                 "val/recall": metrics["recall"],    # recall
                 "val/mean_iou": metrics["mean_iou"],      # mean IoU    
-            }
+            },
+            batch_size=batch_size,
         )
     
     def configure_optimizers(self):
