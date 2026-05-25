@@ -1,12 +1,12 @@
 # @package _global_
 
-# default debugging setup, runs 1 full epoch
-# other debugging configs can inherit from this one
+# базовая настройка отладки, запускает 1 полную эпоху
+# другие отладочные конфиги могут наследоваться от этого
 
-# overwrite task name so debugging logs are stored in separate folder
+# переопределяем имя задачи, чтобы отладочные логи сохранялись отдельно
 task_name: "debug"
 
-# disable callbacks and loggers during debugging
+# отключаем callback-и и логгеры во время отладки
 callbacks: null
 logger: null
 
@@ -14,24 +14,24 @@ extras:
   ignore_warnings: False
   enforce_tags: False
 
-# sets level of all command line loggers to 'DEBUG'
+# устанавливает уровень всех консольных логгеров в 'DEBUG'
 # https://hydra.cc/docs/tutorials/basic/running_your_app/logging/
 hydra:
   job_logging:
     root:
       level: DEBUG
 
-  # use this to also set hydra loggers to 'DEBUG'
+  # используйте это, чтобы также перевести логгеры Hydra в 'DEBUG'
   # verbose: True
 
 trainer:
   max_epochs: 1
-  accelerator: cpu # debuggers don't like gpus
-  devices: 1 # debuggers don't like multiprocessing
-  enable_checkpointing: false # avoid reloading debug checkpoints in PyTorch 2.6+
-  detect_anomaly: true # raise exception if NaN or +/-inf is detected in any tensor
+  accelerator: cpu # отладчики плохо работают с GPU
+  devices: 1 # отладчики плохо работают с multiprocessing
+  enable_checkpointing: false # не перезагружать отладочные чекпоинты в PyTorch 2.6+
+  detect_anomaly: true # бросать исключение, если в тензорах найден NaN или +/-inf
 
 data:
-  num_workers: 0 # debuggers don't like multiprocessing
-  pin_memory: False # disable gpu memory pin
-  persistent_workers: False # debuggers don't like multiprocessing
+  num_workers: 0 # отладчики плохо работают с multiprocessing
+  pin_memory: False # отключить закрепление памяти для GPU
+  persistent_workers: False # отладчики плохо работают с multiprocessing

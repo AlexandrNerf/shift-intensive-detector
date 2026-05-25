@@ -29,31 +29,31 @@ def print_config_tree(
     resolve: bool = False,
     save_to_file: bool = False,
 ) -> None:
-    """Prints the contents of a DictConfig as a tree structure using the Rich library.
+    """Печатает содержимое DictConfig в виде дерева через Rich.
 
-    :param cfg: A DictConfig composed by Hydra.
-    :param print_order: Determines in what order config components are printed. Default is ``("data", "model",
+    :param cfg: DictConfig, собранный Hydra.
+    :param print_order: порядок печати компонентов конфига. По умолчанию ``("data", "model",
     "callbacks", "logger", "trainer", "paths", "extras")``.
-    :param resolve: Whether to resolve reference fields of DictConfig. Default is ``False``.
-    :param save_to_file: Whether to export config to the hydra output folder. Default is ``False``.
+    :param resolve: раскрывать ли ссылочные поля DictConfig. По умолчанию ``False``.
+    :param save_to_file: сохранять ли конфиг в выходную директорию Hydra. По умолчанию ``False``.
     """
     style = "dim"
     tree = rich.tree.Tree("CONFIG", style=style, guide_style=style)
 
     queue = []
 
-    # add fields from `print_order` to queue
+    # добавляем поля из `print_order` в очередь
     for field in print_order:
         queue.append(field) if field in cfg else log.warning(
             f"Field '{field}' not found in config. Skipping '{field}' config printing..."
         )
 
-    # add all the other fields to queue (not specified in `print_order`)
+    # добавляем в очередь остальные поля, не указанные в `print_order`
     for field in cfg:
         if field not in queue:
             queue.append(field)
 
-    # generate config tree from queue
+    # создаем дерево конфига из очереди
     for field in queue:
         branch = tree.add(field, style=style, guide_style=style)
 
@@ -65,10 +65,10 @@ def print_config_tree(
 
         branch.add(rich.syntax.Syntax(branch_content, "yaml"))
 
-    # print config tree
+    # печатаем дерево конфига
     rich.print(tree)
 
-    # save config tree to file
+    # сохраняем дерево конфига в файл
     if save_to_file:
         with open(Path(cfg.paths.output_dir, "config_tree.log"), "w") as file:
             rich.print(tree, file=file)
@@ -76,10 +76,10 @@ def print_config_tree(
 
 @rank_zero_only
 def enforce_tags(cfg: DictConfig, save_to_file: bool = False) -> None:
-    """Prompts user to input tags from command line if no tags are provided in config.
+    """Запрашивает теги из командной строки, если они не указаны в конфиге.
 
-    :param cfg: A DictConfig composed by Hydra.
-    :param save_to_file: Whether to export tags to the hydra output folder. Default is ``False``.
+    :param cfg: DictConfig, собранный Hydra.
+    :param save_to_file: сохранять ли теги в выходную директорию Hydra. По умолчанию ``False``.
     """
     if not cfg.get("tags"):
         if "id" in HydraConfig().cfg.hydra.job:

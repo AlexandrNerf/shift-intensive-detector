@@ -7,7 +7,7 @@ defaults:
   - optimizer: adam
   - scheduler: chaincyclic
 
-# compile model for faster training with pytorch 2.0
+# компилировать модель детекции через torch.compile
 compile: false
 
 iou_thresh: 0.5

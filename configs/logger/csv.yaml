@@ -1,4 +1,4 @@
-# csv logger built in lightning
+# CSV-логгер, встроенный в Lightning
 
 csv:
   _target_: lightning.pytorch.loggers.csv_logs.CSVLogger

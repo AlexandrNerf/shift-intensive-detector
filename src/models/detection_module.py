@@ -24,6 +24,8 @@ class DetectionLitModel(LightningModule):
         self.save_hyperparameters(logger=False)
 
         self.model = hydra.utils.instantiate(components)
+        if compile:
+            self.model = torch.compile(self.model)
 
         self.optimizer_partial = hydra.utils.instantiate(optimizer)
         self.scheduler_partial = hydra.utils.instantiate(scheduler)
@@ -78,7 +80,7 @@ class DetectionLitModel(LightningModule):
         opt = self.optimizers()
         lr = opt.param_groups[0]["lr"]
 
-        # логируем learning_rate
+        # логируем скорость обучения
         self.log(
             "lr",
             lr,
@@ -98,7 +100,7 @@ class DetectionLitModel(LightningModule):
         images, targets = batch
         preds = self.model(images)
 
-        # preds / targets — списки dict'ов (torchvision format!)
+        # preds и targets - списки словарей в формате torchvision
         self._update_metric(preds, targets)
 
         if batch_idx == 5:
@@ -112,11 +114,11 @@ class DetectionLitModel(LightningModule):
 
         self.log_dict(
             {
-                "val/mAP": metrics["precision"],           # mAP@[.5:.95]
-                "val/mAP50": metrics["precision"],      # mAP@0.5
-                #"val/mAP75": metrics["map_75"],      # mAP@0.75
-                "val/recall": metrics["recall"],    # recall
-                "val/mean_iou": metrics["mean_iou"],      # mean IoU    
+                "val/mAP": metrics["precision"],           # сейчас это precision, а не настоящий mAP@[.5:.95]
+                "val/mAP50": metrics["precision"],      # сейчас это precision при пороге IoU
+                #"val/mAP75": metrics["map_75"],      # mAP при IoU 0.75
+                "val/recall": metrics["recall"],    # полнота
+                "val/mean_iou": metrics["mean_iou"],      # средний IoU    
             },
             on_epoch=True,
             sync_dist=True,
@@ -140,11 +142,11 @@ class DetectionLitModel(LightningModule):
 
         self.log_dict(
             {
-                "val/mAP": metrics["precision"],           # mAP@[.5:.95]
-                "val/mAP50": metrics["precision"],      # mAP@0.5
-                #"val/mAP75": metrics["map_75"],      # mAP@0.75
-                "val/recall": metrics["recall"],    # recall
-                "val/mean_iou": metrics["mean_iou"],      # mean IoU    
+                "val/mAP": metrics["precision"],           # сейчас это precision, а не настоящий mAP@[.5:.95]
+                "val/mAP50": metrics["precision"],      # сейчас это precision при пороге IoU
+                #"val/mAP75": metrics["map_75"],      # mAP при IoU 0.75
+                "val/recall": metrics["recall"],    # полнота
+                "val/mean_iou": metrics["mean_iou"],      # средний IoU    
             },
             batch_size=batch_size,
         )
@@ -182,13 +184,13 @@ class DetectionLitModel(LightningModule):
         if experiment is None or not hasattr(experiment, "add_image"):
             return
 
-        # --------- собираем class_id -> indices ----------
+        # --------- собираем id класса -> индексы ----------
         class_to_indices = defaultdict(list)
 
         for i, tgt in enumerate(targets):
             labels = tgt["labels"].tolist()
             for cls in set(labels):
-                if cls != 0:  # background игнорим
+                if cls != 0:  # игнорируем фон
                     class_to_indices[cls].append(i)
 
         # --------- выбираем классы ----------
@@ -204,7 +206,7 @@ class DetectionLitModel(LightningModule):
             for j, idx in enumerate(indices):
                 img = images[idx].detach().cpu()
 
-                # ---------- GT ----------
+                # ---------- разметка ----------
                 gt_boxes = targets[idx]["boxes"].cpu()
                 gt_labels = targets[idx]["labels"].cpu()
 
@@ -222,7 +224,7 @@ class DetectionLitModel(LightningModule):
                     font_size=14,
                 )
 
-                # ---------- PRED ----------
+                # ---------- предсказания ----------
                 pred_boxes = preds[idx]["boxes"].detach().cpu()
                 pred_labels = preds[idx]["labels"].detach().cpu()
 
@@ -240,7 +242,7 @@ class DetectionLitModel(LightningModule):
                     font_size=14,
                 )
 
-                # ---------- TB ----------
+                # ---------- TensorBoard ----------
                 experiment.add_image(
                     f"{tag}/{class_name}/{j}/gt",
                     img_gt,

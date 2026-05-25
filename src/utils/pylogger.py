@@ -5,7 +5,7 @@ from lightning_utilities.core.rank_zero import rank_prefixed_message, rank_zero_
 
 
 class RankedLogger(logging.LoggerAdapter):
-    """A multi-GPU-friendly python command line logger."""
+    """Консольный Python-логгер, удобный для обучения на нескольких GPU."""
 
     def __init__(
         self,
@@ -13,27 +13,28 @@ class RankedLogger(logging.LoggerAdapter):
         rank_zero_only: bool = False,
         extra: Optional[Mapping[str, object]] = None,
     ) -> None:
-        """Initializes a multi-GPU-friendly python command line logger that logs on all processes
-        with their rank prefixed in the log message.
+        """Инициализирует консольный логгер для обучения на нескольких GPU.
 
-        :param name: The name of the logger. Default is ``__name__``.
-        :param rank_zero_only: Whether to force all logs to only occur on the rank zero process. Default is `False`.
-        :param extra: (Optional) A dict-like object which provides contextual information. See `logging.LoggerAdapter`.
+        Логгер пишет из всех процессов, добавляя rank процесса в начало сообщения.
+
+        :param name: имя логгера. По умолчанию ``__name__``.
+        :param rank_zero_only: писать логи только из процесса с rank 0. По умолчанию `False`.
+        :param extra: опциональный dict-like объект с контекстной информацией. См. `logging.LoggerAdapter`.
         """
         logger = logging.getLogger(name)
         super().__init__(logger=logger, extra=extra)
         self.rank_zero_only = rank_zero_only
 
     def log(self, level: int, msg: str, rank: Optional[int] = None, *args, **kwargs) -> None:
-        """Delegate a log call to the underlying logger, after prefixing its message with the rank
-        of the process it's being logged from. If `'rank'` is provided, then the log will only
-        occur on that rank/process.
+        """Передает сообщение нижележащему логгеру, добавляя ранг процесса.
 
-        :param level: The level to log at. Look at `logging.__init__.py` for more information.
-        :param msg: The message to log.
-        :param rank: The rank to log at.
-        :param args: Additional args to pass to the underlying logging function.
-        :param kwargs: Any additional keyword args to pass to the underlying logging function.
+        Если передан `'rank'`, лог будет записан только из этого процесса.
+
+        :param level: уровень логирования. Подробнее см. `logging.__init__.py`.
+        :param msg: сообщение для логирования.
+        :param rank: rank процесса, из которого нужно писать лог.
+        :param args: дополнительные аргументы для нижележащей функции логирования.
+        :param kwargs: дополнительные именованные аргументы для нижележащей функции логирования.
         """
         if self.isEnabledFor(level):
             msg, kwargs = self.process(msg, kwargs)

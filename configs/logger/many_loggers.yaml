@@ -1,4 +1,4 @@
-# train with many loggers at once
+# обучение сразу с несколькими логгерами
 
 defaults:
   - csv

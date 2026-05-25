@@ -1,6 +1,6 @@
 # @package _global_
 
-# overfits to 3 batches
+# переобучение на 3 батчах
 
 defaults:
   - default
@@ -14,5 +14,5 @@ trainer:
 data:
   augmentations: none
 
-# model ckpt and early stopping need to be disabled during overfitting
+# во время overfit-режима нужно отключить чекпоинты модели и early stopping
 callbacks: null

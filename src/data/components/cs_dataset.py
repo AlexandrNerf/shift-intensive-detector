@@ -45,7 +45,7 @@ class CSDataset(Dataset):
                     class_id = int(parts[0])
                     x_c, y_c, w, h = map(float, parts[1:])
 
-                    # YOLO → pixel XYXY
+                    # YOLO -> пиксельные XYXY
                     x_c *= img_w
                     y_c *= img_h
                     w *= img_w

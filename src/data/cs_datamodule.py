@@ -68,7 +68,7 @@ class CSDataModule(LightningDataModule):
 
     def setup(self, stage: Optional[str] = None) -> None:
         """Загрузка данных и создание датасетов"""
-        # Адаптация batch size для multi-GPU
+        # Адаптация размера батча для нескольких GPU
         if self.trainer is not None:
             if self.batch_size_per_device % self.trainer.world_size != 0:
                 raise RuntimeError(
