@@ -4,6 +4,7 @@ import torch
 from lightning import LightningModule
 from omegaconf import DictConfig
 import hydra
+from torchmetrics.detection.mean_ap import MeanAveragePrecision
 from torchvision import utils as vutils
 
 from src.utils.metrics.metrics_fast import TorchLocalizationConfusion
@@ -31,7 +32,10 @@ class DetectionLitModel(LightningModule):
         self.scheduler_partial = hydra.utils.instantiate(scheduler)
         self.loss_weights = hydra.utils.instantiate(loss_weights)
 
-        self.val_metric = TorchLocalizationConfusion(iou_thresh=iou_thresh)
+        self.val_loc_metric = TorchLocalizationConfusion(iou_thresh=iou_thresh)
+        self.test_loc_metric = TorchLocalizationConfusion(iou_thresh=iou_thresh)
+        self.val_map = MeanAveragePrecision(box_format="xyxy", iou_type="bbox")
+        self.test_map = MeanAveragePrecision(box_format="xyxy", iou_type="bbox")
 
         self.class_names = {
             1: "c-ter",
@@ -101,24 +105,29 @@ class DetectionLitModel(LightningModule):
         preds = self.model(images)
 
         # preds и targets - списки словарей в формате torchvision
-        self._update_metric(preds, targets)
+        self._update_localization_metric(self.val_loc_metric, preds, targets)
+        self.val_map.update(preds, targets)
 
         if batch_idx == 5:
             self.log_images(images, targets, preds, "val")
 
 
     def on_validation_epoch_end(self):
-        metrics = self.val_metric.summary()
-        self.val_metric.reset()
+        loc_metrics = self.val_loc_metric.summary()
+        map_metrics = self.val_map.compute()
+        self.val_loc_metric.reset()
+        self.val_map.reset()
         batch_size = self.trainer.datamodule.batch_size_per_device
 
         self.log_dict(
             {
-                "val/mAP": metrics["precision"],           # сейчас это precision, а не настоящий mAP@[.5:.95]
-                "val/mAP50": metrics["precision"],      # сейчас это precision при пороге IoU
-                #"val/mAP75": metrics["map_75"],      # mAP при IoU 0.75
-                "val/recall": metrics["recall"],    # полнота
-                "val/mean_iou": metrics["mean_iou"],      # средний IoU    
+                "val/loc_precision": loc_metrics["precision"],
+                "val/loc_recall": loc_metrics["recall"],
+                "val/loc_mean_iou": loc_metrics["mean_iou"],
+                "val/mAP": map_metrics["map"],
+                "val/mAP50": map_metrics["map_50"],
+                "val/mAP75": map_metrics["map_75"],
+                "val/mAR100": map_metrics["mar_100"],
             },
             on_epoch=True,
             sync_dist=True,
@@ -129,24 +138,29 @@ class DetectionLitModel(LightningModule):
     def test_step(self, batch, batch_idx):
         images, targets = batch
         preds = self.model(images)
-        self._update_metric(preds, targets)
+        self._update_localization_metric(self.test_loc_metric, preds, targets)
+        self.test_map.update(preds, targets)
 
-    def _update_metric(self, preds, targets):
+    def _update_localization_metric(self, metric, preds, targets):
         for pred, target in zip(preds, targets):
-            self.val_metric.update(target["boxes"], pred["boxes"])
+            metric.update(target["boxes"], pred["boxes"])
 
     def on_test_epoch_end(self):
-        metrics = self.val_metric.summary()
-        self.val_metric.reset()
+        loc_metrics = self.test_loc_metric.summary()
+        map_metrics = self.test_map.compute()
+        self.test_loc_metric.reset()
+        self.test_map.reset()
         batch_size = self.trainer.datamodule.batch_size_per_device
 
         self.log_dict(
             {
-                "val/mAP": metrics["precision"],           # сейчас это precision, а не настоящий mAP@[.5:.95]
-                "val/mAP50": metrics["precision"],      # сейчас это precision при пороге IoU
-                #"val/mAP75": metrics["map_75"],      # mAP при IoU 0.75
-                "val/recall": metrics["recall"],    # полнота
-                "val/mean_iou": metrics["mean_iou"],      # средний IoU    
+                "test/loc_precision": loc_metrics["precision"],
+                "test/loc_recall": loc_metrics["recall"],
+                "test/loc_mean_iou": loc_metrics["mean_iou"],
+                "test/mAP": map_metrics["map"],
+                "test/mAP50": map_metrics["map_50"],
+                "test/mAP75": map_metrics["map_75"],
+                "test/mAR100": map_metrics["mar_100"],
             },
             batch_size=batch_size,
         )

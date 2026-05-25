@@ -1,7 +1,0 @@
-defaults:
-  - default
-
-# симуляция DDP на CPU, полезно для отладки
-accelerator: cpu
-devices: 2
-strategy: ddp_spawn
