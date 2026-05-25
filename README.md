@@ -74,6 +74,16 @@ class_id x_center y_center width height
 
 Координаты должны быть нормализованы в диапазоне от `0` до `1`.
 
+
+### Скачивание
+
+Чтобы скачать данные google диска можно использовать команду:
+
+```
+gdown 'https://drive.google.com/file/d/1BVGnAGsvmTzE3VXwjRB4lAYveR_ZVz9C/view?usp=sharing' -O /data/
+```
+
+
 ## Обучение
 
 Запуск с настройками по умолчанию:
