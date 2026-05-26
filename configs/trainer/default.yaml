@@ -5,9 +5,6 @@ default_root_dir: ${paths.output_dir}
 min_epochs: 1 # предотвращает раннюю остановку
 max_epochs: 10
 
-accelerator: gpu
-devices: 1
-
 # смешанная точность для дополнительного ускорения
 # precision: 16-mixed
 

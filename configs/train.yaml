@@ -8,7 +8,7 @@ defaults:
   - model: base_det
   - callbacks: default
   - logger: tensorboard # установите логгер здесь или используйте командную строку (например, `python train.py logger=tensorboard`)
-  - trainer: default
+  - trainer: gpu
   - paths: default
   - extras: default
   - hydra: default
@@ -16,9 +16,6 @@ defaults:
   # конфиги экспериментов позволяют версионировать конкретные гиперпараметры
   # например, лучшие гиперпараметры для данной модели и датамодуля
   - experiment: null
-
-  # конфиг для оптимизации гиперпараметров
-  - hparams_search: null
 
   # опциональный локальный конфиг для машина/пользователь-специфичных настроек
   # опционально, так как не должен существовать и исключен из контроля версий

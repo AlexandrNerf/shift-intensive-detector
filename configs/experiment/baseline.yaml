@@ -4,7 +4,7 @@ defaults:
   - override /data: cs_datamodule
   - override /model: base_det
   - override /callbacks: default
-  - override /trainer: default
+  - override /trainer: gpu
 
 
 tags: ["baseline", "rcnn", "mobilenetv3"]

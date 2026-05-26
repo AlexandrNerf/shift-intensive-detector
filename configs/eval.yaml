@@ -5,7 +5,7 @@ defaults:
   - data: cs_datamodule # выберите датамодуль с `test_dataloader()` для оценки
   - model: base_det
   - logger: null
-  - trainer: default
+  - trainer: gpu
   - paths: default
   - extras: default
   - hydra: default
