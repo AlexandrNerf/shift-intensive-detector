@@ -1,6 +1,6 @@
 # @package _global_
 
-# runs 1 train, 1 validation and 1 test step
+# запускает 1 шаг обучения, 1 шаг валидации и 1 шаг тестирования
 
 defaults:
   - default

@@ -2,10 +2,10 @@
 
 defaults:
   - _self_
-  - data: cs_datamodule # choose datamodule with `test_dataloader()` for evaluation
+  - data: cs_datamodule # выберите датамодуль с `test_dataloader()` для оценки
   - model: base_det
   - logger: null
-  - trainer: default
+  - trainer: gpu
   - paths: default
   - extras: default
   - hydra: default
@@ -14,5 +14,5 @@ task_name: "eval"
 
 tags: ["dev"]
 
-# passing checkpoint path is necessary for evaluation
+# передача пути контрольной точки необходима для оценки
 ckpt_path: ???

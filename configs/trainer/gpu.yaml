@@ -2,4 +2,5 @@ defaults:
   - default
 
 accelerator: gpu
+# devices в Lightning: число выбирает первые N GPU, список задает конкретные id GPU, например [0] или [1]
 devices: 1

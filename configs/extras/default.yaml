@@ -1,8 +1,8 @@
-# disable python warnings if they annoy you
+# отключить предупреждения Python, если они мешают
 ignore_warnings: False
 
-# ask user for tags if none are provided in the config
+# запросить теги у пользователя, если они не указаны в конфиге
 enforce_tags: True
 
-# pretty print config tree at the start of the run using Rich library
+# красиво вывести дерево конфига в начале запуска через Rich
 print_config: True

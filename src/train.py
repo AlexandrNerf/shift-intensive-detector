@@ -25,18 +25,20 @@ log = RankedLogger(__name__, rank_zero_only=True)
 
 @task_wrapper
 def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
-    """Trains the model. Can additionally evaluate on a testset, using best weights obtained during
-    training.
+    """Обучает модель и при необходимости оценивает ее на тестовом наборе.
 
-    This method is wrapped in optional @task_wrapper decorator, that controls the behavior during
-    failure. Useful for multiruns, saving info about the crash, etc.
+    Использует лучшие веса, полученные во время обучения. Функция обернута
+    декоратором @task_wrapper, который управляет поведением при ошибках.
 
-    :param cfg: A DictConfig configuration composed by Hydra.
-    :return: A tuple with metrics and dict with all instantiated objects.
+    :param cfg: конфигурация DictConfig, собранная Hydra.
+    :return: кортеж с метриками и словарем всех созданных объектов.
     """
-    # set seed for random number generators in pytorch, numpy and python.random
+    # задаем seed для генераторов случайных чисел в PyTorch, NumPy и python.random
     if cfg.get("seed"):
         L.seed_everything(cfg.seed, workers=True)
+
+    if cfg.get("matmul_precision"):
+        torch.set_float32_matmul_precision(cfg.matmul_precision)
 
     log.info(f"Instantiating datamodule <{cfg.data._target_}>")
     datamodule: LightningDataModule = hydra.utils.instantiate(cfg.data)
@@ -55,7 +57,6 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         cfg.trainer, 
         callbacks=callbacks, 
         logger=logger,
-        log_every_n_steps=10,
     )
 
     object_dict = {
@@ -79,16 +80,26 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
 
     if cfg.get("test"):
         log.info("Starting testing!")
-        ckpt_path = trainer.checkpoint_callback.best_model_path
+        checkpoint_callback = getattr(trainer, "checkpoint_callback", None)
+        ckpt_path = checkpoint_callback.best_model_path if checkpoint_callback else ""
         if ckpt_path == "":
-            log.warning("Best ckpt not found! Using current weights for testing...")
+            message = "Best ckpt not found! Using current weights for testing..."
+            if checkpoint_callback:
+                log.warning(message)
+            else:
+                log.info(message)
             ckpt_path = None
-        trainer.test(model=model, datamodule=datamodule, ckpt_path=ckpt_path)
+        trainer.test(
+            model=model,
+            datamodule=datamodule,
+            ckpt_path=ckpt_path,
+            weights_only=False,
+        )
         log.info(f"Best ckpt path: {ckpt_path}")
 
     test_metrics = trainer.callback_metrics
 
-    # merge train and test metrics
+    # объединяем метрики обучения и тестирования
     metric_dict = {**train_metrics, **test_metrics}
 
     return metric_dict, object_dict
@@ -96,24 +107,24 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
 
 @hydra.main(version_base="1.3", config_path="../configs", config_name="train.yaml")
 def main(cfg: DictConfig) -> Optional[float]:
-    """Main entry point for training.
+    """Основная точка входа для обучения.
 
-    :param cfg: DictConfig configuration composed by Hydra.
-    :return: Optional[float] with optimized metric value.
+    :param cfg: конфигурация DictConfig, собранная Hydra.
+    :return: Optional[float] со значением оптимизируемой метрики.
     """
-    # apply extra utilities
-    # (e.g. ask for tags if none are provided in cfg, print cfg tree, etc.)
+    # применяем дополнительные утилиты
+    # например, запрашиваем теги или печатаем дерево конфига
     extras(cfg)
 
-    # train the model
+    # обучаем модель
     metric_dict, _ = train(cfg)
 
-    # safely retrieve metric value for hydra-based hyperparameter optimization
+    # безопасно получаем значение метрики для оптимизации гиперпараметров через Hydra
     metric_value = get_metric_value(
         metric_dict=metric_dict, metric_name=cfg.get("optimized_metric")
     )
 
-    # return optimized metric
+    # возвращаем оптимизируемую метрику
     return metric_value
 
 
