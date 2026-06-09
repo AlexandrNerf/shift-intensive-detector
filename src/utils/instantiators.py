@@ -11,15 +11,15 @@ log = pylogger.RankedLogger(__name__, rank_zero_only=True)
 
 
 def instantiate_callbacks(callbacks_cfg: DictConfig) -> List[Callback]:
-    """Instantiates callbacks from config.
+    """Создает callback-и из конфига.
 
-    :param callbacks_cfg: A DictConfig object containing callback configurations.
-    :return: A list of instantiated callbacks.
+    :param callbacks_cfg: объект DictConfig с конфигурациями callback-ов.
+    :return: список созданных callback-ов.
     """
     callbacks: List[Callback] = []
 
     if not callbacks_cfg:
-        log.warning("No callback configs found! Skipping..")
+        log.info("No callback configs found! Skipping..")
         return callbacks
 
     if not isinstance(callbacks_cfg, DictConfig):
@@ -34,15 +34,15 @@ def instantiate_callbacks(callbacks_cfg: DictConfig) -> List[Callback]:
 
 
 def instantiate_loggers(logger_cfg: DictConfig) -> List[Logger]:
-    """Instantiates loggers from config.
+    """Создает логгеры из конфига.
 
-    :param logger_cfg: A DictConfig object containing logger configurations.
-    :return: A list of instantiated loggers.
+    :param logger_cfg: объект DictConfig с конфигурациями логгеров.
+    :return: список созданных логгеров.
     """
     logger: List[Logger] = []
 
     if not logger_cfg:
-        log.warning("No logger configs found! Skipping...")
+        log.info("No logger configs found! Skipping...")
         return logger
 
     if not isinstance(logger_cfg, DictConfig):

@@ -1,1 +1,1 @@
-# this file is needed here to include configs when building project as a package
+# этот файл нужен, чтобы включать конфиги при сборке проекта как пакета

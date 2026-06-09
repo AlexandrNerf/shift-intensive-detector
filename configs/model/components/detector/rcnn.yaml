@@ -1,0 +1,5 @@
+_target_: src.models.components.detectors.fasterRCNN.FasterRCNNDecoder
+
+box_score_thresh: 0.05
+box_nms_thresh: 0.5
+box_detections_per_img: 100

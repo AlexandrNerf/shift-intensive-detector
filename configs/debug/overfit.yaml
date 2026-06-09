@@ -1,13 +1,18 @@
 # @package _global_
 
-# overfits to 3 batches
+# переобучение на 3 батчах
 
 defaults:
   - default
 
 trainer:
   max_epochs: 20
+  accelerator: gpu
+  devices: 1
   overfit_batches: 3
 
-# model ckpt and early stopping need to be disabled during overfitting
+data:
+  augmentations: none
+
+# во время overfit-режима нужно отключить чекпоинты модели и early stopping
 callbacks: null

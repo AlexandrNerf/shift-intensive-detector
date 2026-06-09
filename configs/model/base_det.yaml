@@ -1,28 +1,21 @@
-_target_: src.models.det_module.BaseDetectionModel
+_target_: src.models.detection_module.DetectionLitModel
 
-net: rcnn_mobileone
-pretrained: True
-nms_thresh: 0.5
-score_thresh: 0.5
+_recursive_: false
 
-optimizer:
-  _target_: "torch.optim.AdamW"
-  _partial_: true
-  lr: 1e-3
-  weight_decay: 5e-4
-  betas:
-    - 0.9
-    - 0.997
-  eps: 1e-6
+defaults:
+  - components: base_model
+  - optimizer: adam
+  - scheduler: chaincyclic
 
-scheduler:
-  _target_: "src.lit_modules.schedulers.ChainCyclicLR"
-  _partial_: true
-  lr_min: 5e-5
-  lr_max: 1e-3
-  T0: 3
-  warmup_steps: 1
-  scale_factor: 0.7
-
-# compile model for faster training with pytorch 2.0
+# компилировать модель детекции через torch.compile
 compile: false
+
+iou_thresh: 0.5
+
+loss_weights:
+  _target_: src.models.components.losses.DetectionLoss
+  loss_weights:
+    loss_classifier: 1.0
+    loss_box_reg: 1.0
+    loss_objectness: 1.0
+    loss_rpn_box_reg: 1.0

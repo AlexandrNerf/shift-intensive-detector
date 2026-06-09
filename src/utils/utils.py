@@ -1,5 +1,4 @@
 import warnings
-from importlib.util import find_spec
 from typing import Any, Callable, Dict, Optional, Tuple
 
 from omegaconf import DictConfig
@@ -10,44 +9,44 @@ log = pylogger.RankedLogger(__name__, rank_zero_only=True)
 
 
 def extras(cfg: DictConfig) -> None:
-    """Applies optional utilities before the task is started.
+    """Применяет дополнительные утилиты перед запуском задачи.
 
-    Utilities:
-        - Ignoring python warnings
-        - Setting tags from command line
-        - Rich config printing
+    Утилиты:
+        - игнорирование предупреждений Python
+        - установка тегов из командной строки
+        - печать конфига через Rich
 
-    :param cfg: A DictConfig object containing the config tree.
+    :param cfg: объект DictConfig с деревом конфига.
     """
-    # return if no `extras` config
+    # выходим, если конфиг `extras` отсутствует
     if not cfg.get("extras"):
         log.warning("Extras config not found! <cfg.extras=null>")
         return
 
-    # disable python warnings
+    # отключаем предупреждения Python
     if cfg.extras.get("ignore_warnings"):
         log.info("Disabling python warnings! <cfg.extras.ignore_warnings=True>")
         warnings.filterwarnings("ignore")
 
-    # prompt user to input tags from command line if none are provided in the config
+    # запрашиваем теги из командной строки, если они не указаны в конфиге
     if cfg.extras.get("enforce_tags"):
         log.info("Enforcing tags! <cfg.extras.enforce_tags=True>")
         rich_utils.enforce_tags(cfg, save_to_file=True)
 
-    # pretty print config tree using Rich library
+    # красиво выводим дерево конфига через Rich
     if cfg.extras.get("print_config"):
         log.info("Printing config tree with Rich! <cfg.extras.print_config=True>")
         rich_utils.print_config_tree(cfg, resolve=True, save_to_file=True)
 
 
 def task_wrapper(task_func: Callable) -> Callable:
-    """Optional decorator that controls the failure behavior when executing the task function.
+    """Опциональный декоратор, управляющий поведением при ошибках во время выполнения задачи.
 
-    This wrapper can be used to:
-        - make sure loggers are closed even if the task function raises an exception (prevents multirun failure)
-        - save the exception to a `.log` file
-        - mark the run as failed with a dedicated file in the `logs/` folder (so we can find and rerun it later)
-        - etc. (adjust depending on your needs)
+    Обертку можно использовать, чтобы:
+        - закрывать логгеры даже при исключении внутри задачи;
+        - сохранять исключение в `.log` файл;
+        - помечать запуск как упавший отдельным файлом в `logs/`;
+        - расширять поведение под нужды проекта.
 
     Example:
     ```
@@ -57,38 +56,30 @@ def task_wrapper(task_func: Callable) -> Callable:
         return metric_dict, object_dict
     ```
 
-    :param task_func: The task function to be wrapped.
+    :param task_func: функция задачи, которую нужно обернуть.
 
-    :return: The wrapped task function.
+    :return: обернутая функция задачи.
     """
 
     def wrap(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
-        # execute the task
+        # выполняем задачу
         try:
             metric_dict, object_dict = task_func(cfg=cfg)
 
-        # things to do if exception occurs
+        # действия при исключении
         except Exception as ex:
-            # save exception to `.log` file
+            # сохраняем исключение в `.log` файл
             log.exception("")
 
-            # some hyperparameter combinations might be invalid or cause out-of-memory errors
-            # so when using hparam search plugins like Optuna, you might want to disable
-            # raising the below exception to avoid multirun failure
+            # некоторые сочетания гиперпараметров могут быть некорректными
+            # или приводить к нехватке памяти; при HPO через Optuna и аналоги
+            # иногда полезно не пробрасывать это исключение, чтобы не ронять multirun
             raise ex
 
-        # things to always do after either success or exception
+        # действия, которые выполняются и после успеха, и после ошибки
         finally:
-            # display output dir path in terminal
+            # выводим путь к выходной директории в терминал
             log.info(f"Output dir: {cfg.paths.output_dir}")
-
-            # always close wandb run (even if exception occurs so multirun won't fail)
-            if find_spec("wandb"):  # check if wandb is installed
-                import wandb
-
-                if wandb.run:
-                    log.info("Closing wandb!")
-                    wandb.finish()
 
         return metric_dict, object_dict
 
@@ -96,11 +87,11 @@ def task_wrapper(task_func: Callable) -> Callable:
 
 
 def get_metric_value(metric_dict: Dict[str, Any], metric_name: Optional[str]) -> Optional[float]:
-    """Safely retrieves value of the metric logged in LightningModule.
+    """Безопасно получает значение метрики, залогированной в LightningModule.
 
-    :param metric_dict: A dict containing metric values.
-    :param metric_name: If provided, the name of the metric to retrieve.
-    :return: If a metric name was provided, the value of the metric.
+    :param metric_dict: словарь со значениями метрик.
+    :param metric_name: имя метрики, которую нужно получить.
+    :return: значение метрики, если имя было передано.
     """
     if not metric_name:
         log.info("Metric name is None! Skipping metric value retrieval...")

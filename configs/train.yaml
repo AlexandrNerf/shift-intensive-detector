@@ -1,49 +1,49 @@
 # @package _global_
 
-# specify here default configuration
-# order of defaults determines the order in which configs override each other
+# укажите здесь конфигурацию по умолчанию
+# порядок дефолтов определяет порядок переопределения конфигов
 defaults:
   - _self_
   - data: cs_datamodule
   - model: base_det
   - callbacks: default
-  - logger: tensorboard # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
-  - trainer: default
+  - logger: tensorboard # установите логгер здесь или используйте командную строку (например, `python train.py logger=tensorboard`)
+  - trainer: gpu
   - paths: default
   - extras: default
   - hydra: default
 
-  # experiment configs allow for version control of specific hyperparameters
-  # e.g. best hyperparameters for given model and datamodule
+  # конфиги экспериментов позволяют версионировать конкретные гиперпараметры
+  # например, лучшие гиперпараметры для данной модели и датамодуля
   - experiment: null
 
-  # config for hyperparameter optimization
-  - hparams_search: null
-
-  # optional local config for machine/user specific settings
-  # it's optional since it doesn't need to exist and is excluded from version control
+  # опциональный локальный конфиг для машина/пользователь-специфичных настроек
+  # опционально, так как не должен существовать и исключен из контроля версий
   - optional local: default
 
-  # debugging config (enable through command line, e.g. `python train.py debug=default)
+  # конфиг для отладки (включить командной строкой, например, `python train.py debug=default)
   - debug: null
 
-# task name, determines output directory path
+# название задачи, определяет путь выходной директории
 task_name: "train"
 experiment_name: "no_exp"
-# tags to help you identify your experiments
-# you can overwrite this in experiment configs
-# overwrite from command line with `python train.py tags="[first_tag, second_tag]"`
+# теги для идентификации ваших экспериментов
+# вы можете переопределить это в конфигах экспериментов
+# переопределите из командной строки с помощью `python train.py tags="[first_tag, second_tag]"`
 tags: ["dev"]
 
-# set False to skip model training
+# установите False, чтобы пропустить обучение модели
 train: True
 
-# evaluate on test set, using best model weights achieved during training
-# lightning chooses best weights based on the metric specified in checkpoint callback
+# оцените на тестовом наборе, используя лучшие веса модели, полученные во время обучения
+# lightning выбирает лучшие веса на основе метрики, указанной в callback'е контрольной точки
 test: True
 
-# simply provide checkpoint path to resume training
+# просто предоставьте путь контрольной точки для возобновления обучения
 ckpt_path: null
 
-# seed for random number generators in pytorch, numpy and python.random
+# семя для генераторов случайных чисел в pytorch, numpy и python.random
 seed: null
+
+# установите точность matmul для GPU Tensor Core; используйте null, чтобы сохранить PyTorch по умолчанию
+matmul_precision: "medium"
